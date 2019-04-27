@@ -1,7 +1,6 @@
-# DreamPlus 동아리 회계 페이지입니다.
+# DreamPlus 동아리 App 통합본입니다.
 
 * fuse tools을 사용하였습니다.
-* 추후 페이지를 통합 할 예정입니다.
 
 * * * 
 
