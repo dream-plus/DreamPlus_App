@@ -1,0 +1,11 @@
+<Page ux:Class="home">
+	<Router ux:Dependency="router" />
+	<JavaScript File="../MainView.js" />
+	
+	<!-- <JavaScript File="signupInd.js" /> -->
+
+	<Text Color="#999" TextAlignment="Center" FontSize="20" Y="200">home Page</Text>
+	
+
+	<mainbottombar />
+</Page>

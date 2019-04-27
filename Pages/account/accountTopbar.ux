@@ -1,0 +1,62 @@
+<Page ux:Class="accountTopbar">
+	<!-- <JavaScript File="../accountBook.js" /> -->
+
+	<WhileTrue Value="{MonthisOpen}">
+		<Rectangle Background="#0808087F" />
+		<ScrollView Height="100" Layer="Overlay" Width="200" Background="#F6FBFF">
+			<StackPanel Height="150" Width="100" Margin="0, 0, 0, 210" Padding="0, 30, 0, 0">
+				<Each Items="{Month}">
+					<Text Value="{=data()}월 사용내역" FontSize="12" Clicked="{Monthclick}" Color="#515251" Alignment="Default" TextAlignment="Center" ux:Name="Monthtext" Padding="0, 10, 0, 0">
+						<Clicked>							
+							<Set Target="Monthvalue.Value" Value="{Monthselect}월 사용내역" />
+						</Clicked>
+					</Text>
+				</Each>
+			</StackPanel>
+		</ScrollView>
+	</WhileTrue>
+
+	<Image File="../../Assets/logoGray.png" Width="50" X="30" Y="70" />
+	<Text Value="000-0000-0000-00 (KEB하나)" X="30" Y="110" Color="#A0A0A0" FontSize="10" />
+	<Text Value="{balance}원" X="30" Y="130" FontSize="20" Color="#006EA8" />
+
+	<Rectangle Width="100" Height="15" Y="140" X="250">
+		<Panel Margin="10, 0, 0, 0">
+			<Text Value="4월 사용내역" FontSize="12" ux:Name="Monthvalue" />
+			<Sketch.moneydetaildown Margin="65, 0, 0, 0" />
+			<Clicked>
+				<Callback Handler="{MonthtoggleOpen}" />
+			</Clicked>
+		</Panel>
+	</Rectangle>
+
+		
+		<Grid Alignment="HorizontalCenter" Width="120" Height="40" Opacity="1" RowCount="1" ColumnCount="3" Y="170">
+			<Rectangle Color="0.4693793, 0.6832176, 0.801047, 1">
+				<Text Value="수입" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#FFF" Y="13" FontSize="11" X="15" />
+				<Clicked>
+					<Callback Handler="{gotoIncome}" />
+				</Clicked>
+			</Rectangle>
+			<!-- 수입 지출 추가 아이콘 -->
+			<Rectangle Row="0" Column="1">
+				<Circle Width="16" Height="16" Color="#016EA7" />
+				<Clicked>
+					<Callback Handler="{gotoAddPage}" />
+				</Clicked>
+				<!-- <Sketch.moneyplus Width="16" Height="16" /> -->
+			</Rectangle>
+
+			<Rectangle Row="0" Column="2" Color="0.4693793, 0.6832176, 0.801047, 1">
+				<Text Value="지출" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#FFF" Y="13" FontSize="11" X="1" />
+				<Clicked>
+					<Callback Handler="{gotoExpense}" />
+				</Clicked>
+			</Rectangle>
+		</Grid>
+	<Sketch.moneymenu Y="170" />
+	<Rectangle Alignment="Top" LayoutRole="Standard" Height="190" Color="#F7FCFF">
+		<Shadow Color="#C1C1C1" />
+	</Rectangle>
+
+</Page>

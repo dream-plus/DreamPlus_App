@@ -1,0 +1,46 @@
+<Page ux:Class="mainbottombar">
+	<!-- 	<JavaScript File="MainView.js" /> -->
+	<Panel Dock="Bottom" Alignment="Bottom">
+		<Grid Color="#FBFCFB" ChildOrder="ColumnMajor" Alignment="Bottom" Height="70" Opacity="1" LayoutRole="Standard" RowCount="1" ColumnCount="4">
+			<Shadow Color="#ACACAC" Angle="179" />
+			<Panel Alignment="Default">
+				<Rectangle Color="#FBFCFB">
+					<Image File="Assets/logoGray.png" Alignment="Default" Width="40" Y="10" />
+					<Text Value="홈" FontSize="10" TextColor="#909191" Alignment="HorizontalCenter" Y="40" />
+					<Clicked>
+						<Callback Handler="{gotoHome}" />						
+					</Clicked>
+				</Rectangle>
+				
+			</Panel>
+
+			<Panel Alignment="Default">
+				<Rectangle Color="#FBFCFB">
+					<Text Value="게시판" FontSize="10" TextColor="#979998" Alignment="HorizontalCenter" Y="40" />
+					<Clicked>
+						<Callback Handler="{gotoBoard}" />
+					</Clicked>
+				</Rectangle>
+			</Panel>
+
+			<Panel Alignment="Default">
+				<Rectangle Color="#FBFCFB">
+					<Text FontSize="10" Value="스케줄" Alignment="HorizontalCenter" TextColor="#979A98" Y="40" />
+					<Clicked>
+						<Callback Handler="{gotoSchedule}" />
+					</Clicked>
+				</Rectangle>
+			</Panel>
+
+			<Panel Alignment="Default">
+				<Rectangle Color="#FBFCFB">
+					<Text FontSize="10" Value="장부" Alignment="HorizontalCenter" TextColor="#969A97" Y="40" />
+					<Clicked>
+						<Callback Handler="{gotoAccount}" />
+					</Clicked>
+				</Rectangle>
+			</Panel>
+		</Grid>
+
+	</Panel>
+</Page>

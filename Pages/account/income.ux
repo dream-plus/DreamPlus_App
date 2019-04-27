@@ -1,0 +1,48 @@
+<Page ux:Class="income">
+	<Router ux:Dependency="router" />
+	<JavaScript File="../accountBook.js" />
+	<JavaScript File="income.js" />
+	<JavaScript File="../../MainView.js" />
+
+	<mainbottombar />
+
+	<Panel>
+		<accountTopbar />
+	</Panel>
+
+	<ScrollView LayoutMode="PreserveVisual">
+		<StackPanel Orientation="Vertical" ItemSpacing="10" Padding="0, 50, 0, 0" Margin="0, 190, 0, 0">
+
+			<Each Items="{items}" ux:Name="theEach" Reuse="Frame">
+				<Sketch.moneylist Alignment="Default" Width="15" Height="15" Y="25" />
+				<DockPanel>
+					<Rectangle Alignment="Default" Dock="Left" Width="160" Margin="10, 0, 0, 0" Height="100">						<StackPanel>
+						<Text Value="{title}" Color="#434443" TextAlignment="Right" FontSize="16" />
+						<Text Value="{content}" Color="#404140" TextAlignment="Right" FontSize="15" TextWrapping="Wrap" />
+						<Text Value="{expense}원" Color="#006EA8" TextAlignment="Right" FontSize="25" Alignment="Default" />
+					</StackPanel>
+				</Rectangle>
+
+				<Rectangle Alignment="Default" Dock="Right" Width="160" Height="100" Margin="0, 0, 10, 0">						
+					<Text Value="{detail}" Color="#9A9B9A" TextAlignment="Left" FontSize="16" TextWrapping="Wrap" />
+				</Rectangle>
+			</DockPanel>
+
+
+		</Each>
+
+		<WhileTrue Value="{isLoading}">
+			<Panel LayoutRole="Placeholder" Height="100" Color="#F6FBFF">
+				<Text Alignment="Center" Value="Loading..." />
+			</Panel>
+		</WhileTrue>
+
+	</StackPanel>
+	<ScrollViewPager Each="theEach" ReachedEnd="{loadMore}" ux:Name="svp" />
+
+
+</ScrollView> 
+<Rectangle Color="#C1C1C1" Height="1000" Alignment="Center" Width="1" />
+
+
+</Page>

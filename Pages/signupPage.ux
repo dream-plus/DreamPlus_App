@@ -1,0 +1,183 @@
+<Page ux:Class="signupPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="signupPage.js" />
+	<iOS.StatusBarConfig Style="Light" />
+	<Android.StatusBarConfig Color="#000000" />
+	<Rectangle Color="#0C82B3" Alignment="Top" Height="50">
+	<Image File="../Assets/back.png" Clicked="{goBack}" Alignment="Left" Layer="Layout" Height="40" Width="30" Padding="0, 0, 0, 0" Margin="30, 60, 0, 0" />
+	</Rectangle>
+	<Rectangle Alignment="Top" Color="#0C82B3" Height="250" CornerRadius="50">
+		<Circle Color="#FFF" Width="120" Height="120" Margin="0, 80, 0, 0">
+			<Stroke Width="1" Color="#000" />
+		</Circle>
+		<Text TextColor="#FFF" Alignment="TopCenter" Margin="0, 70, 0, 0" Value="회원가입" />
+		<Shadow Angle="54" Color="#000000B8" />
+	</Rectangle>
+
+	<WhileTrue Value="{ruleToggle}">
+		<ScrollView Layer="Overlay" Background="#FEFFFE" Margin="0, 250, 0, 0">
+			<TextView TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="true" Padding="10">드림플러스 동아리 규정 
+
+[제1조(목적)]  
+본 동아리는 드림플러스의 부원들이 함께 공부하고 정보를 교류하며 부원들의 실력 증진에 목적을 둔다.
+
+[제2조(회원 가입)] 
+본교 재학생에 한하며 정기적으로 활동할 수 있어야 가입할 수 있다.
+
+[제3조(임원선출)]  
+1. 임원의 선출은 지원을 통해 후보를 정하고 투표를 통해 다수결로 선출한다. 
+2. 임원의 임기는 1학기로 규정한다.  
+3. 회장, 총무는 3학년 이상, 다온 및 네잎클로버 팀장은 2학년 이상 지원 가능하다. 
+4. 임원 후보로 아무도 지원하지 않으면 이전 임원이 연임한다. 단, 다음 임기 기간에 졸업할 경우, 현 임원이 다음 임원을 추천 후 투표를 통해 선출한다. 
+5. 모든 임원은 임기가 끝나면 인수인계 기간을 가진다. 인수인계기간은 1달로 정하며, 이 기간동안에는 신임 임원과 동등한 책임을 진다.  
+6. 항상 다음 임원을 필히 갖추어야 한다.    
+가. 회  장 : 1명    
+나. 총  무 : 1명    
+다. 다온 팀장 : 1명    
+라. 네잎클로버 팀장 : 1명 
+
+[제4조(동아리 활동 참여)] 
+1. 매주 열리는 정기 회의에 참석하여야 한다. (단, 타당한 이유로 인한 불참은 허용한다. ex. 천재지변, 경조사, 병환 등) 
+2. 회의에 참석하지 못할 시 사전에 미리 임원에게 연락을 하여 오해가 없도록 한다. (최소 1일 이전에 알려야 한다.) 
+3. 드림플러스 부원들은 최소 1개 이상의 공모전 및 프로젝트에 참여할 의무를 지닌다. 
+4. 공모전 및 프로젝트를 진행할 때 강제가 아닌 자의적으로 팀을 이룰 수 있도록 한다. 
+5. 활동 진행 시 드림플러스 부원들은 부원과 협력할 의무를 지닌다. 
+6. 활동의 미비함이 있는 부원은 무기명으로 연락을 취하고 이에 상응하는 조치를 취한다.   
+
+[제5조(동아리 지원금 관리)] 
+1. 동아리 지원금은 교수님이 주시는 project에서 받는 지원금 일체를 동아리에 귀속한다. 
+2. 동아리 지원금 사용시 다음을 필히 지켜야 한다. 
+가. 지출 내역서를 작성 후 [회장, 다온 팀장, 네잎클로버 팀장]중 2인 이상이 동의하여야 한다.    
+나. 지출 2일전 총무에게 지출 내역서를 제출 한다. 단, 공모전 및 대외활동에 쓰이는 내역은 당일에도 가능하다.   
+다. 위의 가, 나의 조항은 [2 -1 , 2 -2] 의 조항에 공통적으로 적용된다.
+
+(2 – 1 공적인 지출) 
+가. 본 동아리에서 제5조-2-1-나 항목을 공적인 지출로 분류한다. 
+나. 1. 개발에 필요한 물품(컴퓨터 주변기기, 기기 제작을 위한 물품, 트랙 제작을 위한 물품 등)  2. 공모전 및 대외활동을 위한 교통비용 (단, [기차, 고속버스] 요금만 해당하며, 티켓 예매로 지급함. ) 
+3. 공모전 및 대외활동에 참가하는 당일 식사 비용 (단, 당일 1끼의 식사 내에서 1인당 최대 1만원까지 가능하다.) 
+4. 동아리 홍보에 필요한 비용(포스터 제작 등)
+
+(2 – 2 사적인 지출) 
+가. 본 동아리에서 [제5조-2 -2 -나] 항목을 사적인 지출로 분류한다. 
+나. 회식, 사기 증진을 위한 활동 
+다. 사적인 지출은 동아리 원 51% 이상의 인원이 동의해야 사용 가능하며, 참석한 인원의 비율만큼 지출이 가능하다. (예시 60%의 인원이 동의 및 참석해 10만원이 나왔다면, 그 금액의 60%인 6만원까지 동아리 지원금으로 지출가능하다.) 단, 한학기에 1회에 한해서 회장의 권한으로 동아리 전체 회식 때는 회식 비용 일체를 사용가능하다. 
+3. 동아리 지원금 내역은 매월 첫번째 회의 때마다 동아리원에게 공지한다. 
+4. [제5조 3번 조항과는 별개] 지원금 지출 시 1주 이내로 동아리원에게 내역을 공지한다. 
+5. 공모전 및 대외활동 시, 이루어진 팀의 50% 초과 인원이 동아리 원일 경우에 한해서 지원금을 지급한다. (공모전의 종류는 상관없다.) 
+6. 모든 지원금은 동아리 원에 한해서 지급한다.( 지원금 사용 후 필히 영수증을 제출하며, 미제출시 횡령으로 간주한다. ) 
+7. 상기 조항을 위반하여 지원금을 사용할 경우 횡령으로 간주, 법적 책임도 감수한다.  
+				  
+[부칙] 
+1. 이 규칙은 동아리 부원들의 건의에 따라 규칙을 수정할 수 있다. 단, 동아리 원 90%이상이 참석하고, 50%이상의 동의를 받아야 한다. 
+2. 이 규칙은 동아리 내 규칙으로 다른 동아리들에 대해 독립성을 가진다. 
+3. 그 외, 여러 가지 간단한 현안은 회의를 통해 결정한다. 
+4. 이 규칙은 2019년 4월 2일부로 실시한다.				
+			</TextView>
+
+			<Clicked>
+				<Callback Handler="{ruleClose}" />
+			</Clicked>
+		</ScrollView>
+	</WhileTrue>
+
+
+	<ScrollView Margin="0, 250, 0, 0">
+		
+		<StackPanel ItemSpacing="10" Margin="0, 70, 0, 0">
+			<Rectangle Width="300" Height="20" CornerRadius="20" ux:Name="name">
+				<Text Value="이름" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
+				<TextInput Value="{newName}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="이름을 입력하세요." Height="15" Width="170" />
+				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
+			</Rectangle>
+
+			<Rectangle Width="300" Height="20" CornerRadius="20" ux:Name="gender">
+				<Text Value="성별" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
+				<TextInput Value="{newGender}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="남 / 여" Height="15" Width="170" />
+				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
+			</Rectangle>
+
+			<Rectangle Width="300" Height="20" CornerRadius="20">
+				<Text Value="아이디" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
+				<TextInput Value="{newID}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="6자이상 12이하로 입력하세요." Height="15" Width="170" />
+				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
+			</Rectangle>
+
+			<Rectangle Width="300" Height="20" CornerRadius="20">
+				<Text Value="비밀번호" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
+				<TextInput Value="{newPW}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="6자이상 12이하로 입력하세요." Height="15" Width="170" IsPassword="true" />
+				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
+			</Rectangle>
+
+			<!-- 전공 선택 -->
+			<Rectangle Width="300" Height="20" CornerRadius="20" Margin="0, 50, 0, 0">
+				<Text Value="학과" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
+
+				<WhileTrue Value="{majorToggle}">
+				<!-- <Rectangle Background="#FEFFFE" Alignment="Top" Height="30" Opacity="0.715" />
+				<Rectangle Background="#FEFFFE" Alignment="Bottom" Height="30" Opacity="0.715" /> -->
+				<ScrollView Margin="0, 48, 0, 0" Alignment="CenterRight" Width="170" Background="#FFF" Padding="0, 0, 0, 0" Height="90">
+					<StackPanel Alignment="Default" ItemSpacing="10" Margin="0, 0, 0, 0">
+						<Each Items="{majorValue}">
+							<Text Value="{=data()}" FontSize="12" Clicked="{choicemajor}" Color="#A7A9A9" Alignment="Default" TextAlignment="Left">
+								<Clicked>							
+									<Set Target="selectMajor.Value" Value="{majorInit}" />
+								</Clicked>
+							</Text>
+						</Each>
+					</StackPanel>						
+				</ScrollView>
+				</WhileTrue>
+
+				<Rectangle>
+					<Text Value="{majorInit}" TextColor="#A7A9A9" ux:Name="selectMajor" Row="0" Column="1" Alignment="CenterRight" FontSize="12" Height="15" Width="170" />
+					<Clicked>
+						<Callback Handler="{majorChange}" />
+					</Clicked>
+				</Rectangle>
+				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
+			</Rectangle>
+
+			<Rectangle Width="300" Height="20" CornerRadius="20">
+				<Text Value="학번" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
+				<TextInput Value="{newNumber}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="예) 18681001" Height="15" Width="170" MaxLength="8" InputHint="Number" />
+				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
+			</Rectangle>
+
+			<Rectangle Width="300" Height="20" CornerRadius="20">
+				<Text Value="연락처" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
+				<TextInput Value="{newPhoneNum}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="11자리를 전부 입력하세요." Height="15" Width="170" MaxLength="11" InputHint="Number" />
+				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
+			</Rectangle>
+
+			<Rectangle ux:Name="rulebtn" Width="200" Height="30" Color="#FEFFFE" CornerRadius="20" Margin="0, 50, 0, 0">
+				<Text Value="드림플러스 동아리 규정" Alignment="Center" FontSize="15" TextColor="#AEA9A9" /> 				
+				<Stroke Color="#969796" Width="2" />
+				<WhilePressed>
+					<Scale Target="rulebtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
+				<Clicked>
+					<Callback Handler="{ruleOpen}" />
+				</Clicked>
+			</Rectangle>
+
+			<Text Value="위 드림플러스 동아리 규정 내용을 확인하고 동의합니다." TextAlignment="Center" FontSize="8" TextColor="#0B8CBB" />
+			<Rectangle ux:Name="signupbtn" Width="100" Height="30" Color="#FEFFFE" CornerRadius="20" Margin="0, 10, 0, 0">
+				<Text Value="회원가입" Alignment="Center" FontSize="15" TextColor="#3588B7" /> 
+				<WhilePressed>
+					<Scale Target="signupbtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
+				<Clicked>
+					<Callback Handler="{Save}" />
+				</Clicked>
+				<Stroke Color="#3588B7" Width="2" />
+			</Rectangle>
+
+		</StackPanel>
+
+	</ScrollView>
+
+
+
+
+
+</Page>

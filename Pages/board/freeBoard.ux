@@ -1,0 +1,10 @@
+<Page ux:Class="freeBoard">
+	  <ScrollView ux:Name="parentScrollView">
+        <StackPanel Dock="Top" Height="50" Color="#EAEAEA">
+            <!-- <SortableList parentScrollView="parentScrollView" /> -->
+            <Clicked>
+            <Callback Handler ="{page2}"/>
+        </Clicked>
+        </StackPanel>
+    </ScrollView>
+</Page>

@@ -1,0 +1,62 @@
+<App>
+	<!-- <ClientPanel> -->
+	<Router ux:Name="router" />
+	
+	<Navigator DefaultPath="loginPage">
+		<home ux:Template="home" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</home>
+		<boardMain ux:Template="boardMain" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</boardMain>	
+		<schedule ux:Template="schedule" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</schedule>			
+		<accountBook ux:Template="accountBook" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</accountBook>
+		<income ux:Template="income" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</income>
+		<expense ux:Template="expense" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</expense>
+		<addPage ux:Template="addPage" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</addPage>		
+		<boardMain ux:Template="boardMain" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</boardMain>
+		<write ux:Template="write" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</write>
+	<!-- 	<notice ux:Template="notice" router="router" Color="#FFF">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</notice> -->
+		<loginPage ux:Template="loginPage" router="router"/>
+		<signupPage ux:Template="signupPage" router="router" />
+		<detailPage ux:Template="detailPage" router="router" Color="#FFF"/>
+	</Navigator>
+
+	
+</App>

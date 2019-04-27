@@ -1,0 +1,15 @@
+{
+  "RootNamespace":"",
+  "Packages": [
+    "Fuse",
+    "Fuse.Camera",
+    "FuseJS"
+  ],
+  "Includes": [
+    "*",
+    "./Assets/*",
+    "./Pages/*"
+
+  ]
+}
+

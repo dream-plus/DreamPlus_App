@@ -1,0 +1,83 @@
+<Page ux:Class="write">
+	<Router ux:Dependency="router" />
+	<JavaScript File="write.js" />
+	<!-- <JavaScript File="../boardMain.js" />
+	<Panel Alignment="Top">
+		<boardTopbar />
+	</Panel> -->
+	<WhileTrue Value="{categoryisOpen}">
+		<Rectangle Background="#0808087F" />
+		<ScrollView Height="100" Layer="Overlay" Width="200" Background="#F6FBFF" Margin="0, 0, 0, 0">
+			<StackPanel Height="150" Width="100" Margin="0, 0, 0, 0" Padding="0, 30, 0, 0">
+				<Each Items="{category}">
+					<Text Value="{=data()}" FontSize="12" Clicked="{categoryclick}" Color="#515251" Alignment="Default" TextAlignment="Center" ux:Name="Monthtext" Padding="0, 10, 0, 0" Margin="0, 0, 0, 0">
+						<Clicked>             
+							<Set Target="categoryvalue.Value" Value="{categoryselect}" />
+						</Clicked>
+					</Text>
+				</Each>
+			</StackPanel>
+		</ScrollView>
+	</WhileTrue>
+	<ScrollView>
+		<StackPanel Dock="Fill">
+			<DockPanel Height="30" Margin="0, 70, 0, 0" Alignment="HorizontalCenter">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0">
+					<Text Value="X" TextAlignment="Center" Alignment="Center" FontSize="15" Margin="0, 0, 0, 0" TextColor="#0C6990" />
+					<Clicked>
+						<Callback Handler="{goBack}" />
+					</Clicked>
+				</Rectangle>
+				<Rectangle Height="30" Width="250">
+					<Text Value="글쓰기" TextAlignment="Center" Alignment="Center" TextColor="#006891" FontSize="18" />
+				</Rectangle>
+				<Rectangle Width="50" Height="30" Dock="Right" Margin="0, 0, 10, 0">
+					<Text Row="0" Column="1" Value="완료" Alignment="Center" FontSize="15" TextAlignment="Center" TextColor="#006891" /> 
+					<Clicked>
+						<Callback Handler="{contents}" />
+					</Clicked>
+				</Rectangle>
+			</DockPanel>
+			<Rectangle Height="2" Color="#E3E4E3" Width="350" Alignment="HorizontalCenter" />
+
+			<DockPanel Height="30" Margin="0, 40, 10, 0" Alignment="HorizontalCenter">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#F2F3F2">
+					<Text Value="제목" TextAlignment="Center" Alignment="Center" FontSize="10" />
+				</Rectangle>
+				<Rectangle Dock="Left" Width="2" />
+				<Rectangle Width="300" Height="30" Color="#F2F3F2" Dock="Left">
+					<TextInput Row="0" Column="1" PlaceholderText="제목을 입력하세요." Value="{title}" Alignment="Center" FontSize="10" TextAlignment="Center" /> 
+				</Rectangle>
+			</DockPanel>
+			<DockPanel Margin="0, 5, 10, 0" Height="30" Alignment="HorizontalCenter">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#F2F3F2">
+					<Text Value="첨부파일" TextAlignment="Center" Alignment="Center" FontSize="10" />
+				</Rectangle>
+				<Rectangle Dock="Left" Width="2" />
+				<Rectangle Width="300" Height="30" Color="#F2F3F2" Dock="Left" Margin="0, 0, 0, 0">
+					<Text Row="0" Column="1" Value="첨부파일 기능 넣는 곳" Alignment="Center" FontSize="10" TextAlignment="Left" /> 
+				</Rectangle>
+			</DockPanel>
+			<DockPanel Margin="0, 5, 10, 0" Height="30" Alignment="HorizontalCenter">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#F2F3F2">
+					<Text Value="카테고리" TextAlignment="Center" Alignment="Center" FontSize="10" />
+				</Rectangle>
+				<Rectangle Dock="Left" Width="2" />
+				<Rectangle Width="300" Height="30" Color="#F2F3F2" Dock="Left">
+					<Text Row="0" Column="1" Value="선택" Alignment="Center" FontSize="10" TextAlignment="Left" ux:Name="categoryvalue" /> 
+					<Clicked>
+						<Callback Handler="{categorytoggleOpen}" />
+					</Clicked>
+				</Rectangle>
+			</DockPanel>
+
+			<Rectangle Width="350" Margin="0, 30, 0, 0" Alignment="HorizontalCenter">
+				<!-- <TextBox Alignment="Default" Value="{content}" TextAlignment="Center" TextWrapping="Wrap" Width="350" Height="300" /> -->
+				<TextInput Alignment="Default" Value="{content}" TextAlignment="Center" TextWrapping="Wrap" Width="350" Height="300" PlaceholderText="내용을 입력하세요." PlaceholderColor="#A8A8A8" LineSpacing="10" />
+				<Stroke Color="#CCCECE" Width="2" />
+			</Rectangle>
+
+		</StackPanel>
+	</ScrollView>
+
+</Page>

@@ -1,0 +1,165 @@
+<Page ux:Class="addPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="../accountBook.js" />
+	<JavaScript File="addPage.js" />
+	<JavaScript File="../../MainView.js" />
+
+	<mainbottombar />
+
+	<Panel>
+		<accountTopbar />
+	</Panel>
+
+	<WhileTrue Value="{selection}">
+		<Rectangle Background="#0808087F" />
+		<ScrollView Height="100" Layer="Overlay" Background="#F6FBFF" Width="200">
+			<StackPanel Margin="0, 30, 0, 20">
+				<Each Items="{array}">
+					<Text Value="{=data()}" FontSize="12" Clicked="{choice}" Color="#515251" Alignment="Default" TextAlignment="Center" ux:Name="Monthtext" Padding="0, 10, 0, 0">
+						<Clicked>							
+							<Set Target="selectvalue.Value" Value="{select}" />
+						</Clicked>
+					</Text>
+				</Each>
+			</StackPanel>
+		</ScrollView>
+	</WhileTrue>
+	
+	<ScrollView KeepFocusInView="false">
+		<StackPanel Orientation="Vertical" ItemSpacing="10" Padding="0, 50, 0, 0" Margin="0, 190, 0, 0">
+
+			<Rectangle Width="350" Height="50" Alignment="Default">
+				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Default" Width="16" Height="16" />
+				<Text Column="1" ux:Name="selectvalue" Width="240" FontSize="15" Alignment="Center" Value="{select} " />
+				<Clicked>
+					<Callback Handler="{toggleChange}" />
+				</Clicked>
+				
+			</Rectangle>
+
+
+			<!-- 내역 입력 부분 -->
+			<Rectangle Alignment="Default" Height="50" Width="350">
+				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Default" Width="16" Height="16" />
+				<TextInput Column="1" PlaceholderText="내역" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{title}" Alignment="Default" FontSize="20" />
+				<Rectangle Width="240" Height="2" Color="#929392" Margin="0, 35, 0, 0" />		
+			</Rectangle>
+
+			<!-- 금액 입력 부분 -->
+			<Rectangle Alignment="Default" Width="300" Height="50" Margin="0, 0, 0, 0">
+				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Default" Width="16" Height="16" />
+				<TextInput Row="0" Column="1" PlaceholderText="금액" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{amount}" Alignment="Default" Margin="0, 0, 0, 0" FontSize="20" InputHint="Number" />
+				<Rectangle Width="240" Height="2" Color="#929392" Margin="0, 35, 0, 0" />
+			</Rectangle>
+
+			
+
+			<!-- 월,일 선택 부분 -->
+			<Rectangle Alignment="Default" Width="300" Height="50" Margin="0, 0, 0, 0">
+				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Default" Width="16" Height="16" />
+				<Grid RowCount="1" ColumnCount="5" Height="22" Width="240">
+					<Panel>
+						<ScrollView>
+							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="2019" />
+						</ScrollView>
+					</Panel>
+
+					<Rectangle Width="1" Color="#80B5D3" />
+
+					<!-- 월 선택부분 -->					
+					<Panel Height="80">
+						<WhileTrue Value="{monthToggle}">
+							<Rectangle Background="#FEFFFE" Alignment="Top" Height="30" Opacity="0.715" />
+							<Rectangle Background="#FEFFFE" Alignment="Bottom" Height="30" Opacity="0.715" />
+							<ScrollView Height="80">
+								<StackPanel Alignment="Top" ItemSpacing="10" Margin="0, 30, 0, 0">
+									<Each Items="{monthValue}">
+										<Text Value="{=data()}" FontSize="20" Clicked="{choicemonth}" Color="#A7A9A9" Alignment="Default" TextAlignment="Center">
+											<Clicked>							
+												<Set Target="selectMonth.Value" Value="{monthInit}" />
+											</Clicked>
+										</Text>
+									</Each>
+								</StackPanel>						
+							</ScrollView>
+							<Rectangle Background="#FEFFFE" />
+						</WhileTrue>
+						<Rectangle>
+							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="{monthInit}" TextAlignment="Center" ux:Name="selectMonth" />
+							<Clicked>
+								<Callback Handler="{monthChange}" />
+							</Clicked>
+						</Rectangle>
+					</Panel>
+					
+
+					<Rectangle Width="1" Color="#80B5D3" />
+
+					<!-- 일 선택부분 -->
+					<Panel Height="80">
+						<WhileTrue Value="{dayToggle}">
+							<Rectangle Background="#FEFFFE" Alignment="Top" Height="30" Opacity="0.715" />
+							<Rectangle Background="#FEFFFE" Alignment="Bottom" Height="30" Opacity="0.715" />
+							<ScrollView Height="80">
+								<StackPanel Alignment="Default" ItemSpacing="10" Margin="0, 30, 0, 0">
+									<Each Items="{dayValue}">
+										<Text Value="{=data()}" FontSize="20" Clicked="{choiceDay}" Color="#A7A9A9" Alignment="Default" TextAlignment="Center">
+											<Clicked>							
+												<Set Target="selectDay.Value" Value="{dayInit}" />
+											</Clicked>
+										</Text>
+									</Each>
+								</StackPanel>						
+							</ScrollView>
+							<Rectangle Background="#FEFFFE" />
+						</WhileTrue>
+						<Rectangle>
+							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="{dayInit}" TextAlignment="Center" ux:Name="selectDay" />
+							<Clicked>
+								<Callback Handler="{dayChange}" />
+							</Clicked>
+						</Rectangle>
+					</Panel>
+				</Grid>
+			</Rectangle>
+
+			<!-- 세부내용 입력 부분 -->
+			<Rectangle Alignment="Default" Width="300" Height="100">
+				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Top" Width="16" Height="16" />
+				<TextInput Row="0" Column="1" PlaceholderText="세부내용" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{detail}" Alignment="Top" Margin="0, 0, 0, 0" FontSize="13" TextWrapping="Wrap" LineSpacing="20" />
+				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 20, 0, 0" Alignment="Top" />
+				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 50, 0, 0" Alignment="Top" />
+				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 85, 0, 0" Alignment="Top" />
+			</Rectangle>
+
+			<!-- 근거 입력 부분 -->
+			<Rectangle Alignment="Bottom" Width="300" Height="200">
+				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Top" Width="16" Height="16" />
+				<TextInput Row="0" Column="1" PlaceholderText="근거 ( 사진, 영수증 등 )" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{based}" Alignment="Top" FontSize="13" />
+				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 20, 0, 0" Alignment="Top" />
+
+				<WhileTrue Value="{photoView}">
+					<Image File="{imagePath}" Margin="0, 40, 0, 0" Width="240" Height="180" />
+					<Rectangle Color="#FEFFFE" Margin="0, 40, 0, 0" Width="240" Height="180" />
+				</WhileTrue>
+
+				<Image File="../../Assets/photo-camera.png" Margin="0, 40, 0, 0" Width="240">
+					<Clicked>
+						<Callback Handler="{takePicture}" />
+					</Clicked>
+				</Image>
+			</Rectangle>
+
+			<!-- save button -->
+			<Rectangle Alignment="Default" Width="240" Margin="0, 20, 0, 0" Color="#75A7C3" Height="50">
+				<Text Row="0" Column="1" TextColor="#FEFFFE" Width="240" Alignment="Center" Margin="0, 0, 0, 0" FontSize="13" Value="저장" TextAlignment="Center" />
+				<Clicked>
+					<Callback Handler="{Save}" />
+				</Clicked>				
+			</Rectangle>
+
+
+		</StackPanel>
+	</ScrollView>
+
+</Page>

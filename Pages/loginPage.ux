@@ -1,0 +1,84 @@
+<Page ux:Class="loginPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="loginPage.js" />
+	<iOS.StatusBarConfig Style="Light" />
+	<Android.StatusBarConfig Color="#000000" />
+	<Rectangle Color="#0C82B3" Alignment="Top" Height="50" />
+	<Rectangle Alignment="Top" Color="#0C82B3" Height="250" CornerRadius="50">
+		<Circle Color="#FFF" Width="100" Height="100">
+			<Image File="../Assets/IconGray.png" Width="80" Height="60" Alignment="HorizontalCenter" Margin="10, 0, 0, 0" />
+		</Circle>
+		<Text Value="DreamPlus" TextColor="#FFF" Alignment="BottomCenter" Margin="0, 0, 0, 30" />
+		<Shadow Angle="54" Color="#000000B8" />
+	</Rectangle>
+	<ScrollView Margin="0, 250, 0, 0">
+		<StackPanel Opacity="0.9" ItemSpacing="10">
+
+			<Rectangle Width="300" Height="30" CornerRadius="20" Margin="0, 30, 0, 0">
+				<Text Value="아이디" TextColor="#198EBD" Alignment="CenterLeft" />
+				<Rectangle Width="200" Margin="100, 0, 0, 0" Height="30">
+					<TextInput Row="0" Column="1" PlaceholderColor="#999" Value="{ID}" TextColor="#595959" CaretColor="#000" Alignment="Center" FontSize="20" Width="200" Margin="0, 0, 0, 0" />
+					<Stroke Width="3" Color="#F4F4F4" Alignment="Center" />
+				</Rectangle>
+			</Rectangle>
+
+			<Rectangle Width="300" Height="30" CornerRadius="20" Margin="0, 0, 0, 0">
+				<Text Value="비밀번호" TextColor="#198EBD" Alignment="CenterLeft" />
+				<Rectangle Width="200" Margin="100, 0, 0, 0" Height="30">
+					<TextInput Row="0" Column="1" PlaceholderColor="#999" Value="{Password}" TextColor="#000" CaretColor="#000" Alignment="Center" FontSize="20" Width="200" IsPassword="true" />
+					<Stroke Width="3" Color="#F4F4F4" Alignment="Center" />
+				</Rectangle>
+			</Rectangle>
+
+			<Rectangle Width="300" Height="30" Margin="0, 20, 0, 0">
+				<Circle Width="30" Height="30" Background="#B9B9B9" Alignment="Center" Margin="0, 0, 100, 0" />
+				<Text Value="자동로그인" TextColor="#B9B9B9" FontSize="10" TextAlignment="Center" Alignment="Center" />
+			</Rectangle>
+			<Rectangle ux:Name="loginbtn" Width="300" Height="30" Color="#1B8EBD" CornerRadius="20" Margin="0, 20, 0, 0">
+				<Text Value="로그인" TextColor="#FFF" Alignment="Center" FontSize="15" /> 
+				<WhilePressed>
+					<Scale Target="loginbtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
+				<Clicked>
+					<Callback Handler="{SignIn}" />
+				</Clicked>
+			</Rectangle>
+
+			<Rectangle ux:Name="signupbtn" Width="150" Height="13" Margin="0, 30, 0, 0">
+				<Text Value="회원가입을 하시겠습니까?" Alignment="Center" FontSize="10" TextColor="#B9B9B9" />
+				<Rectangle Width="110" Height="1" Color="#B9B9B9" Alignment="Bottom" />
+				<WhilePressed>
+					<Scale Target="signupbtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
+				<Clicked>
+					<Callback Handler="{SignUp}" />
+				</Clicked>
+			</Rectangle>
+
+			<Rectangle Width="200" Height="13" Margin="0, 10, 0, 0">
+				<Text Value="아이디나 비밀번호를 잃어버리셨습니까?" Alignment="Center" FontSize="10" TextColor="#B9B9B9" />
+				<Rectangle Width="170" Height="1" Color="#B9B9B9" Alignment="Bottom" />
+					<!-- <WhilePressed>
+				<Scale Target="signupbtn" Factor="0.9" Duration="0.05" />
+			</WhilePressed> -->
+					<!-- <Clicked>
+				<Callback Handler="{SignUp}" />
+			</Clicked> -->
+		</Rectangle>
+		<Rectangle Width="300" Height="30" Margin="0, 20, 0, 0">
+			<Rectangle Height="1" Color="#B9B9B9" Alignment="Left" Width="120" />
+			<Text Value="OR" FontSize="10" Alignment="Center" TextColor="#B9B9B9" />
+			<Rectangle Height="1" Color="#B9B9B9" Alignment="Right" Width="120" />
+		</Rectangle>
+		<Rectangle Width="300" Height="30">
+			<Image Width="30" Height="30" File="../SketchSymbols/images/facebookIcon.png" Alignment="Left" Margin="10, 0, 0, 0" />
+			<Text Value="페이스북으로 로그인하기" FontSize="8" TextAlignment="Left" Alignment="CenterLeft" Margin="50, 0, 0, 0" />
+
+			<Image Width="30" Height="30" Margin="180, 0, 0, 0" File="../SketchSymbols/images/googleIcon.png" Alignment="Left" />
+			<Text Value="구글로 로그인하기" FontSize="8" TextAlignment="Left" Alignment="CenterLeft" Margin="220, 0, 0, 0" />
+		</Rectangle>
+
+	</StackPanel>
+</ScrollView>
+
+</Page>

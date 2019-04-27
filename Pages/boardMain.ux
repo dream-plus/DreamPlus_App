@@ -1,0 +1,13 @@
+<Page ux:Class="boardMain">
+	<Router ux:Dependency="router" />
+	<JavaScript File="boardMain.js" />
+	<JavaScript File="../MainView.js" />
+
+
+	<mainbottombar/>
+	<Panel>
+		<boardTopbar />
+	</Panel> 
+
+
+</Page>

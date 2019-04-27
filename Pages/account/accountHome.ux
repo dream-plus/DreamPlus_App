@@ -1,0 +1,34 @@
+<Page ux:Class="accountHome">
+	<!-- <Router ux:Dependency="router"/> -->
+	<JavaScript File="accountHome.js" />	
+
+
+	<ScrollView LayoutMode="PreserveVisual">
+		<StackPanel Orientation="Vertical" ItemSpacing="10" Padding="0, 50, 0, 0" Margin="0, 190, 0, 0">
+
+			<Each Items="{items}" ux:Name="theEach" Reuse="Frame">
+				<Sketch.moneylist Alignment="Default" Width="15" Height="15" Y="25" />
+				<DockPanel Margin="{left}, 0, {right}, 0">
+					<Rectangle Alignment="Default" Dock="{direction}" Width="160" Height="70">						
+						<Text Value="{title}" Color="#434443" TextAlignment="{opp}" FontSize="15" />
+						<Text Value="{content}" Color="#404140" TextAlignment="{opp}" FontSize="15" Y="20" />
+						<Text Value="{expense}원" Color="#006EA8" TextAlignment="{opp}" FontSize="25" Y="38" />
+					</Rectangle>
+				</DockPanel>
+			</Each>
+
+			<WhileTrue Value="{isLoading}">
+				<Panel LayoutRole="Placeholder" Height="100" Color="#F6FBFF">
+					<Text Alignment="Center" Value="Loading..." />
+				</Panel>
+			</WhileTrue>
+
+		</StackPanel>
+		<ScrollViewPager Each="theEach" ReachedEnd="{loadMore}" ux:Name="svp" />
+
+
+	</ScrollView> 
+	<Rectangle Color="#C1C1C1" Height="1000" Alignment="Center" Width="1" />
+
+	
+</Page>
