@@ -10,11 +10,11 @@ var newID = Observable("");
 var newPW = Observable("");
 var newName = Observable("");
 var newGender = Observable("");
-var newMajor = Observable("");
 var newNumber = Observable("");
 var newPhoneNum = Observable("");
 var ruleToggle = Observable(false);
 var majorToggle = Observable(false);
+var idCheck = Observable(false);
 
 var majorInit = Observable("융합 IT");
 var majorValue = ["융합 IT", "융합 디자인"];
@@ -36,9 +36,14 @@ function choicemajor(e){
 	majorToggle.value = false;
 }
 
+function idpopup(){
+	idCheck.value = false;
+}
+
 function Save(){
 
-	fetch('http://aa52f6e2.ngrok.io/users/signup',{
+	fetch('http://18.222.99.74/users/signup',{
+		// fetch('http://aa52f6e2.ngrok.io/users/signup',{
 		method: "POST",
 		headers: {
 			"Content-type": "application/json"
@@ -47,22 +52,22 @@ function Save(){
 			'_id' : newID.value,
 			'pw' : newPW.value,
 			'name' : newName.value,
-			'major' : newMajor.value,
-			'class' : "2"
+			'major' : majorInit.value,
+			'number' : newNumber.value,
+			'gender' : newGender.value,
+			'phoneNum' : newPhoneNum.value
 		})
 	}).then((res)=>{ return res.json()
 	}).then((res)=>{
-	            // console.log( JSON.parse(res._bodyInit).documents[1].address_name )
-	            console.log(JSON.stringify(res));
-	            console.log(res.success);
 
+		console.log(res.result);
 	            if( JSON.parse(res.success) == true){
 	            	router.push("loginPage");
 	            	console.log("Move to LoginPage");
+	            }else if (res.result == "overlapping"){
+	            	idCheck.value = true;
 	            }
 
-
-	            // JSON.parse(res._bodyInit).documents[1].address_name
 	        }).catch((err)=>{
 	        	console.log(err);
 	        });
@@ -75,7 +80,6 @@ function Save(){
 	    	newPW : newPW,
 	    	newName : newName,
 	    	newGender : newGender,
-	    	newMajor : newMajor,
 	    	newNumber : newNumber,
 	    	newPhoneNum : newPhoneNum,
 	    	Save : Save,
@@ -87,5 +91,7 @@ function Save(){
 	    	majorToggle : majorToggle,
 	    	majorChange : majorChange,
 	    	choicemajor : choicemajor,
-	    	majorValue : majorValue
+	    	majorValue : majorValue,
+	    	idCheck : idCheck,
+	    	idpopup : idpopup
 	    };

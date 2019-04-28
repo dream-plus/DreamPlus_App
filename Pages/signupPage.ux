@@ -14,6 +14,20 @@
 		<Shadow Angle="54" Color="#000000B8" />
 	</Rectangle>
 
+
+
+	<WhileTrue Value="{idCheck}">
+		<Change popup.Opacity="1" Duration="1" />
+
+		<Rectangle ux:Name="popup" Width="200" Height="100" Opacity="0" CornerRadius="25" Color="#FEFFFE2F">
+			<Text Alignment="Center" Value="아이디 중복 입니다." />
+			<Stroke Width="2" Color="#0B8CBB53" />
+			<Clicked>
+				<Callback Handler="{idpopup}" />
+			</Clicked>
+		</Rectangle>
+	</WhileTrue>
+
 	<WhileTrue Value="{ruleToggle}">
 		<ScrollView Layer="Overlay" Background="#FEFFFE" Margin="0, 250, 0, 0">
 			<TextView TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="true" Padding="10">드림플러스 동아리 규정 
@@ -175,7 +189,6 @@
 		</StackPanel>
 
 	</ScrollView>
-
 
 
 

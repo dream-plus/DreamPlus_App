@@ -33,7 +33,8 @@ function addComma(num) {
 
 function totalAmount(){
 	
-	fetch('http://aa52f6e2.ngrok.io/account/call/amount',{
+	fetch('http://18.222.99.74/account/call/amount',{
+	// fetch('http://aa52f6e2.ngrok.io/account/call/amount',{
 		method: "GET",
 		headers: {
 			"Content-type": "application/JSON"

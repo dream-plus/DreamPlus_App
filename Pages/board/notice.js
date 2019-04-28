@@ -29,7 +29,8 @@ exports.loadMore = function(){
 }
 
 function loadSome(){
-	fetch('http://aa52f6e2.ngrok.io/board/am',{
+	fetch('http://18.222.99.74/board/am',{
+	// fetch('http://aa52f6e2.ngrok.io/board/am',{
 		method: "GET",
 		headers: {
 			"Content-type": "application/JSON"

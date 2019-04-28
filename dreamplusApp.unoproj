@@ -10,6 +10,9 @@
     "./Assets/*",
     "./Pages/*"
 
-  ]
-}
+  ],
+  "Mobile": {
+    "Orientations": "Portrait"
+  }
+  }
 

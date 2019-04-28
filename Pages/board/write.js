@@ -42,7 +42,8 @@ function contents(){
 		date : currentdate.value
 	});
 
-	fetch('http://aa52f6e2.ngrok.io/board/am',{
+fetch('http://18.222.99.74/board/am',{
+	// fetch('http://aa52f6e2.ngrok.io/board/am',{
 		method: "POST",
 		headers: {
 			"Content-type": "application/JSON"

@@ -80,7 +80,8 @@ function choiceDay(e){
 
 function Save(){
 	
-	fetch('http://aa52f6e2.ngrok.io/account/add',{
+	fetch('http://18.222.99.74/account/add',{
+	// fetch('http://aa52f6e2.ngrok.io/account/add',{
 		method: "POST",
 		headers: {
 			"Content-type": "application/json"

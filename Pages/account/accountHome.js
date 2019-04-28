@@ -25,6 +25,7 @@ svp.check()
 
 function loadSome(){
 	
+	// fetch('http://18.222.99.74/account/call/all',{
 	fetch('http://aa52f6e2.ngrok.io/account/call/all',{
 		method: "GET",
 		headers: {
