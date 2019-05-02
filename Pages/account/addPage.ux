@@ -151,8 +151,11 @@
 			</Rectangle>
 
 			<!-- save button -->
-			<Rectangle Alignment="Default" Width="240" Margin="0, 20, 0, 0" Color="#75A7C3" Height="50">
+			<Rectangle ux:Name="savebtn" Alignment="Default" Width="240" Margin="0, 20, 0, 0" Color="#75A7C3" Height="50">
 				<Text Row="0" Column="1" TextColor="#FEFFFE" Width="240" Alignment="Center" Margin="0, 0, 0, 0" FontSize="13" Value="저장" TextAlignment="Center" />
+				<WhilePressed>
+					<Scale Target="savebtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
 				<Clicked>
 					<Callback Handler="{Save}" />
 				</Clicked>				

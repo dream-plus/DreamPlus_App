@@ -3,7 +3,6 @@ var Observable = require('FuseJS/Observable');
 var ID = Observable("");
 var Password = Observable("");
 
-
 function SignIn(){
 
     var opts = ({
@@ -15,8 +14,8 @@ function SignIn(){
     console.log('sign'); //Sign_in 함수가 호출되었는지 확인
  
 
-	fetch('http://18.222.99.74/users/signin',{
-		// fetch('http://aa52f6e2.ngrok.io/users/signin',{
+	// fetch('http://18.222.99.74/users/signin',{
+		fetch('http://aa52f6e2.ngrok.io/users/signin',{
 	            method: "POST",
 	            headers: {
 	            	"Content-type": "application/JSON"
@@ -46,12 +45,6 @@ function SignIn(){
 	        });
 
 }
-
-// function SignClicked(){	
-//     console.log("Move to Page.Home");
-//     router.push("Home");
-
-// }
 
 
 function SignUp(){

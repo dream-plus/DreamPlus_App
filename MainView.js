@@ -1,14 +1,17 @@
 var Observable = require('FuseJS/Observable');
 
+
 function gotoHome(){
 	router.goto("home");
 }
 
 function gotoBoard(){
+	// change.value = true;
 	router.goto("boardMain");
 }
 
 function gotoSchedule(){
+	// change.value = false;
 	router.goto("schedule");
 }
 

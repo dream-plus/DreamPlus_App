@@ -48,6 +48,7 @@ function Save(){
 		headers: {
 			"Content-type": "application/json"
 		},
+		// body에 회원가입 정보를 넣어 서버에 보내는 부분.
 		body : JSON.stringify({
 			'_id' : newID.value,
 			'pw' : newPW.value,
@@ -59,7 +60,7 @@ function Save(){
 		})
 	}).then((res)=>{ return res.json()
 	}).then((res)=>{
-
+		// res 변수로 서버로부터 요청한 값을 받는 부분.
 		console.log(res.result);
 	            if( JSON.parse(res.success) == true){
 	            	router.push("loginPage");

@@ -32,23 +32,32 @@
 
 		
 		<Grid Alignment="HorizontalCenter" Width="120" Height="40" Opacity="1" RowCount="1" ColumnCount="3" Y="170">
-			<Rectangle Color="0.4693793, 0.6832176, 0.801047, 1">
+			<Rectangle ux:Name="incomebtn" Color="0.4693793, 0.6832176, 0.801047, 1">
 				<Text Value="수입" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#FFF" Y="13" FontSize="11" X="15" />
+				<WhilePressed>
+					<Scale Target="incomebtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
 				<Clicked>
 					<Callback Handler="{gotoIncome}" />
 				</Clicked>
 			</Rectangle>
 			<!-- 수입 지출 추가 아이콘 -->
 			<Rectangle Row="0" Column="1">
-				<Circle Width="16" Height="16" Color="#016EA7" />
+				<Circle ux:Name="addbtn" Width="16" Height="16" Color="#016EA7" />
+				<WhilePressed>
+					<Scale Target="addbtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
 				<Clicked>
 					<Callback Handler="{gotoAddPage}" />
 				</Clicked>
 				<!-- <Sketch.moneyplus Width="16" Height="16" /> -->
 			</Rectangle>
 
-			<Rectangle Row="0" Column="2" Color="0.4693793, 0.6832176, 0.801047, 1">
+			<Rectangle ux:Name="expensebtn" Row="0" Column="2" Color="0.4693793, 0.6832176, 0.801047, 1">
 				<Text Value="지출" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#FFF" Y="13" FontSize="11" X="1" />
+				<WhilePressed>
+					<Scale Target="expensebtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
 				<Clicked>
 					<Callback Handler="{gotoExpense}" />
 				</Clicked>
