@@ -2,9 +2,9 @@
 	  <ScrollView ux:Name="parentScrollView">
         <StackPanel Dock="Top" Height="50" Color="#EAEAEA">
             <!-- <SortableList parentScrollView="parentScrollView" /> -->
-            <Clicked>
+            <!-- <Clicked>
             <Callback Handler ="{page3}"/>
-        </Clicked>
+        </Clicked> -->
         </StackPanel>
     </ScrollView>
 </Page>
