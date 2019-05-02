@@ -1,0 +1,78 @@
+<Page ux:Class="monthView" Remove="None">
+	<!-- You cannot use Activated="{activated}" on the `Page` itself due to JavaScript scope rules -->
+	<Activated Handler="{activated}" />
+	
+	<Router ux:Dependency="router" />
+	<JavaScript File="monthView.js" />
+	<Rectangle Color="#4A4A4A" Padding="0, 0, 0, 0" Margin="0, 103, 0, 0" Alignment="Top" Height="1.5" />
+
+	<Rectangle Height="1" Color="#8E8E8E" Alignment="Top" Margin="0, 165, 0, 0" />
+	<Rectangle Height="1" Alignment="Top" Margin="0, 226, 0, 0" Color="#8E8E8E" />
+	<Rectangle Alignment="Top" Margin="0, 346, 0, 0" Height="1" Color="#8E8E8E" />
+	<Rectangle Height="1" Alignment="Top" Color="#8E8E8E" Margin="0, 285, 0, 0" />
+	<Rectangle Height="1" Color="#8E8E8E" Alignment="Top" Margin="0, 406, 0, 0" />
+	<Rectangle Color="#FFF0" Visibility="Hidden" ux:Name="blockView" />
+	
+	<DockPanel Color="#FEFFFE" Padding="5" Margin="5, 0, 0, 0" Y="30" Height="380">
+		<Grid Dock="Top" Columns="auto,1*,auto" Margin="0,0,0,5" Color="#FEFFFE" CellSpacing="5">
+			<Panel Width="35" Height="35" Opacity="0.3">
+				<Image File="../../Assets/calendar/arrowleft.png" Color="#000000DD" X="120" />
+				<Clicked>
+					<RouterModify Bookmark="prevMonth" Style="fromLeft" />
+				</Clicked>
+			</Panel>
+			<Panel Width="40">
+				<Text FontSize="25" Color="#1C82B0" Value="{monthLabel}" TextAlignment="Center" Alignment="VerticalCenter" />
+			</Panel>
+			<Panel Width="35" Height="35" Opacity="0.3">
+				<Image File="../../Assets/calendar/arrowright.png" Color="#000000DD" Margin="-230, 0, 0, 0" />
+				<Clicked>
+					<RouterModify Bookmark="nextMonth" Style="fromRight" />
+				</Clicked>
+			</Panel>
+		</Grid>
+	
+		<Grid ColumnCount="7" CellSpacing="3" DefaultRow="1*" Rows="auto">
+			<Each Items="{daysOfWeek}">
+				<Panel Height="30">
+					<Text FontSize="16" Value="{data()}" TextAlignment="Center" Color="#000000" />
+				</Panel>
+			</Each>
+			<Each Items="{days}" MatchKey="type">
+				<Rectangle ux:Template="fill" Color="#FEFFFE" />
+				<Rectangle ux:Template="day" Clicked="{openDay}">
+					<Text FontSize="15" Color="#222" Alignment="TopLeft" Value="{dayOfMonth}" Margin="5" TextAlignment="Center" />
+				</Rectangle>
+			</Each>
+		</Grid>
+	</DockPanel>
+	
+	<DockPanel Alignment="Bottom" Height="257">
+		<Rectangle Color="#D2D2D2">
+			<Rectangle Width="250" Height="35" Alignment="Top" Margin="0, 20, 0, 0" Color="#FDFFFD" CornerRadius="30">
+			</Rectangle>
+		</Rectangle>
+	</DockPanel>
+	<Transition Style="fromLeft" Direction="ToActive">
+		<Move X="-1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+	</Transition>
+	<Transition Style="fromRight" Direction="ToActive">
+		<Move X="1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+	</Transition>
+	
+	<Transition Style="fromRight" Direction="ToInactive">
+		<Move X="-1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+	</Transition>
+	<Transition Style="fromLeft" Direction="ToInactive">
+		<Move X="1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+	</Transition>
+	
+	<Transition To="day">
+		<Change blockView.Color="#4448" Duration="0.4" />
+		<Change blockView.Visibility="Visible" />
+	</Transition>
+	
+	<Transition>
+		<Move Y="1" RelativeTo="ParentSize" />
+	</Transition>
+</Page>

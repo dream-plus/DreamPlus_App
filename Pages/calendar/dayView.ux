@@ -1,0 +1,47 @@
+<Page ux:Class="dayView" Padding="25,25,25,0">
+	<Router ux:Dependency="router" />
+	<JavaScript File="dayView.js" />
+	<Panel Color="#e8eaf6" Padding="10, 10, 10, 0" Margin="0, 0, 0, 0" Alignment="Bottom" Width="373" Height="450">
+		<Rectangle CornerRadius="5,5,0,0" Color="#e8eaf6" Layer="Background" />
+		<Grid Columns="auto,1*,auto">
+			<Image Alignment="TopLeft" File="../../Assets/calendar/cross-symbol.png" Color="#000000DD">
+				<Clicked>
+					<RouterModify How="GoBack" />
+				</Clicked>
+			</Image>
+			<Text Alignment="Top" Color="#1E82B0" Value="일정 추가" TextAlignment="Center" Margin="0, 3, 0, 0" />
+			<Image Alignment="TopRight" File="../../Assets/calendar/checked.png" Color="#000000">
+				<Button />
+			</Image>
+		</Grid>
+		
+		<StackPanel>
+			<Rectangle Height="2" Color="#AFB0AF" Alignment="Top" Margin="0, 30, 0, 0" Width="400" />
+			<Text Margin="5, 15, 0, 0" Value="카테고리" FontSize="13" />
+			<Grid RowCount="1" ColumnCount="2" Width="170" Alignment="CenterLeft" Margin="0, 5, 0, 0">
+				<Rectangle Width="70" Color="#0F6FA5" Height="30" CornerRadius="30">
+					<Text Value="전체공개" TextAlignment="Center" Margin="0, 7, 0, 0" TextColor="#E7E9F7" FontSize="14" />
+					<Button Margin="0, 0, 0, 0" />
+				</Rectangle>
+				<Rectangle Width="70" Height="30" Color="#0F6FA4" CornerRadius="30">
+					<Text Margin="0, 7, 0, 0" Value="팀원 공개" TextAlignment="Center" TextColor="#E7E9F7" FontSize="14" />
+					<Button />
+				</Rectangle>
+			</Grid>
+			<Text Value="제목" Margin="5, 20, 0, 0" FontSize="13">
+				<TextInput Margin="5, 17, 0, 0" Value="{Title}" TextColor="#000" Width="300" Alignment="CenterLeft" PlaceholderText="내용을 입력하세요" PlaceholderColor="#8C8C8C" />
+				<Circle Height="20" Color="#85B5D2" Alignment="CenterRight" Width="20">
+					<Button />
+				</Circle>
+			</Text>
+			
+			<Rectangle Color="#B8B3B7" Height="2" />
+			<Text Alignment="CenterLeft" FontSize="15" Value="{label}" Color="#000000DD" Margin="0, 100, 0, 0" />
+		</StackPanel>
+		
+	</Panel>
+	
+	<Transition>
+		<Move Y="1" RelativeTo="ParentSize" Duration="0.4" Easing="CubicIn" />
+	</Transition>
+</Page>
