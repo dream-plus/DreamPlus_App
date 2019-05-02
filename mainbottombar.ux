@@ -4,9 +4,12 @@
 		<Grid Color="#FBFCFB" ChildOrder="ColumnMajor" Alignment="Bottom" Height="70" Opacity="1" LayoutRole="Standard" RowCount="1" ColumnCount="4">
 			<Shadow Color="#ACACAC" Angle="179" />
 			<Panel Alignment="Default">
-				<Rectangle Color="#FBFCFB">
-					<Image File="Assets/logoGray.png" Alignment="Default" Width="40" Y="10" />
+				<Rectangle ux:Name="homebtn" Color="#FBFCFB">
+					<Image File="Assets/bottombar/home_off.png" Alignment="Default" Width="25" Y="10" Height="25" />
 					<Text Value="홈" FontSize="10" TextColor="#909191" Alignment="HorizontalCenter" Y="40" />
+					<WhilePressed>
+						<Scale Target="homebtn" Factor="0.9" Duration="0.05" />
+					</WhilePressed>
 					<Clicked>
 						<Callback Handler="{gotoHome}" />						
 					</Clicked>
@@ -15,8 +18,15 @@
 			</Panel>
 
 			<Panel Alignment="Default">
-				<Rectangle Color="#FBFCFB">
-					<Text Value="게시판" FontSize="10" TextColor="#979998" Alignment="HorizontalCenter" Y="40" />
+				<Rectangle ux:Name="boardbtn" Color="#FBFCFB">
+				<!-- 	<WhileTrue Value="{change}" >
+						<Image File="Assets/bottombar/notice.png" Alignment="Default" Width="25" Y="10" Height="25" />
+					</WhileTrue> -->
+					<Image File="Assets/bottombar/notice_off.png" Alignment="Default" Width="25" Y="10" Height="25" />
+					<Text Value="게시판" FontSize="10" TextColor="#979998" Alignment="HorizontalCenter" Y="40" />					
+					<WhilePressed>
+						<Scale Target="boardbtn" Factor="0.9" Duration="0.05" />
+					</WhilePressed>
 					<Clicked>
 						<Callback Handler="{gotoBoard}" />
 					</Clicked>
@@ -24,8 +34,12 @@
 			</Panel>
 
 			<Panel Alignment="Default">
-				<Rectangle Color="#FBFCFB">
+				<Rectangle ux:Name="schebtn" Color="#FBFCFB">
+					<Image File="Assets/bottombar/schedule_off.png" Alignment="Default" Width="25" Y="10" Height="25" />
 					<Text FontSize="10" Value="스케줄" Alignment="HorizontalCenter" TextColor="#979A98" Y="40" />
+					<WhilePressed>
+						<Scale Target="schebtn" Factor="0.9" Duration="0.05" />
+					</WhilePressed>
 					<Clicked>
 						<Callback Handler="{gotoSchedule}" />
 					</Clicked>
@@ -33,8 +47,12 @@
 			</Panel>
 
 			<Panel Alignment="Default">
-				<Rectangle Color="#FBFCFB">
+				<Rectangle ux:Name="accbtn" Color="#FBFCFB">
+					<Image File="Assets/bottombar/cog_off.png" Alignment="Default" Width="25" Y="10" Height="25" />
 					<Text FontSize="10" Value="장부" Alignment="HorizontalCenter" TextColor="#969A97" Y="40" />
+					<WhilePressed>
+						<Scale Target="accbtn" Factor="0.9" Duration="0.05" />
+					</WhilePressed>
 					<Clicked>
 						<Callback Handler="{gotoAccount}" />
 					</Clicked>
