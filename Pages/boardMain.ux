@@ -6,8 +6,125 @@
 
 	<mainbottombar/>
 	<Panel>
-		<boardTopbar />
-	</Panel> 
+		<Panel Color="#FEFFFE" Alignment="Bottom" Margin="0, 0, 0, 70">
+			<DockPanel Alignment="Default" Color="#FDFFFD" Height="50">
+				<Rectangle Dock="Left" Width="100" Margin="10, 0, 0, 0">
+					<Text Value="전체보기" TextAlignment="Center" Alignment="Center" FontSize="10" />
+				</Rectangle>
+				<Rectangle Dock="Left" Margin="0, 0, 10, 0" Height="15" Width="255" Color="#AADEF6" />
+			</DockPanel>
+			<Shadow Angle="153" />
+		</Panel>
+		<DockPanel>
+			<Panel Dock="Top" Color="#FEFFFE" Height="80">
+				<Panel Height="56" Alignment="Bottom">
+					<Text Value="게시판" TextColor="#0C82B3" Alignment="BottomCenter" FontSize="18" Font="Bold" />
+					<Button Alignment="Right" HitTestMode="LocalBounds" Width="56" Height="56">
+						<Rectangle Height="2" Width="20" Color="#0C82B3" />
+						<Rectangle Width="2" Height="20" Color="#0C82B3" />
+						<Clicked>
+							<Callback Handler="{write}" />
+						</Clicked>
+					</Button>
+				</Panel>
+			</Panel>
+
+			<Panel ux:Class="Tab" ClipToBounds="false" Margin="0,0,0,4" Background="#F2F3F2">
+				<string ux:Property="Text" />
+				<Text Value="{ReadProperty Text}" Color="#B8B9B8" Alignment="Center" />
+			</Panel>
+
+			<Rectangle ux:Name="indicator" LayoutMaster="page1Tab" Alignment="Bottom" Color="#0C82B3" Height="4" Width="60">
+				<LayoutAnimation>
+					<Move RelativeTo="WorldPositionChange" X="1" Duration="0.4" Easing="BackIn" />
+				</LayoutAnimation>
+			</Rectangle>
+
+			<Grid Dock="Top" Columns="1*,1*,1*" Height="50" Background="#bdc3c7">
+				<Panel ux:Name="page1Tab">
+					<Tab ux:Name="noticebtn" Text="공지">
+					<!-- <WhilePressed>
+						<Scale Target="noticebtn" Factor="0.9" Duration="0.05" />
+					</WhilePressed> -->
+					<Clicked>
+						<Set navigation.Active="page1" />
+						<!-- <Callback Handler="{gotoNotice}" /> -->
+					</Clicked>
+				</Tab>
+			</Panel>
+			<Panel ux:Name="page2Tab">
+				<Tab Text="자유">
+					<!-- <WhilePressed>
+						<Scale Target="page2Tab" Factor="0.9" Duration="0.05" />
+					</WhilePressed> -->
+					<Clicked>
+						<Set navigation.Active="page2" />
+					</Clicked>
+				</Tab>
+			</Panel>
+			<Panel ux:Name="page3Tab">
+				<Tab Text="QnA">
+					<!-- <WhilePressed>
+						<Scale Target="page3Tab" Factor="0.9" Duration="0.05" />
+					</WhilePressed> -->
+					<Clicked>
+						<Set navigation.Active="page3" />
+					</Clicked>
+				</Tab>
+			</Panel>
+		</Grid>
+
+		<PageControl ux:Name="navigation" Color="#FEFFFE">
+			<!-- <NavigationMotion GotoDurationExp="1"/> -->
+			<Page ux:Name="page1" Background="#EAEAEA" Color="#FFFCFE">
+				<WhileActive Threshold="0.01">
+					<Set indicator.LayoutMaster="page1Tab" />
+				</WhileActive>
+				<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE">        
+					<StackPanel>
+						<Each Items="{items}" ux:Name="theEach" Reuse="Frame">
+							<Grid Dock="Top" Height="50" ColumnCount="3" RowCount="2" Columns="1*,3*,1*" Alignment="Default" Margin="0, 2, 0, 0" ChildOrder="RowMajor" Clicked="{gotoDetails}">
+								<Rectangle Margin="0, 10, 0, 0" Background="#95D1EC" Width="40" Height="20" Alignment="Default">
+									<Text Value="다온" TextAlignment="Center" FontSize="10" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" />
+								</Rectangle>
+								<Text Value="{title}" Alignment="Center" FontSize="12" TextAlignment="Left" TextColor="#000" />
+								<Text />
+								<Text Value="{name}" Alignment="Center" FontSize="10" TextColor="#C1C2C1" />
+								<Text Value="{content}" Alignment="Center" FontSize="12" TextColor="#C1C2C1" />
+								<Text Value="{days}" Alignment="CenterLeft" FontSize="10" TextColor="#C1C2C1" />
+							</Grid>
+							<Rectangle Height="2" Color="#E3E4E3" /> 
+						</Each>
+
+						<WhileTrue Value="{isLoading}">
+							<Panel LayoutRole="Placeholder" Height="100" Color="#F6FBFF">
+								<Text Alignment="Center" Value="Loading…" />
+							</Panel>
+						</WhileTrue>
+
+
+					</StackPanel>
+					<ScrollViewPager Each="theEach" ReachedEnd="{loadMore}" ux:Name="svp" />
+
+				</ScrollView>
+			</Page>
+			<Page ux:Name="page2" Background="#EAEAEA">
+				<WhileActive Threshold="0.01">
+					<Set indicator.LayoutMaster="page2Tab" />
+				</WhileActive>
+				<freeBoard />
+			</Page>
+			<Page ux:Name="page3" Background="#EAEAEA">
+				<WhileActive Threshold="0.01">
+					<Set indicator.LayoutMaster="page3Tab" />
+				</WhileActive>
+				<QnABoard />
+			</Page>
+			<SolidColor />
+			<SolidColor />
+		</PageControl>
+	</DockPanel>
+</Panel> 
 
 
 </Page>
