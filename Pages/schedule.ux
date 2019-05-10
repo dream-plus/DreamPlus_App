@@ -6,23 +6,28 @@
 	<mainbottombar />
 
 	<JavaScript>
-		var d = new Date()
-		router.gotoRelative( calNav, "month", { month: d.getMonth(), year: d.getFullYear() } );
+	var Observable = require("FuseJS/Observable");
+	var d = new Date()
+	exports.boardColorChange = Observable(false);
+	exports.homeColorChange = Observable(false);
+	exports.shebColorChange = Observable(true);
+	exports.accColorChange = Observable(false);
+	router.gotoRelative( calNav, "month", { month: d.getMonth(), year: d.getFullYear() } );
 	</JavaScript>
 	<Navigator ux:Name="calNav" SwipeBack="Down">
 		<NavigatorSwipe Direction="Left" How="GotoBookmark" Bookmark="nextMonth"
 			Style="fromRight" IsEnabled="false" ux:Name="swipeLeft"/>
-		<NavigatorSwipe Direction="Right" How="GotoBookmark" Bookmark="prevMonth"
-			Style="fromLeft" IsEnabled="false" ux:Name="swipeRight"/>
-			
-		<WhilePageActive NameEquals="month" Threshold="0">
-			<Change swipeLeft.IsEnabled="true"/>
-			<Change swipeRight.IsEnabled="true"/>
-		</WhilePageActive>
-		
-		<monthView ux:Template="month" router="router" SwipeBack="None"/>
-		<dayView ux:Template="day" router="router" ZOffset="1"/>
-	</Navigator>
+			<NavigatorSwipe Direction="Right" How="GotoBookmark" Bookmark="prevMonth"
+				Style="fromLeft" IsEnabled="false" ux:Name="swipeRight"/>
+
+				<WhilePageActive NameEquals="month" Threshold="0">
+					<Change swipeLeft.IsEnabled="true"/>
+					<Change swipeRight.IsEnabled="true"/>
+				</WhilePageActive>
+
+				<monthView ux:Template="month" router="router" SwipeBack="None"/>
+				<dayView ux:Template="day" router="router" ZOffset="1"/>
+			</Navigator>
 
 
-</Page>
+		</Page>

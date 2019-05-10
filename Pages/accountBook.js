@@ -4,6 +4,10 @@ var balance = Observable(0);
 var Monthselect = Observable("4");
 
 var MonthisOpen = Observable(false);
+var boardColorChange = Observable(false);
+var homeColorChange = Observable(false);
+var shebColorChange = Observable(false);
+var accColorChange = Observable(true);
 
 var Month = [];
 
@@ -75,7 +79,11 @@ module.exports = {
 	gotoIncome : gotoIncome,
 	gotoExpense : gotoExpense,
 	gotoAddPage : gotoAddPage,
-	totalAmount : totalAmount
+	totalAmount : totalAmount,
+	boardColorChange : boardColorChange,
+	homeColorChange : homeColorChange,
+	shebColorChange : shebColorChange,
+	accColorChange : accColorChange
 
 
 };

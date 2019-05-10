@@ -1,6 +1,14 @@
 <Page ux:Class="home">
 	<Router ux:Dependency="router" />
 	<JavaScript File="../MainView.js" />
+	<JavaScript>
+	var Observable = require("FuseJS/Observable");
+	
+	exports.boardColorChange = Observable(false);
+	exports.homeColorChange = Observable(true);
+	exports.shebColorChange = Observable(false);
+	exports.accColorChange = Observable(false);
+	</JavaScript>
 	
 	<!-- <JavaScript File="signupInd.js" /> -->
 

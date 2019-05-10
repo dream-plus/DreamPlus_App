@@ -30,6 +30,10 @@ var items = Observable();
 
 // exports.isLoading = Observable(false);
 var isLoading = Observable(false);
+var boardColorChange = Observable(true);
+var homeColorChange = Observable(false);
+var shebColorChange = Observable(false);
+var accColorChange = Observable(false);
 
 
 
@@ -95,7 +99,11 @@ function loadSome(){
 		items : items,
 		isLoading : isLoading,
 		write : write,
-		loadMore : loadMore
+		loadMore : loadMore,
+		boardColorChange : boardColorChange,
+		homeColorChange : homeColorChange,
+		shebColorChange : shebColorChange,
+		accColorChange : accColorChange
 	};
 
 

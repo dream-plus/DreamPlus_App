@@ -9,6 +9,10 @@ var i = 0;
 exports.items = Observable()
 exports.isLoading = Observable(false);
 
+// income 과 expense 는 false 과 true 가 반대입니다.
+exports.expenseColorChange = Observable(false);
+exports.incomeColorChange = Observable(true);
+
 svp.check()
 
 function addComma(num) {
