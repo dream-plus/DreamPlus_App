@@ -25,6 +25,10 @@ var dayValue = Observable();
 var Camera = require('FuseJS/Camera');
 var picture = Observable('Images/Camera.png');
 
+var addColorChange = Observable(true);
+var incomeColorChange = Observable(true);
+var expenseColorChange = Observable(true);
+
 
 for(i=1; i<13; i++){
 	monthValue.push(i);
@@ -139,6 +143,9 @@ function Save(){
 	    	dayValue : dayValue,
 	    	dayToggle : dayToggle,
 	    	dayChange : dayChange,
-	    	choiceDay : choiceDay
+	    	choiceDay : choiceDay,
+	    	addColorChange : addColorChange,
+	    	incomeColorChange : incomeColorChange,
+	    	expenseColorChange : expenseColorChange
 
 	    };

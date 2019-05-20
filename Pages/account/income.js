@@ -12,6 +12,7 @@ exports.isLoading = Observable(false);
 // income 과 expense 는 false 과 true 가 반대입니다.
 exports.incomeColorChange = Observable(false);
 exports.expenseColorChange = Observable(true);
+exports.addColorChange = Observable(false);
 
 // data 가져올 때 1회만 가져오게 밖으로 뺐다.
 svp.check()

@@ -9,9 +9,16 @@ var homeColorChange = Observable(false);
 var shebColorChange = Observable(false);
 var accColorChange = Observable(true);
 
+
 var Month = [];
 
+// var NetworkError = Observable(false);
 
+
+// function retry(){
+// 	NetworkError.value = false;
+// 	svp.check();
+// }
 
 for(var i=1; i<=12; i++){
 	Month.push(i);
@@ -38,7 +45,7 @@ function addComma(num) {
 function totalAmount(){
 	
 	fetch('http://18.222.99.74/account/call/amount',{
-	// fetch('http://aa52f6e2.ngrok.io/account/call/amount',{
+	// fetch('http://3ff05a06.ngrok.io/account/call/amount',{
 		method: "GET",
 		headers: {
 			"Content-type": "application/JSON"
@@ -51,6 +58,10 @@ function totalAmount(){
 
 	}).catch((err)=>{
 		console.log("Error: " + error);
+		// if(err == "TypeError: Network request failed" ){
+		// 	NetworkError.value = true;
+		// 	isLoading.value = false;
+		// }
 	});
 }
 totalAmount();

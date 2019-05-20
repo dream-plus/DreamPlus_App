@@ -35,6 +35,14 @@ var homeColorChange = Observable(false);
 var shebColorChange = Observable(false);
 var accColorChange = Observable(false);
 
+var NetworkError = Observable(false);
+
+
+function retry(){
+	NetworkError.value = false;
+	svp.check();
+}
+
 
 
 svp.check();
@@ -51,7 +59,7 @@ function loadMore(){
 
 function loadSome(){
 	fetch('http://18.222.99.74/board/am',{
-		// fetch('http://aa52f6e2.ngrok.io/board/am',{
+		// fetch('http://3ff05a06.ngrok.io/board/am',{
 			method: "GET",
 			headers: {
 				"Content-type": "application/JSON"
@@ -67,7 +75,6 @@ function loadSome(){
 				items.add(createPage(res[i].name,res[i].title,res[i].content,res[i].date)
 
 				);		
-				console.log(res);
 
 			}
 
@@ -75,6 +82,10 @@ function loadSome(){
 
 		}).catch((err)=>{
 			console.log(err);
+			if(err == "TypeError: Network request failed" ){
+				NetworkError.value = true;
+				isLoading.value = false;
+			}
 		});
 	}
 
@@ -103,7 +114,9 @@ function loadSome(){
 		boardColorChange : boardColorChange,
 		homeColorChange : homeColorChange,
 		shebColorChange : shebColorChange,
-		accColorChange : accColorChange
+		accColorChange : accColorChange,
+		NetworkError : NetworkError,
+		retry : retry
 	};
 
 

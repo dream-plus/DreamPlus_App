@@ -4,45 +4,62 @@
 	<JavaScript File="../MainView.js" />
 
 
-	<mainbottombar/>
-	<Panel>
-		<Panel Color="#FEFFFE" Alignment="Bottom" Margin="0, 0, 0, 70">
-			<DockPanel Alignment="Default" Color="#FDFFFD" Height="50">
-				<Rectangle Dock="Left" Width="100" Margin="10, 0, 0, 0">
-					<Text Value="전체보기" TextAlignment="Center" Alignment="Center" FontSize="10" />
+	<!-- 서버랑 연결이 끊어졌을 때 나오는 에러 -->
+	<WhileTrue Value="{NetworkError}">
+		<Panel Background="#00000042">
+			<Rectangle Width="200" Height="150" Alignment="Center" CornerRadius="20" Color="#FFF">
+				<Text Value="서버와 연결이 끊어졌습니다." Alignment="HorizontalCenter" FontSize="15" Font="Bold" Margin="0, 30, 0, 0" />
+				<Text Margin="0, 60, 0, 0" Value="계속 실패한다면 잠시 후 다시 시도해주세요." FontSize="10" Alignment="HorizontalCenter" />
+				<Rectangle Margin="0, 0, 0, 40" Color="#C3C4C3" Height="1" Alignment="Bottom">
+					<Text Value="재시도" FontSize="15" Alignment="HorizontalCenter" Margin="0, 10, 0, 0" TextColor="#0C82B3" />					</Rectangle>
 				</Rectangle>
-				<Rectangle Dock="Left" Margin="0, 0, 10, 0" Height="15" Width="255" Color="#AADEF6" />
-			</DockPanel>
-			<Shadow Angle="153" />
-		</Panel>
-		<DockPanel>
-			<Panel Dock="Top" Color="#FEFFFE" Height="80">
-				<Panel Height="56" Alignment="Bottom">
-					<Text Value="게시판" TextColor="#0C82B3" Alignment="BottomCenter" FontSize="18" Font="Bold" />
-					<Button Alignment="Right" HitTestMode="LocalBounds" Width="56" Height="56">
-						<Rectangle Height="2" Width="20" Color="#0C82B3" />
-						<Rectangle Width="2" Height="20" Color="#0C82B3" />
-						<Clicked>
-							<Callback Handler="{write}" />
-						</Clicked>
-					</Button>
+				<Clicked>
+					<Callback Handler="{retry}" />
+				</Clicked>
+			</Panel>
+		</WhileTrue>
+
+		<mainbottombar />
+
+
+		<Panel>
+			<Panel Color="#FEFFFE" Alignment="Bottom" Margin="0, 0, 0, 70">
+				<DockPanel Alignment="Default" Color="#FDFFFD" Height="50">
+					<Rectangle Dock="Left" Width="100" Margin="10, 0, 0, 0">
+						<Text Value="전체보기" TextAlignment="Center" Alignment="Center" FontSize="10" Font="Nanum_acR" />
+					</Rectangle>
+					<Rectangle Dock="Left" Margin="0, 0, 10, 0" Height="15" Width="255" Color="#AADEF6" />
+				</DockPanel>
+				<Shadow Angle="153" />
+			</Panel>
+			<DockPanel>
+				<Panel Dock="Top" Color="#FEFFFE" Height="80">
+					<Panel Height="56" Alignment="Bottom">
+						<Text Value="게시판" TextColor="#0C82B3" Alignment="BottomCenter" FontSize="18" Font="Nanum_acEB" />
+						<Button Alignment="Right" HitTestMode="LocalBounds" Width="56" Height="56">
+							<Rectangle Height="2" Width="20" Color="#0C82B3" />
+							<Rectangle Width="2" Height="20" Color="#0C82B3" />
+							<Clicked>
+								<Callback Handler="{write}" />
+							</Clicked>
+						</Button>
+					</Panel>
 				</Panel>
-			</Panel>
 
-			<Panel ux:Class="Tab" ClipToBounds="false" Margin="0,0,0,4" Background="#F2F3F2">
-				<string ux:Property="Text" />
-				<Text Value="{ReadProperty Text}" Color="#B8B9B8" Alignment="Center" />
-			</Panel>
+				<Panel ux:Class="Tab" ClipToBounds="false" Margin="0,0,0,4" Background="#F2F3F2">
+					<string ux:Property="Text" />
+					<Text Value="{ReadProperty Text}" Color="#B8B9B8" Alignment="Center" Font="Nanum_acB" />
+				</Panel>
 
-			<Rectangle ux:Name="indicator" LayoutMaster="page1Tab" Alignment="Bottom" Color="#0C82B3" Height="4" Width="60">
-				<LayoutAnimation>
-					<Move RelativeTo="WorldPositionChange" X="1" Duration="0.4" Easing="BackIn" />
-				</LayoutAnimation>
-			</Rectangle>
+				<Rectangle ux:Name="indicator" LayoutMaster="page1Tab" Alignment="Bottom" Color="#0C82B3" Height="4" Width="60">
+					<LayoutAnimation>
+						<Move RelativeTo="WorldPositionChange" X="1" Duration="0.4" Easing="BackIn" />
+					</LayoutAnimation>
+				</Rectangle>
 
-			<Grid Dock="Top" Columns="1*,1*,1*" Height="50" Background="#bdc3c7">
-				<Panel ux:Name="page1Tab">
-					<Tab ux:Name="noticebtn" Text="공지">
+				<Grid Dock="Top" Columns="1*,1*,1*" Height="50" Background="#bdc3c7">
+					<Panel ux:Name="page1Tab">
+						<Tab ux:Name="noticebtn" Text="공지">
 					<!-- <WhilePressed>
 						<Scale Target="noticebtn" Factor="0.9" Duration="0.05" />
 					</WhilePressed> -->
@@ -80,33 +97,30 @@
 				<WhileActive Threshold="0.01">
 					<Set indicator.LayoutMaster="page1Tab" />
 				</WhileActive>
-				<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE">        
+				<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE" Alignment="Default" Margin="0, 0, 0, 0">        
 					<StackPanel>
+						<WhileTrue Value="{isLoading}">
+							<Panel LayoutRole="Placeholder" Color="#F6FBFF" Height="50">
+								<Text Alignment="Center" Value="Loading…" />
+							</Panel>
+						</WhileTrue>
 						<Each Items="{items}" ux:Name="theEach" Reuse="Frame">
 							<Grid Dock="Top" Height="50" ColumnCount="3" RowCount="2" Columns="1*,3*,1*" Alignment="Default" Margin="0, 2, 0, 0" ChildOrder="RowMajor" Clicked="{gotoDetails}">
-								<Rectangle Margin="0, 10, 0, 0" Background="#95D1EC" Width="40" Height="20" Alignment="Default">
-									<Text Value="다온" TextAlignment="Center" FontSize="10" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" />
+								<Rectangle Margin="0, 10, 0, 0" Width="40" Height="15" Alignment="Default" Color="#95D1EC" CornerRadius="50">
+									<Text Value="다온" TextAlignment="Center" FontSize="8" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" Font="Nanum_acR" />
 								</Rectangle>
-								<Text Value="{title}" Alignment="Center" FontSize="12" TextAlignment="Left" TextColor="#000" />
+								<Text Value="{title}" Alignment="Center" FontSize="12" TextAlignment="Left" TextColor="#000" Font="Nanum_acB" />
 								<Text />
-								<Text Value="{name}" Alignment="Center" FontSize="10" TextColor="#C1C2C1" />
-								<Text Value="{content}" Alignment="Center" FontSize="12" TextColor="#C1C2C1" />
+								<Text Value="{name}" Alignment="Center" FontSize="10" TextColor="#C1C2C1" Font="Nanum_acL" />
+								<Text Value="{content}" Alignment="Center" FontSize="12" TextColor="#C1C2C1" Font="Nanum_acR" />
 								<Text Value="{days}" Alignment="CenterLeft" FontSize="10" TextColor="#C1C2C1" />
 							</Grid>
 							<Rectangle Height="2" Color="#E3E4E3" /> 
 						</Each>
-
-						<WhileTrue Value="{isLoading}">
-							<Panel LayoutRole="Placeholder" Height="100" Color="#F6FBFF">
-								<Text Alignment="Center" Value="Loading…" />
-							</Panel>
-						</WhileTrue>
-
-
 					</StackPanel>
-					<ScrollViewPager Each="theEach" ReachedEnd="{loadMore}" ux:Name="svp" />
-
+					<ScrollViewPager Each="theEach" ReachedStart="{loadMore}" ux:Name="svp" />
 				</ScrollView>
+
 			</Page>
 			<Page ux:Name="page2" Background="#EAEAEA">
 				<WhileActive Threshold="0.01">

@@ -7,10 +7,10 @@
 				<Rectangle ux:Name="homebtn" Color="#FBFCFB">
 					<WhileTrue Value="{homeColorChange}">
 						<Image File="Assets/bottombar/home.png" Alignment="Default" Width="25" Y="10" Height="25" />
-						<Text Value="홈" FontSize="10" TextColor="#0C7BAF" Alignment="HorizontalCenter" Y="40" />
+						<Text Value="홈" FontSize="10" TextColor="#0C7BAF" Alignment="HorizontalCenter" Y="40" Font="Nanum_acR" />
 					</WhileTrue>
 					<Image File="Assets/bottombar/home_off.png" Alignment="Default" Width="25" Y="10" Height="25" />
-					<Text Value="홈" FontSize="10" TextColor="#909191" Alignment="HorizontalCenter" Y="40" />
+					<Text Value="홈" FontSize="10" TextColor="#909191" Alignment="HorizontalCenter" Y="40" Font="Nanum_acR" />
 					<WhilePressed>
 						<Scale Target="homebtn" Factor="0.9" Duration="0.05" />
 					</WhilePressed>
@@ -25,10 +25,10 @@
 				<Rectangle ux:Name="boardbtn" Color="#FBFCFB">
 					<WhileTrue Value="{boardColorChange}">
 						<Image File="Assets/bottombar/notice.png" Alignment="Default" Width="25" Y="10" Height="25" />
-						<Text Value="게시판" FontSize="10" TextColor="#0C7BAF" Alignment="HorizontalCenter" Y="40" />	
+						<Text Value="게시판" FontSize="10" TextColor="#0C7BAF" Alignment="HorizontalCenter" Y="40" Font="Nanum_acR" />	
 					</WhileTrue>
 					<Image File="Assets/bottombar/notice_off.png" Alignment="Default" Width="25" Y="10" Height="25" />
-					<Text Value="게시판" FontSize="10" TextColor="#979998" Alignment="HorizontalCenter" Y="40" />					
+					<Text Value="게시판" FontSize="10" TextColor="#979998" Alignment="HorizontalCenter" Y="40" Font="Nanum_acR" />					
 					<WhilePressed>
 						<Scale Target="boardbtn" Factor="0.9" Duration="0.05" />
 					</WhilePressed>
@@ -42,10 +42,10 @@
 				<Rectangle ux:Name="schebtn" Color="#FBFCFB">
 					<WhileTrue Value="{shebColorChange}">
 						<Image File="Assets/bottombar/schedule.png" Alignment="Default" Width="25" Y="10" Height="25" />
-						<Text FontSize="10" Value="스케줄" Alignment="HorizontalCenter" TextColor="#0C7BAF" Y="40" />
+						<Text FontSize="10" Value="스케줄" Alignment="HorizontalCenter" TextColor="#0C7BAF" Y="40" Font="Nanum_acR" />
 					</WhileTrue>
 					<Image File="Assets/bottombar/schedule_off.png" Alignment="Default" Width="25" Y="10" Height="25" />
-					<Text FontSize="10" Value="스케줄" Alignment="HorizontalCenter" TextColor="#979A98" Y="40" />
+					<Text FontSize="10" Value="스케줄" Alignment="HorizontalCenter" TextColor="#979A98" Y="40" Font="Nanum_acR" />
 					<WhilePressed>
 						<Scale Target="schebtn" Factor="0.9" Duration="0.05" />
 					</WhilePressed>
@@ -59,10 +59,10 @@
 				<Rectangle ux:Name="accbtn" Color="#FBFCFB">
 					<WhileTrue Value="{accColorChange}">
 						<Image File="Assets/bottombar/cog.png" Alignment="Default" Width="25" Y="10" Height="25" />
-						<Text FontSize="10" Value="장부" Alignment="HorizontalCenter" TextColor="#0C7BAF" Y="40" />
+						<Text FontSize="10" Value="장부" Alignment="HorizontalCenter" TextColor="#0C7BAF" Y="40" Font="Nanum_acR" />
 					</WhileTrue>
 					<Image File="Assets/bottombar/cog_off.png" Alignment="Default" Width="25" Y="10" Height="25" />
-					<Text FontSize="10" Value="장부" Alignment="HorizontalCenter" TextColor="#969A97" Y="40" />
+					<Text FontSize="10" Value="장부" Alignment="HorizontalCenter" TextColor="#969A97" Y="40" Font="Nanum_acR" />
 					<WhilePressed>
 						<Scale Target="accbtn" Factor="0.9" Duration="0.05" />
 					</WhilePressed>

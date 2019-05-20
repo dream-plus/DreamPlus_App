@@ -12,6 +12,7 @@ exports.isLoading = Observable(false);
 // income 과 expense 는 false 과 true 가 반대입니다.
 exports.expenseColorChange = Observable(false);
 exports.incomeColorChange = Observable(true);
+exports.addColorChange = Observable(false);
 
 svp.check()
 

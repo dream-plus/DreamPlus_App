@@ -10,9 +10,9 @@
 				<Sketch.moneylist Alignment="Default" Width="15" Height="15" Y="25" />
 				<DockPanel Margin="{left}, 0, {right}, 0">
 					<Rectangle Alignment="Default" Dock="{direction}" Width="160" Height="70">						
-						<Text Value="{title}" Color="#434443" TextAlignment="{opp}" FontSize="15" />
-						<Text Value="{content}" Color="#404140" TextAlignment="{opp}" FontSize="15" Y="20" />
-						<Text Value="{expense}원" Color="#006EA8" TextAlignment="{opp}" FontSize="25" Y="38" />
+						<Text Value="{title}" Color="#434443" TextAlignment="{opp}" FontSize="15" Font="Nanum_acB" />
+						<Text Value="{content}" Color="#404140" TextAlignment="{opp}" FontSize="15" Y="20" Font="Nanum_acB" />
+						<Text Value="{expense}원" Color="#006EA8" TextAlignment="{opp}" FontSize="25" Y="38" Font="Nanum_acB" />
 					</Rectangle>
 				</DockPanel>
 			</Each>

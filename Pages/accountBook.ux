@@ -3,15 +3,31 @@
 	
 	<JavaScript File="accountBook.js" />
 	<JavaScript File="../MainView.js" />
-
-	<mainbottombar />
-
-	<Panel Dock="Top">
-		<accountTopbar />
-	</Panel>
+	
 
 
-	<Panel>
-		<accountHome />
-	</Panel>
-</Page>
+	<!-- 서버랑 연결이 끊어졌을 때 나오는 에러 -->
+	<!-- <WhileTrue Value="{NetworkError}">
+		<Panel Background="#00000042">
+			<Rectangle Width="200" Height="150" Alignment="Center" CornerRadius="20" Color="#FFF">
+				<Text Value="서버와 연결이 끊어졌습니다." Alignment="HorizontalCenter" FontSize="15" Font="Bold" Margin="0, 30, 0, 0" />
+				<Text Margin="0, 60, 0, 0" Value="계속 실패한다면 잠시 후 다시 시도해주세요." FontSize="10" Alignment="HorizontalCenter" />
+				<Rectangle Margin="0, 0, 0, 40" Color="#C3C4C3" Height="1" Alignment="Bottom">
+					<Text Value="재시도" FontSize="15" Alignment="HorizontalCenter" Margin="0, 10, 0, 0" TextColor="#0C82B3" />					</Rectangle>
+				</Rectangle>
+				<Clicked>
+					<Callback Handler="{retry}" />
+				</Clicked>
+			</Panel>
+		</WhileTrue> -->
+		<mainbottombar />
+
+		<Panel Dock="Top">
+			<accountTopbar />
+		</Panel>
+
+
+		<Panel>
+			<accountHome />
+		</Panel>
+	</Page>

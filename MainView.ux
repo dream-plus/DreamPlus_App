@@ -1,6 +1,11 @@
 <App>
 	<!-- <ClientPanel> -->
 	<Router ux:Name="router" />
+
+	<Font File="./Assets/font/NanumSquareOTF_acB.otf" ux:Global="Nanum_acB" />
+	<Font File="./Assets/font/NanumSquareOTF_acEB.otf" ux:Global="Nanum_acEB" />
+	<Font File="./Assets/font/NanumSquareOTF_acL.otf" ux:Global="Nanum_acL" />
+	<Font File="./Assets/font/NanumSquareOTF_acR.otf" ux:Global="Nanum_acR" />
 	
 	<Navigator DefaultPath="loginPage">
 		<home ux:Template="home" router="router" Color="#FFF">
@@ -53,9 +58,31 @@
 				<Move X="1" RelativeTo="ParentSize" />
 			</Transition>
 		</notice> -->
-		<loginPage ux:Template="loginPage" router="router"/>
+		<loginPage ux:Template="loginPage" router="router" />
 		<signupPage ux:Template="signupPage" router="router" />
-		<detailPage ux:Template="detailPage" router="router" Color="#FFF"/>
+		<detailPage ux:Template="detailPage" router="router" Color="#FFF" />
+		<projectSch ux:Template="projectSch" router="router">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</projectSch>
+		<detailProjectPage ux:Template="detailProjectPage" router="router" >
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</detailProjectPage>
+		<addProject ux:Template="addProject" router="router">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</addProject>
+		<preveiwProject ux:Template="preveiwProject" router="router">
+			<Transition>
+				<Move X="1" RelativeTo="ParentSize" />
+			</Transition>
+		</preveiwProject>
+
+
 	</Navigator>
 
 	

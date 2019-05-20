@@ -6,12 +6,10 @@ function gotoHome(){
 }
 
 function gotoBoard(){
-	// change.value = true;
 	router.goto("boardMain");
 }
 
 function gotoSchedule(){
-	// change.value = false;
 	router.goto("schedule");
 }
 

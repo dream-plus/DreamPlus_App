@@ -15,7 +15,7 @@
 		<ScrollView Height="100" Layer="Overlay" Background="#F6FBFF" Width="200">
 			<StackPanel Margin="0, 30, 0, 20">
 				<Each Items="{array}">
-					<Text Value="{=data()}" FontSize="12" Clicked="{choice}" Color="#515251" Alignment="Default" TextAlignment="Center" ux:Name="Monthtext" Padding="0, 10, 0, 0">
+					<Text Value="{=data()}" FontSize="12" Clicked="{choice}" Color="#515251" Alignment="Default" TextAlignment="Center" ux:Name="Monthtext" Padding="0, 10, 0, 0" Font="Nanum_acB">
 						<Clicked>							
 							<Set Target="selectvalue.Value" Value="{select}" />
 						</Clicked>
@@ -30,7 +30,7 @@
 
 			<Rectangle Width="350" Height="50" Alignment="Default">
 				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Default" Width="16" Height="16" />
-				<Text Column="1" ux:Name="selectvalue" Width="240" FontSize="15" Alignment="Center" Value="{select} " />
+				<Text Column="1" ux:Name="selectvalue" Width="240" FontSize="15" Alignment="Center" Value="{select} " Font="Nanum_acB" />
 				<Clicked>
 					<Callback Handler="{toggleChange}" />
 				</Clicked>
@@ -41,14 +41,14 @@
 			<!-- 내역 입력 부분 -->
 			<Rectangle Alignment="Default" Height="50" Width="350">
 				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Default" Width="16" Height="16" />
-				<TextInput Column="1" PlaceholderText="내역" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{title}" Alignment="Default" FontSize="20" />
+				<TextInput Column="1" PlaceholderText="내역" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{title}" Alignment="Default" FontSize="20" Font="Nanum_acR" />
 				<Rectangle Width="240" Height="2" Color="#929392" Margin="0, 35, 0, 0" />		
 			</Rectangle>
 
 			<!-- 금액 입력 부분 -->
 			<Rectangle Alignment="Default" Width="300" Height="50" Margin="0, 0, 0, 0">
 				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Default" Width="16" Height="16" />
-				<TextInput Row="0" Column="1" PlaceholderText="금액" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{amount}" Alignment="Default" Margin="0, 0, 0, 0" FontSize="20" InputHint="Number" />
+				<TextInput Row="0" Column="1" PlaceholderText="금액" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{amount}" Alignment="Default" Margin="0, 0, 0, 0" FontSize="20" InputHint="Number" Font="Nanum_acR" />
 				<Rectangle Width="240" Height="2" Color="#929392" Margin="0, 35, 0, 0" />
 			</Rectangle>
 
@@ -60,7 +60,7 @@
 				<Grid RowCount="1" ColumnCount="5" Height="22" Width="240">
 					<Panel>
 						<ScrollView>
-							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="2019" />
+							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="2019" Font="Nanum_acR" />
 						</ScrollView>
 					</Panel>
 
@@ -85,7 +85,7 @@
 							<Rectangle Background="#FEFFFE" />
 						</WhileTrue>
 						<Rectangle>
-							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="{monthInit}" TextAlignment="Center" ux:Name="selectMonth" />
+							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="{monthInit}" TextAlignment="Center" ux:Name="selectMonth" Font="Nanum_acR" />
 							<Clicked>
 								<Callback Handler="{monthChange}" />
 							</Clicked>
@@ -114,7 +114,7 @@
 							<Rectangle Background="#FEFFFE" />
 						</WhileTrue>
 						<Rectangle>
-							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="{dayInit}" TextAlignment="Center" ux:Name="selectDay" />
+							<Text Row="0" Column="1" TextColor="#A7A9A9" Alignment="Center" FontSize="20" Width="50" Value="{dayInit}" TextAlignment="Center" ux:Name="selectDay" Font="Nanum_acR" />
 							<Clicked>
 								<Callback Handler="{dayChange}" />
 							</Clicked>
@@ -126,7 +126,7 @@
 			<!-- 세부내용 입력 부분 -->
 			<Rectangle Alignment="Default" Width="300" Height="100">
 				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Top" Width="16" Height="16" />
-				<TextInput Row="0" Column="1" PlaceholderText="세부내용" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{detail}" Alignment="Top" Margin="0, 0, 0, 0" FontSize="13" TextWrapping="Wrap" LineSpacing="20" />
+				<TextInput Row="0" Column="1" PlaceholderText="세부내용" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{detail}" Alignment="Top" Margin="0, 0, 0, 0" FontSize="13" TextWrapping="Wrap" LineSpacing="20" Font="Nanum_acR" />
 				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 20, 0, 0" Alignment="Top" />
 				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 50, 0, 0" Alignment="Top" />
 				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 85, 0, 0" Alignment="Top" />
@@ -135,7 +135,7 @@
 			<!-- 근거 입력 부분 -->
 			<Rectangle Alignment="Bottom" Width="300" Height="200">
 				<Circle Color="#84B0CA" Margin="0, 0, 300, 0" Alignment="Top" Width="16" Height="16" />
-				<TextInput Row="0" Column="1" PlaceholderText="근거 ( 사진, 영수증 등 )" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{based}" Alignment="Top" FontSize="13" />
+				<TextInput Row="0" Column="1" PlaceholderText="근거 ( 사진, 영수증 등 )" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{based}" Alignment="Top" FontSize="13" Font="Nanum_acR" />
 				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 20, 0, 0" Alignment="Top" />
 
 				<WhileTrue Value="{photoView}">
