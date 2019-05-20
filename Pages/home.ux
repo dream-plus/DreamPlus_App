@@ -1,19 +1,103 @@
 <Page ux:Class="home">
 	<Router ux:Dependency="router" />
-	<JavaScript File="../MainView.js" />
-	<JavaScript>
-	var Observable = require("FuseJS/Observable");
-	
-	exports.boardColorChange = Observable(false);
-	exports.homeColorChange = Observable(true);
-	exports.shebColorChange = Observable(false);
-	exports.accColorChange = Observable(false);
-	</JavaScript>
-	
-	<!-- <JavaScript File="signupInd.js" /> -->
+	<JavaScript File="../MainView.js" />	
+	<JavaScript File="home.js" />
 
-	<Text Color="#999" TextAlignment="Center" FontSize="20" Y="200">home Page</Text>
-	
+	<!-- 서버랑 연결이 끊어졌을 때 나오는 에러 -->
+	<WhileTrue Value="{NetworkError}">
+		<Panel Background="#00000042">
+			<Rectangle Width="200" Height="150" Alignment="Center" CornerRadius="20" Color="#FFF">
+				<Text Value="서버와 연결이 끊어졌습니다." Alignment="HorizontalCenter" FontSize="15" Font="Bold" Margin="0, 30, 0, 0" />
+				<Text Margin="0, 60, 0, 0" Value="계속 실패한다면 잠시 후 다시 시도해주세요." FontSize="10" Alignment="HorizontalCenter" />
+				<Rectangle Margin="0, 0, 0, 40" Color="#C3C4C3" Height="1" Alignment="Bottom">
+					<Text Value="재시도" FontSize="15" Alignment="HorizontalCenter" Margin="0, 10, 0, 0" TextColor="#0C82B3" />					</Rectangle>
+				</Rectangle>
+				<Clicked>
+					<Callback Handler="{retry}" />
+				</Clicked>
+			</Panel>
+		</WhileTrue>
 
-	<mainbottombar />
-</Page>
+
+		<mainbottombar />
+		<StackPanel>
+			<Image File="../Assets/logoGray.png" Alignment="Left" Width="100" Margin="15, 35, 0, 0" Height="40" />
+			<Panel Height="245" Margin="0, 25, 0, 0">
+				<Text Value="공지사항" FontSize="13" Alignment="TopLeft" Margin="25, 0, 0, 0" Font="Nanum_acEB" />
+				<Rectangle Alignment="TopRight">
+					<Text Value="MORE" Alignment="TopRight" Margin="0, 0, 25, 0" FontSize="13" Font="Nanum_acEB" />
+					<Image File="../Assets/IconRight.png" Width="10" Height="10" Alignment="TopRight" Margin="0, 2, 65, 0" />
+					<Clicked>
+						<Callback Handler="{gotoBoard}" />						
+					</Clicked>
+				</Rectangle>
+
+				<Rectangle Height="2" Color="#E3E4E3" Width="340" Alignment="Top" Margin="0, 80, 0, 0" />
+				<Rectangle Height="2" Color="#E3E4E3" Width="340" Margin="0, 20, 0, 0" />
+				<Rectangle Height="2" Color="#E3E4E3" Width="340" Alignment="Bottom" Margin="0, 0, 0, 60" />
+
+				<StackPanel Alignment="Default" Margin="0, 30, 0, 0">
+					<Each Items="{noticeItems}" ux:Name="noticeEach" Reuse="Frame">
+						<Grid Dock="Top" Height="50" ColumnCount="3" RowCount="2" Columns="1*,3*,1*" Alignment="Default" Margin="10, 2, 0, 0" ChildOrder="RowMajor" Clicked="{gotoDetails}">
+							<Rectangle Margin="0, 10, 0, 0" Width="40" Height="15" Alignment="Default" CornerRadius="50" Color="#95D1EC">
+								<Text Value="다온" TextAlignment="Center" FontSize="8" Alignment="Center" TextColor="#727372" Margin="0, 0, 0, 0" Font="Nanum_acR" />
+							</Rectangle>
+							<Text Value="{noticeTitle}" Alignment="Center" FontSize="12" TextAlignment="Left" TextColor="#000" Margin="0, 10, 0, 0" Font="Nanum_acB" />
+							<Text />
+							<Text Value="{noticeDays}" Alignment="Center" FontSize="10" TextColor="#636463" Margin="0, 0, 0, 5" Font="Nanum_acL" />
+							<Text Value="written by {noticeName}" Alignment="Center" FontSize="12" TextColor="#929393" Margin="0, 0, 0, 5" Font="Nanum_acR" />
+
+						</Grid>
+						<!-- <Rectangle Height="2" Color="#E3E4E3" Width="340" />  -->
+					</Each>
+
+
+				</StackPanel>
+
+			</Panel>
+			<Rectangle Height="1" Color="#A0A1A0" />
+			<Panel Height="245" Margin="0, 20, 0, 0">
+				<Text Value="프로젝트 스케줄" FontSize="13" Alignment="TopLeft" Margin="25, 0, 0, 0" Font="Nanum_acEB" />
+				<Rectangle Alignment="TopRight">
+					<Text Value="MORE" FontSize="13" Alignment="TopRight" Margin="0, 0, 25, 0" Font="Nanum_acEB" />
+					<Image File="../Assets/IconRight.png" Width="10" Height="10" Alignment="TopRight" Margin="0, 2, 65, 0" />
+					<Clicked>
+						<Callback Handler="{gotoProject}" />						
+					</Clicked>
+				</Rectangle>
+
+				<Rectangle Height="2" Color="#E3E4E3" Width="340" Margin="0, 20, 0, 0" />
+
+				<StackPanel Alignment="Default" Margin="0, 30, 0, 0" ItemSpacing="10">
+					<Each Items="{projectItems}" ux:Name="projectEach" Reuse="Frame">
+						<Panel Height="90">
+							<Grid Dock="Top" Height="50" Alignment="Default" Margin="10, 0, 0, 0" ChildOrder="RowMajor" Clicked="{gotoDetails}" RowCount="1" ColumnCount="3" Columns="1*,3*,1*">
+								<Circle Width="50" Height="50" Color="#515251" Alignment="Left" Margin="15, 0, 0, 0" />
+								<Rectangle Alignment="Default" Margin="10, 0, 0, 0">
+									<Text Value="{noticetitle}" Alignment="Top" FontSize="12" TextAlignment="Left" TextColor="#000" Margin="0, 0, 0, 0" Font="Nanum_acB" />
+									<Text Value="{noticemember}" Alignment="CenterLeft" FontSize="10" TextColor="#616261" Margin="0, 0, 0, 5" Font="Nanum_acL" />
+									<Text Value="written by {noticedate}" Alignment="Bottom" FontSize="10" TextColor="#929393" Margin="0, 0, 0, 5" Font="Nanum_acR" />
+								</Rectangle>
+								<Image File="../Assets/IconRight.png" Width="10" Height="10" Alignment="CenterRight" Margin="0, 0, 30, 0" />
+
+							</Grid>
+							<Panel Alignment="Bottom" Padding="0, 0, 0, 0">
+								<StackPanel Orientation="Horizontal" Margin="86, 0, 0, 0">
+									<Rectangle Width="200" Margin="0, 0, 0, 0">
+										<Rectangle Height="15" Width="{percent}%" CornerRadius="30" Margin="0, 0, 0, 0" Alignment="Left" Color="#7CB7D0" Padding="0, 0, 0, 0" />
+										<Rectangle Height="15" Width="200" Color="#D4D5D4" CornerRadius="30" Margin="0, 0, 0, 0" />
+									</Rectangle>
+									
+									<Text Value="{percent}%" Alignment="CenterRight" FontSize="10" Margin="10, 0, 0, 0" />
+								</StackPanel>
+								
+							</Panel>
+						</Panel>
+						
+						<!-- <Rectangle Height="2" Color="#E3E4E3" Width="340" Margin="0, 20, 0, 0" /> --> 
+					</Each>
+
+				</StackPanel>
+			</Panel>
+		</StackPanel>
+	</Page>

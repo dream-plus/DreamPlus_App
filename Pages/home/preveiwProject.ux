@@ -1,0 +1,3 @@
+<Page ux:Class="preveiwProject" >
+	<Router ux:Dependency="router" />
+</Page>
