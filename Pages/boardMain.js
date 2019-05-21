@@ -1,8 +1,6 @@
 
 var Observable = require("FuseJS/Observable");
 
-
-
 var opts = ({
 	id : '2',
 	name : "감사원"

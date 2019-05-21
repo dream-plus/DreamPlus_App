@@ -28,8 +28,8 @@ function gotoProject(){
 }
 
 function noticeloadSome(){
-	fetch('http://18.222.99.74/board/am',{
-		// fetch('http://3ff05a06.ngrok.io/board/am',{
+	// fetch('http://18.222.99.74/board/am',{
+		fetch('http://3ff05a06.ngrok.io/board/am',{
 			method: "GET",
 			headers: {
 				"Content-type": "application/JSON"
@@ -70,8 +70,8 @@ function createBoardPage(name, title, content, date) {
 
 function projectloadSome(){
 
-	fetch('http://18.222.99.74/cal/am',{
-		// fetch('http://3ff05a06.ngrok.io/board/am',{
+	// fetch('http://18.222.99.74/cal/am',{
+		fetch('http://3ff05a06.ngrok.io/board/am',{
 			method: "GET",
 			headers: {
 				"Content-type": "application/JSON"
@@ -112,6 +112,31 @@ function createProjectPage(title, member, date, percent,contents) {
 
 noticeloadSome();
 projectloadSome();
+
+// function SesstionTest(){
+
+// 	// fetch('http://18.222.99.74/users/session',{
+// 		fetch('http://3ff05a06.ngrok.io/users/session',{
+// 			method: "GET",
+// 			headers: {
+// 				"Content-type": "application/JSON"
+// 			}
+
+
+// 		}).then(function(res){
+// 			return res.json();
+// 		}).then(function(res){
+// 			console.log("session result = " + res.message);
+
+// 		}).catch((err)=>{
+// 			console.log(err);
+// 			if(err == "TypeError: Network request failed" ){
+// 				NetworkError.value = true;
+// 			}
+// 		});
+// }
+
+// SesstionTest();
 
 module.exports = {
 
