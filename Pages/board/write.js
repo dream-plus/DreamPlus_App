@@ -29,6 +29,9 @@ var daonToggle = Observable(true);
 var leafToggle = Observable(false);
 var designToggle = Observable(false);
 
+var sessionUserID = Observable("");
+var sessionUserName = Observable("");
+
 function daonSelect(){
 	daonToggle.value = true;
 	leafToggle.value = false;
@@ -64,10 +67,36 @@ function boardclick(e){
 
 }
 
+// 세션을 불러오는 함수.( id, name 불러오는 용도. )
+function Session(){
+
+	fetch('http://18.222.99.74/users/session',{
+		// fetch('http://3ff05a06.ngrok.io/users/session',{
+			method: "GET",
+			headers: {
+				"Content-type": "application/JSON"
+			}
+		}).then(function(res){
+			return res.json();
+		}).then(function(res){
+			// message true는 세션이 작동 되었는지 확인하는 변수.
+			if(res.message == 'true'){ 
+				sessionUserName.value = res.username;
+				sessionUserID.value = res.userid;
+			}			
+
+		}).catch((err)=>{
+			console.log(err );
+			
+		});
+}
+
+Session(); // Session 함수를 무조건 실행시키기 위한 곳.
+
 function contents(){
 	var opts2 = ({
-		'_id': 'testid07',
-		'name' : 'kbs',
+		'_id': sessionUserID.value,
+		'name' : sessionUserName.value,
 		'title' : title.value,
 		'category' : selectCategory.value,
 		'content' : content.value,
