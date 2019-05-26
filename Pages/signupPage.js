@@ -49,10 +49,6 @@ function addImage(){
     });
 }
 
-
-
-
-
 function Save(){
 
 	fetch('http://18.222.99.74/users/signup',{

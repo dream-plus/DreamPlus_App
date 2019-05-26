@@ -6,8 +6,6 @@ var homeColorChange = Observable(true);
 var shebColorChange = Observable(false);
 var accColorChange = Observable(false);
 
-
-
 var projectItems = Observable();
 var percent = Observable();
 
