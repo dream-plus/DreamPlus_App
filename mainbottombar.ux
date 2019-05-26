@@ -3,6 +3,8 @@
 	<Panel Dock="Bottom" Alignment="Bottom">
 		<Grid Color="#FBFCFB" ChildOrder="ColumnMajor" Alignment="Bottom" Height="70" Opacity="1" LayoutRole="Standard" RowCount="1" ColumnCount="4">
 			<Shadow Color="#ACACAC" Angle="179" />
+
+			<!-- 홈으로 이동하는 버튼 -->
 			<Panel Alignment="Default">
 				<Rectangle ux:Name="homebtn" Color="#FBFCFB">
 					<WhileTrue Value="{homeColorChange}">
@@ -21,6 +23,7 @@
 				
 			</Panel>
 
+			<!-- 게시판으로 이동하는 버튼 -->
 			<Panel Alignment="Default">
 				<Rectangle ux:Name="boardbtn" Color="#FBFCFB">
 					<WhileTrue Value="{boardColorChange}">
@@ -38,6 +41,7 @@
 				</Rectangle>
 			</Panel>
 
+			<!-- 스케출로 이동하는 버튼 -->
 			<Panel Alignment="Default">
 				<Rectangle ux:Name="schebtn" Color="#FBFCFB">
 					<WhileTrue Value="{shebColorChange}">
@@ -55,6 +59,7 @@
 				</Rectangle>
 			</Panel>
 
+			<!-- 장부로 이동하는 버튼 -->
 			<Panel Alignment="Default">
 				<Rectangle ux:Name="accbtn" Color="#FBFCFB">
 					<WhileTrue Value="{accColorChange}">
