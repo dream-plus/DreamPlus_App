@@ -47,18 +47,33 @@
 			</DockPanel>
 			<Rectangle Height="2" Color="#E3E4E3" Width="350" Alignment="HorizontalCenter" />
 			<DockPanel Height="30" Margin="0, 40, 10, 0" Alignment="HorizontalCenter">
-				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#F2F3F2">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#FDFFFE" CornerRadius="30">
 					<Text TextAlignment="Center" Alignment="Center" FontSize="10" Value="작성자" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#DBDDDD" />
 				</Rectangle>
 				<Rectangle Dock="Left" Width="2" />
-				<Rectangle Width="300" Height="30" Color="#F2F3F2" Dock="Left">
-					<Text Row="0" Column="1" Value="{name}" Alignment="Center" FontSize="10" TextAlignment="Center" Font="Nanum_acB" /> 
+				<Rectangle Width="300" Height="30" Color="#FDFFFE" Dock="Left" CornerRadius="30">
+					<Text Row="0" Column="1" Value="{name}" Alignment="Center" FontSize="10" TextAlignment="Center" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#DBDDDD" /> 
 				</Rectangle>
 			</DockPanel>
 
+			<DockPanel Margin="0, 5, 10, 0" Height="30" Alignment="HorizontalCenter">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#FEFFFE" CornerRadius="30">
+					<Text Value="첨부파일" TextAlignment="Center" Alignment="Center" FontSize="10" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#DBDDDD" />
+				</Rectangle>
+				<Rectangle Dock="Left" Width="2" />
+				<Rectangle Width="300" Height="30" Color="#FEFFFE" Dock="Left" Margin="0, 0, 0, 0" CornerRadius="30">
+					<Text Row="0" Column="1" Value="첨부파일 기능 넣는 곳" Alignment="Center" FontSize="10" TextAlignment="Left" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#DBDDDD" /> 
+				</Rectangle>
+			</DockPanel>
+
+
 			<Rectangle Width="350" Margin="0, 30, 0, 0" CornerRadius="10" Height="400">
 				<Rectangle Height="1" Width="350" Color="#DADDDC" Alignment="Bottom" Margin="0, 0, 0, 30" />
-				<TextView Alignment="Center" Value="{content}" TextAlignment="Center" TextWrapping="Wrap" />
+				<Text Alignment="Center" Value="{content}" TextAlignment="Center" TextWrapping="Wrap" />
 				<Text Alignment="Bottom" Value="댓글 X개" FontSize="12" TextColor="#939493" Margin="10, 0, 0, 7" />
 				<Text Value="좋아요 X개" Alignment="Bottom" TextColor="#EF7371" FontSize="12" Margin="75, 0, 0, 7" />
 				<Stroke Width="1" Color="#DBDDDD" />
