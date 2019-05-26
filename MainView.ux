@@ -53,14 +53,11 @@
 				<Move X="1" RelativeTo="ParentSize" />
 			</Transition>
 		</write>
-	<!-- 	<notice ux:Template="notice" router="router" Color="#FFF">
-			<Transition>
-				<Move X="1" RelativeTo="ParentSize" />
-			</Transition>
-		</notice> -->
+		
 		<loginPage ux:Template="loginPage" router="router" />
 		<signupPage ux:Template="signupPage" router="router" />
 		<detailPage ux:Template="detailPage" router="router" Color="#FFF" />
+
 		<projectSch ux:Template="projectSch" router="router">
 			<Transition>
 				<Move X="1" RelativeTo="ParentSize" />
@@ -81,6 +78,7 @@
 				<Move X="1" RelativeTo="ParentSize" />
 			</Transition>
 		</preveiwProject>
+		<projectMember ux:Template="projectMember" router="router" />
 
 
 	</Navigator>
