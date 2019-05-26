@@ -138,6 +138,7 @@
 				<TextInput Row="0" Column="1" PlaceholderText="근거 ( 사진, 영수증 등 )" PlaceholderColor="#CBCCCB" TextColor="#000" CaretColor="#fff" Width="240" Value="{based}" Alignment="Top" FontSize="13" Font="Nanum_acR" />
 				<Rectangle Width="240" Height="2" Color="#A2A3A2" Margin="0, 20, 0, 0" Alignment="Top" />
 
+				<!-- 사진 찍은 후 보여주는 곳 -->
 				<WhileTrue Value="{photoView}">
 					<Image File="{imagePath}" Margin="0, 40, 0, 0" Width="240" Height="180" />
 					<Rectangle Color="#FEFFFE" Margin="0, 40, 0, 0" Width="240" Height="180" />

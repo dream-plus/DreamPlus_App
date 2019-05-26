@@ -1,6 +1,7 @@
 <Page ux:Class="accountTopbar">
 	<!-- <JavaScript File="../accountBook.js" /> -->
 
+	<!-- 월별로 선택할 수 있는 popup창 -->
 	<WhileTrue Value="{MonthisOpen}">
 		<Rectangle Background="#0808087F" />
 		<ScrollView Height="100" Layer="Overlay" Width="200" Background="#F6FBFF">
@@ -22,7 +23,7 @@
 
 	<Rectangle Width="100" Height="15" Y="140" X="250">
 		<Panel Margin="10, 0, 0, 0">
-			<Text Value="4월 사용내역" FontSize="12" ux:Name="Monthvalue" Font="Nanum_acR" />
+			<Text Value="5월 사용내역" FontSize="12" ux:Name="Monthvalue" Font="Nanum_acR" />
 			<Sketch.moneydetaildown Margin="65, 0, 0, 0" />
 			<Clicked>
 				<Callback Handler="{MonthtoggleOpen}" />

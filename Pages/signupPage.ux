@@ -8,7 +8,14 @@
 	</Rectangle>
 	<Rectangle Alignment="Top" Color="#0C82B3" Height="250" CornerRadius="50">
 		<Circle Color="#FFF" Width="120" Height="120" Margin="0, 80, 0, 0">
+			<WhileTrue Value="{photoView}">
+				<Image File="{imagePath}" Margin="0, 0, 0, 0" Width="120" Height="120" />
+			</WhileTrue>
+			<Image File="../Assets/IconPlus.png" Width="15" Height="15" Alignment="HorizontalCenter" />
 			<Stroke Width="1" Color="#000" />
+			<Clicked>
+				<Callback Handler="{addImage}" />
+			</Clicked>
 		</Circle>
 		<Text TextColor="#FFF" Alignment="TopCenter" Margin="0, 70, 0, 0" Value="회원가입" />
 		<Shadow Angle="54" Color="#000000B8" />
