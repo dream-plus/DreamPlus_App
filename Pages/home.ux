@@ -18,10 +18,21 @@
 			</Panel>
 		</WhileTrue>
 
-
 		<mainbottombar />
+		
 		<StackPanel>
-			<Image File="../Assets/logoGray.png" Alignment="Left" Width="100" Margin="15, 35, 0, 0" Height="40" />
+			<Panel>
+				<Image File="../Assets/logoGray.png" Alignment="Left" Width="100" Margin="15, 35, 0, 0" Height="40" />
+				<Rectangle Height="15" Width="50" Alignment="CenterRight" Margin="0, 50, 25, 0" Color="#FFF">
+					<Image File="../Assets/IconRight.png" Width="10" Height="10" Alignment="CenterLeft" Margin="0, 0, 0, 0" />
+					<Text Font="Nanum_acEB" Margin="0, 0, 0, 0" Alignment="CenterRight" FontSize="10" Value="signout" />
+					<Clicked>
+						<Callback Handler="{signOut}" />						
+					</Clicked>
+				</Rectangle>				
+			</Panel>
+
+			<!-- 공지사항을 뿌려주는 곳 -->
 			<Panel Height="245" Margin="0, 25, 0, 0">
 				<Text Value="공지사항" FontSize="13" Alignment="TopLeft" Margin="25, 0, 0, 0" Font="Nanum_acEB" />
 				<Rectangle Alignment="TopRight">
@@ -39,8 +50,8 @@
 				<StackPanel Alignment="Default" Margin="0, 30, 0, 0">
 					<Each Items="{noticeItems}" ux:Name="noticeEach" Reuse="Frame">
 						<Grid Dock="Top" Height="50" ColumnCount="3" RowCount="2" Columns="1*,3*,1*" Alignment="Default" Margin="10, 2, 0, 0" ChildOrder="RowMajor" Clicked="{gotoDetails}">
-							<Rectangle Margin="0, 10, 0, 0" Width="40" Height="15" Alignment="Default" CornerRadius="50" Color="#95D1EC">
-								<Text Value="다온" TextAlignment="Center" FontSize="8" Alignment="Center" TextColor="#727372" Margin="0, 0, 0, 0" Font="Nanum_acR" />
+							<Rectangle Margin="0, 10, 0, 0" Width="40" Height="15" Alignment="Default" CornerRadius="50" Color="{categoryColor}">
+								<Text Value="{category}" TextAlignment="Center" FontSize="8" Alignment="Center" TextColor="#727372" Margin="0, 0, 0, 0" Font="Nanum_acR" />
 							</Rectangle>
 							<Text Value="{noticeTitle}" Alignment="Center" FontSize="12" TextAlignment="Left" TextColor="#000" Margin="0, 10, 0, 0" Font="Nanum_acB" />
 							<Text />
@@ -50,12 +61,12 @@
 						</Grid>
 						<!-- <Rectangle Height="2" Color="#E3E4E3" Width="340" />  -->
 					</Each>
-
-
 				</StackPanel>
-
 			</Panel>
+
 			<Rectangle Height="1" Color="#A0A1A0" />
+
+			<!-- 프로젝트를 뿌려주는 곳 -->
 			<Panel Height="245" Margin="0, 20, 0, 0">
 				<Text Value="프로젝트 스케줄" FontSize="13" Alignment="TopLeft" Margin="25, 0, 0, 0" Font="Nanum_acEB" />
 				<Rectangle Alignment="TopRight">
@@ -96,8 +107,8 @@
 						
 						<!-- <Rectangle Height="2" Color="#E3E4E3" Width="340" Margin="0, 20, 0, 0" /> --> 
 					</Each>
-
 				</StackPanel>
 			</Panel>
+
 		</StackPanel>
 	</Page>
