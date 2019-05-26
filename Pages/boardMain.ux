@@ -100,7 +100,7 @@
 							<Callback Handler="{noticetap}" />
 						</WhileActive>
 
-						<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE" Alignment="Default" Margin="0, 0, 0, 0">        
+						<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE" Alignment="Default" Margin="0, 0, 0, 120">        
 
 							<StackPanel>
 								<WhileTrue Value="{noticeisLoading}">
@@ -132,7 +132,7 @@
 							<Callback Handler="{freetap}" />
 						</WhileActive>
 						
-						<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE" Alignment="Default" Margin="0, 0, 0, 0">        
+						<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE" Alignment="Default" Margin="0, 0, 0, 120">        
 							<StackPanel>
 								<WhileTrue Value="{freeisLoading}">
 									<Panel LayoutRole="Placeholder" Color="#F6FBFF" Height="50">
@@ -163,7 +163,7 @@
 							<Callback Handler="{qnatap}" />
 						</WhileActive>
 
-						<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE" Alignment="Default" Margin="0, 0, 0, 0">        
+						<ScrollView LayoutMode="PreserveVisual" Background="#FEFFFE" Alignment="Default" Margin="0, 0, 0, 120">        
 							<StackPanel>
 								<WhileTrue Value="{qnaisLoading}">
 									<Panel LayoutRole="Placeholder" Color="#F6FBFF" Height="50">

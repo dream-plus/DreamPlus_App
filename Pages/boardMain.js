@@ -1,15 +1,8 @@
 
 var Observable = require("FuseJS/Observable");
 
-var opts = ({
-	id : '2',
-	name : "감사원"
-});
-
 function write(){
-	_id = '1';
-	router.push('write',opts);
-
+	router.push('write');
 }
 
 var maxSimulatedDelay = 1.5
@@ -82,7 +75,7 @@ function retry(){
 	noticesvp.check();
 }
 
-
+var test = 0;
 // 공지사항을 불러오는 곳.
 noticesvp.check();
 function noticeloadMore(){
@@ -153,9 +146,9 @@ function freeloadSome(){
 		}).then(function(res){
 			return res.json();
 		}).then(function(res){
-			for(var i = res.length - 1 ; i >= 0 ; i--){
+			for(test = res.length - 1 ; test >= 0 ; test--){
 
-				freeitems.add(createPage(res[i].name,res[i].title,res[i].content,res[i].date,res[i].category)
+				freeitems.add(createPage(res[test].name,res[test].title,res[test].content,res[test].date,res[test].category)
 
 					);		
 
