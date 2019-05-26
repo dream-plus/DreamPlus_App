@@ -4,9 +4,6 @@
 
 	var Observable = require("FuseJS/Observable");
 
-
-	var category = ['다온', '네잎','디자인'];
-
 	exports.title = this.Parameter.map( function(x) {
 
 

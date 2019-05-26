@@ -2,7 +2,7 @@ var Observable = require("FuseJS/Observable");
 
 var title = Observable("");
 
-var category = ['공지', '자유게시판','QnA'];
+var category = ['공지', '자유','Q&A'];
 
 var date = new Date(); 
 var year = date.getFullYear(); 
@@ -19,17 +19,49 @@ if(day.length == 1){
 } 
 
 var currentdate = Observable(year+"."+month+"."+day);
-// console.log(currentdate.value);
 // ==============
 
 
 var content = Observable("");
 var date = new Date();
+var selectCategory = Observable("다온");
+var daonToggle = Observable(true);
+var leafToggle = Observable(false);
+var designToggle = Observable(false);
 
+function daonSelect(){
+	daonToggle.value = true;
+	leafToggle.value = false;
+	designToggle.value = false;
+	selectCategory.value = "다온";
+}
 
-function goBack()
-{
-	router.push("boardMain");
+function leafSelect(){
+	daonToggle.value = false;
+	leafToggle.value = true;
+	designToggle.value = false;
+	selectCategory.value = "네잎";
+}
+
+function designSelect(){
+	daonToggle.value = false;
+	leafToggle.value = false;
+	designToggle.value = true;
+	selectCategory.value = "디자인";
+}
+
+var boardselect = Observable("");
+var boardOpen = Observable(false);
+var boardRUL = "";
+
+function boardtoggleOpen(){
+	boardOpen.value = true;
+}
+
+function boardclick(e){
+	boardselect.value = e.data;
+	boardOpen.value = false;
+
 }
 
 function contents(){
@@ -37,12 +69,20 @@ function contents(){
 		'_id': 'testid07',
 		'name' : 'kbs',
 		'title' : title.value,
-		'category' : category.value,
+		'category' : selectCategory.value,
 		'content' : content.value,
 		date : currentdate.value
 	});
 
-fetch('http://18.222.99.74/board/am',{
+	if(boardselect.value == "공지"){
+		boardRUL = "am"
+	}else if(boardselect.value == "자유"){
+		boardRUL = "free"
+	}else if(boardselect.value == "Q&A"){
+		boardRUL = "qna"
+	}
+
+	fetch('http://18.222.99.74/board/' + boardRUL,{
 	// fetch('http://aa52f6e2.ngrok.io/board/am',{
 		method: "POST",
 		headers: {
@@ -51,48 +91,37 @@ fetch('http://18.222.99.74/board/am',{
 		body : JSON.stringify(opts2)
 
 	}).then((res)=>{
-	            // console.log(JSON.stringify(res));
-	            // console.log(JSON.parse(res));
-	            return res.json()
-	        }).then((res)=>{
+		return res.json()
+	}).then((res)=>{
+		if( JSON.parse(res.success) == true){
+			router.push("boardMain");
+		}
+	}).catch((err)=>{
+		console.log(err);
+	});
+}
 
-	        	console.log(res.success);
 
+function goBack()
+{
+	router.push("boardMain");
+}
 
-	        	if( JSON.parse(res.success) == true){
-	            	// router.push("Home", ID);
-	            	router.push("boardMain");
-	            	// console.log("Move to mainviewBis");
-	            }
-	            // JSON.parse(res._bodyInit).documents[1].address_name
-	        }).catch((err)=>{
-	        	console.log(err);
-	        });
-	    }
-
-	    var categoryselect = Observable("");
-
-	    var categoryisOpen = Observable(false);
-
-	    function categorytoggleOpen(){
-	    	categoryisOpen.value = true;
-	    }
-
-	    function categoryclick(e){
-	    	categoryselect.value = e.data;
-	    	categoryisOpen.value = false;
-
-	    }
-
-	    module.exports = {
-	    	board : function(){router.goto("board");},
-	    	title: title,
-	    	category : category,
-	    	content:content,
-	    	contents : contents,
-	    	goBack : goBack,
-	    	categoryisOpen:categoryisOpen,
-	    	categoryselect :categoryselect,
-	    	categorytoggleOpen:categorytoggleOpen,
-	    	categoryclick:categoryclick
-	    };
+module.exports = {
+	board : function(){router.goto("board");},
+	title: title,
+	category : category,
+	content:content,
+	contents : contents,
+	goBack : goBack,
+	boardOpen : boardOpen,
+	boardselect :boardselect,
+	boardtoggleOpen : boardtoggleOpen,
+	boardclick : boardclick,
+	daonSelect : daonSelect,
+	leafSelect : leafSelect,
+	designSelect : designSelect,
+	daonToggle : daonToggle,
+	leafToggle : leafToggle,
+	designToggle : designToggle
+};

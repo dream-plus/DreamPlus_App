@@ -5,14 +5,14 @@
 	<Panel Alignment="Top">
 		<boardTopbar />
 	</Panel> -->
-	<WhileTrue Value="{categoryisOpen}">
+	<WhileTrue Value="{boardOpen}">
 		<Rectangle Background="#0808087F" />
 		<ScrollView Height="100" Layer="Overlay" Width="200" Background="#F6FBFF" Margin="0, 0, 0, 0">
 			<StackPanel Height="150" Width="100" Margin="0, 0, 0, 0" Padding="0, 30, 0, 0">
 				<Each Items="{category}">
-					<Text Value="{=data()}" FontSize="12" Clicked="{categoryclick}" Color="#515251" Alignment="Default" TextAlignment="Center" ux:Name="Monthtext" Padding="0, 10, 0, 0" Margin="0, 0, 0, 0">
+					<Text Value="{=data()}" FontSize="12" Clicked="{boardclick}" Color="#515251" Alignment="Default" TextAlignment="Center" ux:Name="Monthtext" Padding="0, 10, 0, 0" Margin="0, 0, 0, 0">
 						<Clicked>             
-							<Set Target="categoryvalue.Value" Value="{categoryselect}" />
+							<Set Target="boardvalue.Value" Value="{boardselect}" />
 						</Clicked>
 					</Text>
 				</Each>
@@ -42,40 +42,95 @@
 			<Rectangle Height="2" Color="#E3E4E3" Width="350" Alignment="HorizontalCenter" />
 
 			<DockPanel Height="30" Margin="0, 40, 10, 0" Alignment="HorizontalCenter">
-				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#F2F3F2">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#FEFFFE" CornerRadius="30">
 					<Text Value="제목" TextAlignment="Center" Alignment="Center" FontSize="10" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#CCCECE" />
 				</Rectangle>
 				<Rectangle Dock="Left" Width="2" />
-				<Rectangle Width="300" Height="30" Color="#F2F3F2" Dock="Left">
-					<TextInput Row="0" Column="1" PlaceholderText="제목을 입력하세요." Value="{title}" Alignment="Center" FontSize="10" TextAlignment="Center" Font="Nanum_acB" /> 
-				</Rectangle>
-			</DockPanel>
-			<DockPanel Margin="0, 5, 10, 0" Height="30" Alignment="HorizontalCenter">
-				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#F2F3F2">
-					<Text Value="첨부파일" TextAlignment="Center" Alignment="Center" FontSize="10" Font="Nanum_acB" />
-				</Rectangle>
-				<Rectangle Dock="Left" Width="2" />
-				<Rectangle Width="300" Height="30" Color="#F2F3F2" Dock="Left" Margin="0, 0, 0, 0">
-					<Text Row="0" Column="1" Value="첨부파일 기능 넣는 곳" Alignment="Center" FontSize="10" TextAlignment="Left" Font="Nanum_acB" /> 
-				</Rectangle>
-			</DockPanel>
-			<DockPanel Margin="0, 5, 10, 0" Height="30" Alignment="HorizontalCenter">
-				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#F2F3F2">
-					<Text Value="카테고리" TextAlignment="Center" Alignment="Center" FontSize="10" Font="Nanum_acB" />
-				</Rectangle>
-				<Rectangle Dock="Left" Width="2" />
-				<Rectangle Width="300" Height="30" Color="#F2F3F2" Dock="Left">
-					<Text Row="0" Column="1" Value="선택" Alignment="Center" FontSize="10" TextAlignment="Left" ux:Name="categoryvalue" Font="Nanum_acB" /> 
-					<Clicked>
-						<Callback Handler="{categorytoggleOpen}" />
-					</Clicked>
+				<Rectangle Width="300" Height="30" Color="#FEFFFE" Dock="Left" CornerRadius="30">
+					<TextInput Row="0" Column="1" PlaceholderText="제목을 입력하세요." Value="{title}" Alignment="Center" FontSize="10" TextAlignment="Center" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#CCCECE" /> 
 				</Rectangle>
 			</DockPanel>
 
-			<Rectangle Width="350" Margin="0, 30, 0, 0" Alignment="HorizontalCenter">
+			<DockPanel Margin="0, 5, 10, 0" Height="30" Alignment="HorizontalCenter">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#FEFFFE" CornerRadius="30">
+					<Text Value="첨부파일" TextAlignment="Center" Alignment="Center" FontSize="10" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#CCCECE" />
+				</Rectangle>
+				<Rectangle Dock="Left" Width="2" />
+				<Rectangle Width="300" Height="30" Color="#FEFFFE" Dock="Left" Margin="0, 0, 0, 0" CornerRadius="30">
+					<Text Row="0" Column="1" Value="첨부파일 기능 넣는 곳" Alignment="Center" FontSize="10" TextAlignment="Left" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#CCCECE" /> 
+				</Rectangle>
+			</DockPanel>
+
+			<DockPanel Margin="0, 5, 10, 0" Height="30" Alignment="HorizontalCenter">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#FEFFFE" CornerRadius="30">
+					<Text TextAlignment="Center" Alignment="Center" FontSize="10" Font="Nanum_acB" Value="게시판" />
+					<Stroke Width="1" Color="#CCCECE" />
+				</Rectangle>
+				<Rectangle Dock="Left" Width="2" />
+				<Rectangle Width="300" Height="30" Color="#FEFFFE" Dock="Left" CornerRadius="30">
+					<Text Row="0" Column="1" Value="선택" Alignment="Center" FontSize="10" TextAlignment="Left" ux:Name="boardvalue" Font="Nanum_acB" /> 
+					<Clicked>
+						<Callback Handler="{boardtoggleOpen}" />
+					</Clicked>
+					<Stroke Width="1" Color="#CCCECE" />
+				</Rectangle>
+			</DockPanel>
+
+			<!-- 카테고리 선택란 -->
+			<DockPanel Margin="0, 5, 10, 0" Height="30" Alignment="HorizontalCenter">
+				<Rectangle Dock="Left" Width="50" Height="30" Margin="10, 0, 0, 0" Color="#FEFFFE" CornerRadius="30">
+					<Text Value="카테고리" TextAlignment="Center" Alignment="Center" FontSize="10" Font="Nanum_acB" />
+					<Stroke Width="1" Color="#CCCECE" />
+				</Rectangle>
+				<Rectangle Dock="Left" Width="2" />
+				<Rectangle Width="300" Height="30" Color="#FEFFFE" Dock="Left" CornerRadius="30">
+					
+					<WhileTrue Value="{daonToggle}">
+						<Rectangle Margin="10, 0, 0, 0" Width="60" Height="30" Alignment="Left" Color="#95D1EC" CornerRadius="50">
+							<Text Value="다온" TextAlignment="Center" FontSize="10" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" Font="Nanum_acR" />
+						</Rectangle>
+					</WhileTrue>
+					<Rectangle Margin="10, 0, 0, 0" Width="60" Height="30" Alignment="Left" Color="#FEFFFE" CornerRadius="50">
+						<Text Value="다온" TextAlignment="Center" FontSize="10" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" Font="Nanum_acR" />
+						<Clicked>
+							<Callback Handler="{daonSelect}" />
+						</Clicked>
+					</Rectangle>
+
+					<WhileTrue Value="{leafToggle}">
+						<Rectangle Margin="0, 0, 80, 0" Width="60" Height="30" Alignment="Default" Color="#B3E579" CornerRadius="50">
+							<Text Value="네잎" TextAlignment="Center" FontSize="10" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" Font="Nanum_acR" />
+						</Rectangle>
+					</WhileTrue>
+					<Rectangle Margin="0, 0, 80, 0" Width="60" Height="30" Alignment="Default" Color="#FEFFFE" CornerRadius="50">
+						<Text Value="네잎" TextAlignment="Center" FontSize="10" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" Font="Nanum_acR" />
+						<Clicked>
+							<Callback Handler="{leafSelect}" />
+						</Clicked>
+					</Rectangle>
+
+					<WhileTrue Value="{designToggle}">
+						<Rectangle Margin="150, 0, 0, 0" Width="60" Height="30" Alignment="Left" Color="#F7D976" CornerRadius="50">
+							<Text Value="디자인" TextAlignment="Center" FontSize="10" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" Font="Nanum_acR" />
+						</Rectangle>
+					</WhileTrue>
+					<Rectangle Margin="150, 0, 0, 0" Width="60" Height="30" Alignment="Left" Color="#FEFFFE" CornerRadius="50">
+						<Text Value="디자인" TextAlignment="Center" FontSize="10" Alignment="Center" TextColor="#000" Margin="0, 0, 0, 0" Font="Nanum_acR" />
+						<Clicked>
+							<Callback Handler="{designSelect}" />
+						</Clicked>
+					</Rectangle>
+				</Rectangle>
+			</DockPanel>
+
+			<Rectangle Width="350" Margin="0, 30, 0, 0" Alignment="HorizontalCenter" Color="#FEFFFE" CornerRadius="20">
 				<!-- <TextBox Alignment="Default" Value="{content}" TextAlignment="Center" TextWrapping="Wrap" Width="350" Height="300" /> -->
 				<TextInput Alignment="Default" Value="{content}" TextAlignment="Center" TextWrapping="Wrap" Width="350" Height="300" PlaceholderText="내용을 입력하세요." PlaceholderColor="#A8A8A8" LineSpacing="10" Font="Nanum_acR" />
-				<Stroke Color="#CCCECE" Width="2" />
+				<Stroke Color="#CCCECE" Width="1" />
 			</Rectangle>
 
 		</StackPanel>
