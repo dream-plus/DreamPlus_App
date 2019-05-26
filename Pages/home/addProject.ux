@@ -20,41 +20,41 @@
 					</Rectangle>
 					<Text Value="프로젝트 관리" Alignment="Default" Font="Nanum_acB" TextColor="#0C82B3" FontSize="12" />
 					<Text Value="완료" FontSize="10" Font="Nanum_acB" TextColor="#0C82B3">
-					<!-- <Clicked>
-						<Callback Handler="{gotoAddProject}" />
-					</Clicked> -->
-				</Text>
-			</StackPanel>
-			<Rectangle Color="#D7D9D7" Height="1" Width="360" Margin="0, 10, 0, 0" />
-			<Rectangle Margin="0, 30, 0, 0" Height="20" Width="350" Color="#FFF" CornerRadius="40">
-				<Text Value="프로젝트" FontSize="10" Alignment="CenterLeft" Font="Nanum_acB" Margin="10, 0, 0, 0" />
-				<TextInput Margin="70, 0, 0, 0" Alignment="CenterLeft" Font="Nanum_acB" PlaceholderText="내용을 입력하세요." FontSize="10" PlaceholderColor="#595A59" />
-				<Stroke Width="1" Color="#D7D9D7" />
-			</Rectangle>
-
-			<Rectangle Margin="0, 5, 0, 0" Height="20" Width="350" Color="#FFF" CornerRadius="40">
-				<Text Value="첨부파일" Font="Nanum_acB" FontSize="10" Alignment="CenterLeft" Margin="10, 0, 0, 0" />
-				<Text FontSize="10" Font="Nanum_acB" Margin="70, 0, 0, 0" Value="첨부파일.jpg" Alignment="CenterLeft" />
-				<Stroke Width="1" Color="#D7D9D7" />
-			</Rectangle>
-
-			<StackPanel Orientation="Horizontal" Margin="20, 20, 0, 0">
-				<Text Value="진행도" Font="Nanum_acB" FontSize="10" Alignment="CenterLeft" />
-				<Rectangle Width="250" Margin="20, 0, 0, 0">
-					<Rectangle Height="15" Width="{percent}%" CornerRadius="30" Alignment="Left" Color="#7CB7D0" />
-					<Rectangle Height="15" Color="#D4D5D4" CornerRadius="30" Width="250" />
+						<Clicked>
+							<Callback Handler="{AddProject}" />
+						</Clicked>
+					</Text>
+				</StackPanel>
+				<Rectangle Color="#D7D9D7" Height="1" Width="360" Margin="0, 10, 0, 0" />
+				<Rectangle Margin="0, 30, 0, 0" Height="20" Width="350" Color="#FFF" CornerRadius="40">
+					<Text Value="프로젝트" FontSize="10" Alignment="CenterLeft" Font="Nanum_acB" Margin="10, 0, 0, 0" />
+					<TextInput Value="{projectTitle}" Margin="70, 0, 0, 0" Alignment="CenterLeft" Font="Nanum_acB" PlaceholderText="내용을 입력하세요." FontSize="10" PlaceholderColor="#595A59" />
+					<Stroke Width="1" Color="#D7D9D7" />
 				</Rectangle>
-				<TextInput Alignment="CenterRight" Margin="10, 0, 0, 0" Value="{percent}%" Font="Nanum_acB" FontSize="10" PlaceholderText="진행도" />
 
+				<Rectangle Margin="0, 5, 0, 0" Height="20" Width="350" Color="#FFF" CornerRadius="40">
+					<Text Value="첨부파일" Font="Nanum_acB" FontSize="10" Alignment="CenterLeft" Margin="10, 0, 0, 0" />
+					<Text FontSize="10" Font="Nanum_acB" Margin="70, 0, 0, 0" Value="첨부파일.jpg" Alignment="CenterLeft" />
+					<Stroke Width="1" Color="#D7D9D7" />
+				</Rectangle>
+
+				<StackPanel Orientation="Horizontal" Margin="20, 20, 0, 0">
+					<Text Value="진행도" Font="Nanum_acB" FontSize="10" Alignment="CenterLeft" />
+					<Rectangle Width="250" Margin="20, 0, 0, 0">
+						<Rectangle Height="15" Width="{percent}%" CornerRadius="30" Alignment="Left" Color="#7CB7D0" />
+						<Rectangle Height="15" Color="#D4D5D4" CornerRadius="30" Width="250" />
+					</Rectangle>
+					<TextInput Alignment="CenterRight" Margin="10, 0, 0, 0" Value="{percent}%" Font="Nanum_acB" FontSize="10" PlaceholderText="진행도" />
+
+				</StackPanel>
+				<Text Value="참여맴버" FontSize="10" Font="Nanum_acB" Margin="20, 20, 0, 0" />
+				<Rectangle Margin="0, 30, 0, 0" Width="350" Height="260" Color="#FFF" CornerRadius="10">
+					<TextInput Value="{projectContents}" Margin="10, 10, 10, 10" FontSize="10" Font="Nanum_acB" TextWrapping="Wrap" PlaceholderText="프로젝트 내용을 입력하세요." PlaceholderColor="#595A59" />
+					<Stroke Width="1" Color="#D6D9D6" />
+				</Rectangle>
 			</StackPanel>
-			<Text Value="참여맴버" FontSize="10" Font="Nanum_acB" Margin="20, 20, 0, 0" />
-			<Rectangle Margin="0, 30, 0, 0" Width="350" Height="260" Color="#FFF" CornerRadius="10">
-				<TextInput Margin="10, 10, 10, 10" FontSize="10" Font="Nanum_acB" TextWrapping="Wrap" PlaceholderText="프로젝트 내용을 입력하세요." PlaceholderColor="#595A59" />
-				<Stroke Width="1" Color="#D6D9D6" />
-			</Rectangle>
-		</StackPanel>
-	</Rectangle>
-</StackPanel>
+		</Rectangle>
+	</StackPanel>
 
 
 </Page>

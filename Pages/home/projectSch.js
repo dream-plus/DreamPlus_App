@@ -13,7 +13,6 @@ var percent = Observable();
 
 function projectloadSome(){
 
-	// projectItems.add(createProjectPage("교통안전 프로젝트","김보성 채재윤 정윤선","2019.04.22 ~ 2019.05.30"))
 	fetch('http://18.222.99.74/cal/am',{
 		// fetch('http://aa52f6e2.ngrok.io/cal/am',{
 			method: "GET",
@@ -27,10 +26,7 @@ function projectloadSome(){
 		}).then(function(res){
 			for(var i = res.length-1; i > (res.length - 3); i--){
 
-				projectItems.add(createProjectPage(res[i].title,res[i].member,"2019.04.22 ~ 2019.05.30",res[i].percent,res[i].contents)
-
-					);	
-
+				projectItems.add(createProjectPage(res[i].title,res[i].member,"2019.04.22 ~ 2019.05.30",res[i].percent,res[i].contents,res[i].num));	
 			}
 
 		}).catch((err)=>{
@@ -42,14 +38,14 @@ function projectloadSome(){
 	}
 
 // for문과 합치게 되면 마지막 데이터만 들어가는 문제 발생하기 때문에 반드시 createPage로 분리 시켜줘야한다.
-function createProjectPage(title, member, date, percent, contents) {
+function createProjectPage(title, member, date, percent, contents, num) {
 	return {
 		noticetitle : title,
 		noticemember: member,
 		noticedate : date,
 		percent : percent,
 		gotoDetails: function() {
-			router.push("detailProjectPage", { title: title , member:member, date : date, percent: percent, contents:contents  })
+			router.push("detailProjectPage", { title: title , member:member, date : date, percent: percent, contents:contents, num:num  })
 		}
 	};
 }
