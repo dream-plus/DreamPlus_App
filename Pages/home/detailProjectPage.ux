@@ -5,26 +5,6 @@
 
 	<mainbottombar />
 
-	<WhileTrue Value="{PercentOpen}">
-		<Rectangle Width="40" Color="#FEFFFE" CornerRadius="10" Alignment="Right" Margin="0, 0, 15, 120" Height="70">
-			<Stroke Width="1" Color="#D3D5D3" />
-		</Rectangle>
-		<ScrollView Layer="Overlay" Width="50" Height="70" Alignment="Right" Margin="0, 0, 10, 120">
-			<!-- <Rectangle Width="100" Height="150"> -->
-				<StackPanel Width="100" Margin="0, 0, 0, 0" Padding="0, 0, 0, 0">
-					<Each Items="{Number1}">
-						<Text Value="{=data()}%" FontSize="12" Clicked="{Percentclick}" Color="#515251" Alignment="Default" TextAlignment="Center" Padding="0, 10, 0, 0">
-							<Clicked>							
-								<Set Target="PercentWidthValue.Width" Value="{Percentselect}%" />
-								<Set Target="PercentValue.Value" Value="{Percentselect}%" />
-							</Clicked>
-						</Text>
-					</Each>
-				</StackPanel>
-				
-			<!-- </Rectangle> -->
-		</ScrollView>
-	</WhileTrue>
 
 	<StackPanel>
 		<Panel Alignment="Top" Margin="0, 50, 0, 0">
@@ -60,12 +40,35 @@
 				<Stroke Width="1" Color="#D7D9D7" />
 			</Rectangle>
 
-			<StackPanel Orientation="Horizontal" Margin="20, 20, 0, 0">
+			<StackPanel Orientation="Horizontal" Margin="20, 20, 0, 0" Height="30">
 				<Text Value="진행도" Font="Nanum_acB" FontSize="10" Alignment="CenterLeft" />
 				<Rectangle Width="250" Margin="20, 0, 0, 0">
 					<Rectangle Height="15" Width="{percent}%" ux:Name="PercentWidthValue" CornerRadius="30" Alignment="Left" Color="#7CB7D0" />
 					<Rectangle Height="15" Color="#D4D5D4" CornerRadius="30" Width="250" />
 				</Rectangle>
+				<WhileTrue Value="{PercentOpen}">
+					<Panel Margin="0, 10, 0, 0">
+						<Rectangle Color="#FEFFFE" CornerRadius="10" Alignment="Right" Margin="0, 0, 15, 0" Width="40" Height="70">
+							<Stroke Width="1" Color="#D3D5D3" />
+						</Rectangle>
+						<ScrollView Layer="Overlay" Width="50" Height="70" Alignment="Right" Margin="0, 0, 10, 0">
+							<!-- <Rectangle Width="100" Height="150"> -->
+								<StackPanel Width="100" Margin="0, 0, 0, 0" Padding="0, 0, 0, 0">
+									<Each Items="{Number1}">
+										<Text Value="{=data()}%" FontSize="12" Clicked="{Percentclick}" Color="#515251" Alignment="Default" TextAlignment="Center" Padding="0, 10, 0, 0">
+											<Clicked>							
+												<Set Target="PercentWidthValue.Width" Value="{Percentselect}%" />
+												<Set Target="PercentValue.Value" Value="{Percentselect}%" />
+											</Clicked>
+										</Text>
+									</Each>
+								</StackPanel>
+								
+							<!-- </Rectangle> -->
+						</ScrollView>
+					</Panel>
+					
+				</WhileTrue>
 
 				<Text Value="{percent}%" ux:Name="PercentValue" Alignment="CenterRight" FontSize="10" Margin="10, 0, 0, 0" Font="Nanum_acB">
 					<Clicked>

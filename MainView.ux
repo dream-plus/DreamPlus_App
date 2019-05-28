@@ -79,7 +79,9 @@
 			</Transition>
 		</preveiwProject>
 		<projectMember ux:Template="projectMember" router="router" />
-
+		<myProfile ux:Template="myProfile" router="router" />
+		<checkPW ux:Template="checkPW" router="router" />
+		<changeProfile ux:Template="changeProfile" router="router" />
 
 	</Navigator>
 

@@ -1,0 +1,5 @@
+<Page ux:Class="projectMember">
+	<Router ux:Dependency="router" />
+
+	
+</Page>

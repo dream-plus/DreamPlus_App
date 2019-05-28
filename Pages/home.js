@@ -30,6 +30,10 @@ function gotoProject(){
 	router.goto("projectSch");
 }
 
+function gotomyProfile(){
+	router.goto("myProfile");
+}
+
 // 서버와 연결 해 공지사항을 불러오는 함수.
 function noticeloadSome(){
 	fetch('http://18.222.99.74/board/am',{
@@ -131,33 +135,6 @@ function createProjectPage(title, member, date, percent,contents,num) {
 	};
 }
 
-// 로그아웃을 해주는 함수.
-function signOut(){
-	fetch('http://18.222.99.74/users/signout',{
-		// fetch('http://3ff05a06.ngrok.io/users/signout',{
-			method: "GET",
-			headers: {
-				"Content-type": "application/JSON"
-			}
-
-
-		}).then(function(res){
-			return res.json();
-		}).then(function(res){
-			if(res.success == true){
-				router.goto("loginPage");
-			}			
-		}).catch((err)=>{
-			console.log(err);
-
-			// 서버와 연동이 되지 않았을 때 나오는 에러. 
-			// networkError 변수로 다시 연결을 시도하기 위해 만들었다.
-			if(err == "TypeError: Network request failed" ){
-				NetworkError.value = true;
-			}
-		});
-	}
-
 	// 각 함수들을 실행시켜주는 곳.
 	noticeloadSome(); 
 	projectloadSome();
@@ -175,8 +152,8 @@ function signOut(){
 		retry : retry,
 		projectItems : projectItems,
 		percent : percent,
-		signOut : signOut,
 		category : category,
-		categoryColor : categoryColor
+		categoryColor : categoryColor,
+		gotomyProfile : gotomyProfile
 
 	};

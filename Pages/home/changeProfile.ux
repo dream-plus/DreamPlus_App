@@ -1,0 +1,82 @@
+<Page ux:Class="changeProfile">
+	<Router ux:Dependency="router" />
+	<JavaScript File="changeProfile.js" />
+	
+	<StackPanel Orientation="Horizontal" Alignment="Top">
+		<Panel Margin="0, 0, 0, 0">
+			<Rectangle Width="15" Height="15" Alignment="Left" Margin="20, 50, 0, 0">
+				<Image File="../../Assets/IconLeft.png" Clicked="{goBack}" />
+			</Rectangle>
+		</Panel>
+		<Text Value="정보 수정" TextAlignment="Center" Alignment="Bottom" Font="Nanum_acEB" TextColor="#0081B5" Margin="120, 0, 0, 0" />
+	</StackPanel>
+
+	<ScrollView Margin="0, 120, 0, 0">
+		<StackPanel>
+			<Circle Width="150" Height="150" Color="#FEFFFE" Margin="0, 0, 0, 0" Alignment="HorizontalCenter">
+				<Stroke Width="3" Color="#0C82B3" />
+			</Circle>
+			<Rectangle Margin="0, 50, 0, 0" Height="1" Color="#9B9C9B" Width="280" />
+
+			<!-- 이름 -->
+			<Rectangle Margin="0, 50, 0, 0">
+				<Text Margin="0, 0, 100, 0" Value="이름" TextColor="#0081B5" FontSize="13" Font="Nanum_acB" Alignment="Center" TextAlignment="Center" />
+				<Text Margin="170, 0, 0, 0" TextAlignment="Left" Alignment="Center" FontSize="13" Font="Nanum_acB" Width="100" Value="{getUserName}" />
+			</Rectangle>
+
+			<!-- 성별 -->
+			<Rectangle Margin="0, 20, 0, 0">
+				<Text Margin="0, 0, 100, 0" Value="성별" TextColor="#0081B5" FontSize="13" Font="Nanum_acB" Alignment="Center" TextAlignment="Center" />
+				<Text Margin="170, 0, 0, 0" Value="{getUserGender}" TextAlignment="Left" Alignment="Center" FontSize="13" Font="Nanum_acB" Width="100" />
+			</Rectangle>
+
+			<!-- 아이디 -->
+			<Rectangle Margin="0, 20, 0, 0">
+				<Text Margin="0, 0, 90, 0" Value="아이디" TextColor="#0081B5" FontSize="13" Font="Nanum_acB" Alignment="Center" TextAlignment="Center" />
+				<Text Margin="170, 0, 0, 0" TextAlignment="Left" Alignment="Center" FontSize="13" Font="Nanum_acB" Width="100" Value="{getSessionId}" />
+			</Rectangle>
+
+			<!-- 비밀번호 -->
+			<Rectangle Margin="0, 20, 0, 0">
+				<Text Margin="0, 0, 80, 0" TextColor="#0081B5" FontSize="13" Font="Nanum_acB" Alignment="Center" TextAlignment="Center" Value="비밀번호" />
+				<TextInput Margin="170, 0, 0, 0" TextAlignment="Left" Alignment="Center" FontSize="13" Font="Nanum_acB" PlaceholderColor="#BDBFBF" Width="100" PlaceholderText="비밀번호 변경" IsPassword="true" Value="{changeUserPW}" />
+			</Rectangle>
+
+			<!-- 밑에부분 -->
+
+			<!-- 학과 -->
+			<Rectangle Margin="0, 60, 0, 0">
+				<Text Margin="0, 0, 100, 0" TextColor="#0081B5" FontSize="13" Font="Nanum_acB" Alignment="Center" TextAlignment="Center" Value="학과" />
+				<TextInput Margin="170, 0, 0, 0" TextAlignment="Left" Alignment="Center" FontSize="13" Font="Nanum_acB" PlaceholderColor="#BDBFBF" PlaceholderText="{getUserMajor}" Width="100" Value="{changeUserMajor}" />
+			</Rectangle>
+
+			<!-- 학번 -->
+			<Rectangle Margin="0, 20, 0, 0">
+				<Text Margin="0, 0, 100, 0" TextColor="#0081B5" FontSize="13" Font="Nanum_acB" Alignment="Center" TextAlignment="Center" Value="학번" />
+				<TextInput Margin="170, 0, 0, 0" TextAlignment="Left" Alignment="Center" FontSize="13" Font="Nanum_acB" PlaceholderColor="#BDBFBF" PlaceholderText="{getUserNumber}" Width="100" Value="{changeUserNumber}" />
+			</Rectangle>
+
+			<!-- 연락처 -->
+			<Rectangle Margin="0, 20, 0, 0">
+				<Text Margin="0, 0, 90, 0" TextColor="#0081B5" FontSize="13" Font="Nanum_acB" Alignment="Center" TextAlignment="Center" Value="연락처" />
+				<TextInput Margin="170, 0, 0, 0" TextAlignment="Left" Alignment="Center" FontSize="13" Font="Nanum_acB" PlaceholderColor="#BDBFBF" PlaceholderText="{getUserPhone}" Width="100" Value="{changeUserPhone}" />
+			</Rectangle>
+
+			<Rectangle Margin="0, 50, 0, 0" Height="1" Color="#9B9C9B" Width="280" />
+
+			 <!-- 수정하기 버튼 -->
+			<Rectangle ux:Name="modifybtn" Margin="0, 50, 0, 50" Color="#FEFFFE" Width="100" Height="25" CornerRadius="30">
+				<Text TextAlignment="Center" Alignment="Center" FontSize="15" Font="Nanum_acB" TextColor="#0081B5" Value="수정하기" />
+				<Stroke Width="2" Color="#0C82B3" />
+				<WhilePressed>
+					<Scale Target="modifybtn" Factor="0.9" Duration="0.05" />
+				</WhilePressed>
+				<Clicked>
+					<Callback Handler="{modify}" />						
+				</Clicked>
+			</Rectangle>
+		</StackPanel>
+	</ScrollView>
+
+
+</Page>

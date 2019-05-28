@@ -25,9 +25,9 @@
 				<Image File="../Assets/logoGray.png" Alignment="Left" Width="100" Margin="15, 35, 0, 0" Height="40" />
 				<Rectangle Height="15" Width="50" Alignment="CenterRight" Margin="0, 50, 25, 0" Color="#FFF">
 					<Image File="../Assets/IconRight.png" Width="10" Height="10" Alignment="CenterLeft" Margin="0, 0, 0, 0" />
-					<Text Font="Nanum_acEB" Margin="0, 0, 0, 0" Alignment="CenterRight" FontSize="10" Value="signout" />
+					<Text Font="Nanum_acEB" Margin="0, 0, 0, 0" Alignment="CenterRight" FontSize="10" Value="내정보" />
 					<Clicked>
-						<Callback Handler="{signOut}" />						
+						<Callback Handler="{gotomyProfile}" />						
 					</Clicked>
 				</Rectangle>				
 			</Panel>
