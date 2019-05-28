@@ -1,0 +1,5 @@
+<Panel ux:Class="Sketch.moneylist" Width="19" Height="19">
+	<Image File="images/39d39d2b7b56651290848862ff9ab610d45955d0.png" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Bitmap -->
+	</Image>
+</Panel>

@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.moneydetaildown" Width="12" Height="8">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- chevron down -->
+		<Panel Width="100%" Height="93.75%" Alignment="TopLeft" Margin="0">
+			<!-- SVGID_1_ -->
+			<Path Data="M 0.8833333333333 0 L 0.5 0.6266666666667 L 0.1166666666667 0 L 0 0.1866666666667 L 0.5 1 L 1 0.1866666666667 L 0.8833333333333 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- SVGID_1_-path -->
+				<SolidColor Color="0.2902216, 0.2901753, 0.2902375, 1" />
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

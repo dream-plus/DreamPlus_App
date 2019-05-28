@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.color" Width="24" Height="24">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- color -->
+		<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- color -->
+			<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.5254902, 0.7176471, 0.8235294, 1" />
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

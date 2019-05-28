@@ -1,0 +1,31 @@
+<Panel ux:Class="Sketch.Frame" Width="140" Height="140">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Group 7 -->
+		<Panel Width="14.28571%" Height="13.57143%" Alignment="TopLeft" Offset="43.57143%, 44.28571%" Margin="0">
+			<!-- Group 6 -->
+			<Panel Width="20%" Height="100%" Alignment="TopLeft" Offset="40%, 0%" Margin="0">
+				<!-- Rectangle 7 Copy -->
+				<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="0.1019608, 0.5137255, 0.6941177, 1" />
+				</Rectangle>
+				<Rotation Degrees="-270" />
+			</Panel>
+			<Panel Width="20%" Height="100%" Alignment="TopLeft" Offset="40%, 0%" Margin="0">
+				<!-- Rectangle 7 -->
+				<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="0.1019608, 0.5137255, 0.6941177, 1" />
+				</Rectangle>
+			</Panel>
+		</Panel>
+		<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Oval -->
+			<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Shadow Angle="90" Distance="2" Color="0, 0, 0, 0.5" Size="4" Mode="PerPixel" />
+				<SolidColor Color="1" />
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

@@ -1,0 +1,66 @@
+<Panel ux:Class="Sketch.background" Width="375" Height="612">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- background -->
+		<Panel Width="100%" Height="0.3267974%" Alignment="TopLeft" Offset="0%, 52.94118%" Margin="0">
+			<!-- Path -->
+			<Path Data="M 0 0.5 L 1 0.5" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="0.4" Alignment="Center">
+					<SolidColor Color="0.8354592, 0.8354592, 0.8354592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+		<Panel Width="100%" Height="46.89542%" Alignment="TopLeft" Offset="0%, 53.10458%" Margin="0">
+			<!-- Rectangle -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.9790604, 0.9790604, 0.9790604, 1" />
+			</Rectangle>
+		</Panel>
+		<Panel Width="100%" Height="0.3267974%" Alignment="TopLeft" Offset="0%, 41.17647%" Margin="0">
+			<!-- Path5 -->
+			<Path Data="M 0 0.5 L 1 0.5" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="0.4" Alignment="Center">
+					<SolidColor Color="0.8354592, 0.8354592, 0.8354592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+		<Panel Width="100%" Height="0.3267974%" Alignment="TopLeft" Offset="0%, 30.88235%" Margin="0">
+			<!-- Path4 -->
+			<Path Data="M 0 0.5 L 1 0.5" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="0.4" Alignment="Center">
+					<SolidColor Color="0.8354592, 0.8354592, 0.8354592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+		<Panel Width="100%" Height="0.3267974%" Alignment="TopLeft" Offset="0%, 20.58824%" Margin="0">
+			<!-- Path3 -->
+			<Path Data="M 0 0.5 L 1 0.5" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="0.4" Alignment="Center">
+					<SolidColor Color="0.8354592, 0.8354592, 0.8354592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+		<Panel Width="100%" Height="0.3267974%" Alignment="TopLeft" Offset="0%, 10.29412%" Margin="0">
+			<!-- Path2 -->
+			<Path Data="M 0 0.5 L 1 0.5" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="0.4" Alignment="Center">
+					<SolidColor Color="0.8354592, 0.8354592, 0.8354592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+		<Panel Width="100%" Height="0.3267974%" Alignment="TopLeft" Margin="0">
+			<!-- Path1 -->
+			<Path Data="M 0 0.5 L 1 0.5" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="0.4" Alignment="Center">
+					<SolidColor Color="0.8354592, 0.8354592, 0.8354592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

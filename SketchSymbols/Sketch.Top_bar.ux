@@ -1,0 +1,10 @@
+<Panel ux:Class="Sketch.Top_bar" Width="375" Height="132">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Recktangle -->
+		<Path Data="M 1.505387152034E-17 6.383856699346E-16 L 1 6.383856699346E-16 L 1 1 L 0.6422082200444 1 L 0.3637815864015 1 L 1.505387152034E-17 1 L 1.505387152034E-17 6.383856699346E-16" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Shadow Angle="90" Distance="2" Color="0, 0, 0, 0.1653646" Size="4" Mode="PerPixel" />
+			<SolidColor Color="1" />
+		</Path>
+	</Panel>
+</Panel>

@@ -1,0 +1,34 @@
+<Panel ux:Class="Sketch.Day_week" Width="307" Height="16" sun="일" sat="토" mon="월" tue="화" wen="수" thu="목" fri="금">
+	<string ux:Property="fri" />
+	<string ux:Property="thu" />
+	<string ux:Property="wen" />
+	<string ux:Property="tue" />
+	<string ux:Property="mon" />
+	<string ux:Property="sat" />
+	<string ux:Property="sun" />
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- 
+Day_week -->
+		<Text Color="0.2902216, 0.2901753, 0.2902375, 1" FontSize="14" Value="{Property fri}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="4.234528%" Height="100%" Alignment="BottomLeft" Offset="79.80456%, 0" Margin="0">
+			<!-- fri -->
+		</Text>
+		<Text Color="0.2902216, 0.2901753, 0.2902375, 1" FontSize="14" Value="{Property thu}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="4.234528%" Height="100%" Alignment="BottomLeft" Offset="63.84365%, 0" Margin="0">
+			<!-- thu -->
+		</Text>
+		<Text Color="0.2902216, 0.2901753, 0.2902375, 1" FontSize="14" Value="{Property wen}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="4.234528%" Height="100%" Alignment="BottomLeft" Offset="47.88274%, 0" Margin="0">
+			<!-- wen -->
+		</Text>
+		<Text Color="0.2902216, 0.2901753, 0.2902375, 1" FontSize="14" Value="{Property tue}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="4.234528%" Height="100%" Alignment="BottomLeft" Offset="31.92182%, 0" Margin="0">
+			<!-- tue -->
+		</Text>
+		<Text Color="0.2902216, 0.2901753, 0.2902375, 1" FontSize="14" Value="{Property mon}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="4.234528%" Height="100%" Alignment="BottomLeft" Offset="15.96091%, 0" Margin="0">
+			<!-- mon -->
+		</Text>
+		<Text Color="0.05490196, 0.4392157, 0.6509804, 1" FontSize="14" Value="{Property sat}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="4.234528%" Height="100%" Alignment="BottomLeft" Offset="95.76547%, 0" Margin="0">
+			<!-- sat -->
+		</Text>
+		<Text Color="0.9764706, 0.2, 0.3960784, 1" FontSize="14" Value="{Property sun}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="4.234528%" Height="100%" Alignment="BottomLeft" Margin="0">
+			<!-- sun -->
+		</Text>
+	</Panel>
+</Panel>

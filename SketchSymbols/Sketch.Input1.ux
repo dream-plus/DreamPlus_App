@@ -1,0 +1,62 @@
+<Panel ux:Class="Sketch.Input1" Width="210" Height="78">
+	<Panel Width="26.66667%" Height="8.974359%" Alignment="TopLeft" Offset="10%, 76.92308%" Margin="0">
+		<!-- Group -->
+		<Panel Width="12.5%" Height="100%" Alignment="TopLeft" Offset="87.5%, 0%" Margin="0">
+			<!-- Oval Copy 4 -->
+			<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.05490196, 0.4352941, 0.6470588, 1" />
+			</Path>
+		</Panel>
+		<Panel Width="12.5%" Height="100%" Alignment="TopLeft" Offset="66.07143%, 0%" Margin="0">
+			<!-- Oval Copy 3 -->
+			<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.05490196, 0.4352941, 0.6470588, 1" />
+			</Path>
+		</Panel>
+		<Panel Width="12.5%" Height="100%" Alignment="TopLeft" Offset="42.85714%, 0%" Margin="0">
+			<!-- Oval Copy 2 -->
+			<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.05490196, 0.4352941, 0.6470588, 1" />
+			</Path>
+		</Panel>
+		<Panel Width="12.5%" Height="100%" Alignment="TopLeft" Offset="21.42857%, 0%" Margin="0">
+			<!-- Oval Copy -->
+			<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.05490196, 0.4352941, 0.6470588, 1" />
+			</Path>
+		</Panel>
+		<Panel Width="12.5%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Oval -->
+			<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.05490196, 0.4352941, 0.6470588, 1" />
+			</Path>
+		</Panel>
+	</Panel>
+	<Panel Width="100%" Height="39.74359%" Alignment="TopLeft" Offset="0%, 60.25641%" Margin="0">
+		<!-- Rectangle 7 Copy -->
+		<Rectangle CornerRadius="100" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Shadow Angle="90" Distance="1" Color="0, 0, 0, 0.5" Size="4" Mode="PerPixel" />
+			<!-- Inner shadow not supported in UX -->
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.7019608, 0.7019608, 0.7019608, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+	<Panel Width="100%" Height="39.74359%" Alignment="TopLeft" Margin="0">
+		<!-- Rectangle 7 -->
+		<Rectangle CornerRadius="100" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Shadow Angle="90" Distance="1" Color="0, 0, 0, 0.5" Size="4" Mode="PerPixel" />
+			<!-- Inner shadow not supported in UX -->
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.7015041, 0.7015041, 0.7015041, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+</Panel>

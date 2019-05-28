@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.moneyplus" Width="24" Height="24">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- add -->
+		<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Shape -->
+			<Path Data="M 0.5833333333333 0 L 0.4166666666667 0 L 0.4166666666667 0.4166666666667 L 0 0.4166666666667 L 0 0.5833333333333 L 0.4166666666667 0.5833333333333 L 0.4166666666667 1 L 0.5833333333333 1 L 0.5833333333333 0.5833333333333 L 1 0.5833333333333 L 1 0.4166666666667 L 0.5833333333333 0.4166666666667 L 0.5833333333333 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Shape-path -->
+				<SolidColor Color="0.05490196, 0.4392157, 0.6509804, 1" />
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

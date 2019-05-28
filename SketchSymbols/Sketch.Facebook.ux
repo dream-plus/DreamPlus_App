@@ -1,0 +1,5 @@
+<Panel ux:Class="Sketch.Facebook" Width="34" Height="34">
+	<Image File="images/facebookIcon.png" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- ICONCRAZE-COM-Facebook-Icon-PNG -->
+	</Image>
+</Panel>

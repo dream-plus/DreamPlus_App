@@ -1,0 +1,19 @@
+<Panel ux:Class="Sketch.moneyupload" Width="24" Height="24">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- upload -->
+		<Panel Width="100%" Height="41.66667%" Alignment="TopLeft" Offset="0%, 58.33333%" Margin="0">
+			<!-- Shape_1_ -->
+			<Path Data="M 0.9166666666667 0 L 0.9166666666667 0.6 L 0.08333333333333 0.6 L 0.08333333333333 0 L 0 0 L 0 0.68 L 0 1 L 0.06666666666667 1 L 0.9333333333333 1 L 1 1 L 1 0.68 L 1 0 L 0.9166666666667 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Shape_1_-path -->
+				<SolidColor Color="1" />
+			</Path>
+		</Panel>
+		<Panel Width="58.33333%" Height="66.66666%" Alignment="TopLeft" Offset="20.83333%, 0%" Margin="0">
+			<!-- Shape -->
+			<Path Data="M 0 0.4125 L 0.08571428571429 0.48125 L 0.4285714285714 0.1875 L 0.4285714285714 1 L 0.5714285714286 1 L 0.5714285714286 0.1875 L 0.9142857142857 0.48125 L 1 0.4125 L 0.5 0 L 0 0.4125" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Shape-path -->
+				<SolidColor Color="1" />
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

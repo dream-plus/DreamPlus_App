@@ -1,0 +1,15 @@
+<Panel ux:Class="Sketch.Logininput" Width="300" Height="31">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Group 2 -->
+		<Text Color="1" FontSize="16" Value="로그인" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="23.66667%" Height="58.06452%" Alignment="TopLeft" Offset="37.33333%, 25.80645%" Margin="0">
+			<!-- 로그인 -->
+		</Text>
+		<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Rectangle -->
+			<Rectangle CornerRadius="100" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.1019608, 0.5137255, 0.6941177, 1" />
+			</Rectangle>
+		</Panel>
+	</Panel>
+</Panel>

@@ -1,0 +1,9 @@
+<Panel ux:Class="Sketch.darkening" Width="375" Height="812">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- darkening -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0, 0, 0, 0.5" />
+		</Rectangle>
+	</Panel>
+</Panel>

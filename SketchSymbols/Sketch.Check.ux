@@ -1,0 +1,5 @@
+<Panel ux:Class="Sketch.Check" Width="23" Height="24">
+	<Image File="images/607e74a706af7a74f6f9a7697e821832d2f75315.png" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Check -->
+	</Image>
+</Panel>

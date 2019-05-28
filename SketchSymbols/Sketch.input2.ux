@@ -1,0 +1,15 @@
+<Panel ux:Class="Sketch.input2" Width="251" Height="16">
+	<Panel Width="100%" Height="93.75%" Alignment="TopLeft" Offset="0%, 6.25%" Margin="0">
+		<!-- input2 -->
+		<Panel Width="64.54183%" Height="20%" Alignment="TopLeft" Offset="35.45817%, 80%" Margin="0">
+			<!-- Line -->
+			<Path Data="M 0.003086419753086 0.5 L 0.9969135802469 0.5" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Shadow Angle="116.565" Distance="2.236068" Color="0.5790817, 0.5245757, 0.5245757, 0.5" Size="3" Mode="PerPixel" />
+				<Stroke Width="1" Alignment="Center">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

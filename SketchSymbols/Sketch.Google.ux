@@ -1,0 +1,5 @@
+<Panel ux:Class="Sketch.Google" Width="38" Height="38">
+	<Image File="images/googleIcon.png" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- google-plus -->
+	</Image>
+</Panel>
