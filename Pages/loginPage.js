@@ -1,10 +1,12 @@
 var Observable = require('FuseJS/Observable');
 
-var ID = Observable("");
-var Password = Observable("");
+var ID = Observable();
+var Password = Observable();
 var NetworkError = Observable(false);
 var Loading = Observable(false);
 var autoLogin = Observable(false);
+var inputError = Observable(false);
+var inputMessage = Observable();
 
 // 서버와 연동이 안되었을 때 다시 시도하는 함수.
 function retry(){
@@ -22,34 +24,50 @@ function autoClose(){
 	autoLogin.value = false;
 }
 
+function inputRetry(){
+	inputError.value = false;
+}
+
+// username, password 변수는 로그인 할때 id와 pw를 나타냄
+// autoLogin은 자동로그인 부분을 체크 했는지 안했는지 구분하기 위한 변수(체크 하면 true)
 function SignIn(){
 
-	// username, password 변수는 로그인 할때 id와 pw를 나타냄
-	// autoLogin은 자동로그인 부분을 체크 했는지 안했는지 구분하기 위한 변수(체크 하면 true)
-    var opts = ({
-            	'username' : ID.value,
-                'password' : Password.value,
-                'autoLogin' : autoLogin.value
-              });
- 
-	fetch('http://18.222.99.74/users/signin',{
-		// fetch('http://3ff05a06.ngrok.io/users/signin',{
-	            method: "POST",
-	            headers: {
-	            	"Content-type": "application/JSON"
-	            },
-	            body : JSON.stringify(opts)
-	               
-	        }).then((res)=>{
-	            return res.json()
-			}).then((res)=>{
+	var opts = ({
+		'username' : ID.value,
+		'password' : Password.value,
+		'autoLogin' : autoLogin.value
+	});
 
-	            if( JSON.parse(res.success) == true){
-	            	router.push("home");
-	            }
-	        }).catch((err)=>{
-	            console.log(err);
-	        });
+	if(!ID.value){
+		inputMessage.value = "아이디를 입력해 주세요"
+		inputError.value = true;
+	}else if(!Password.value){
+		inputMessage.value = "비밀번호를 입력해 주세요"
+		inputError.value = true;
+	}else {
+
+		fetch('http://18.222.99.74/users/signin',{
+		// fetch('http://3ff05a06.ngrok.io/users/signin',{
+			method: "POST",
+			headers: {
+				"Content-type": "application/JSON"
+			},
+			body : JSON.stringify(opts)
+
+		}).then((res)=>{
+			return res.json();
+		}).then((res)=>{
+
+			if( JSON.parse(res.success) == true){
+				router.push("home");
+			}else if(JSON.parse(res.success) == false){
+				inputMessage.value = "입력하신 아이디 또는 비밀번호가 일치하지 않습니다"
+				inputError.value = true;
+			}
+		}).catch((err)=>{
+			console.log(err);
+		});
+	}
 
 }
 
@@ -81,21 +99,21 @@ function Session(){
 			}
 			
 		});
-}
+	}
 
 Session(); // Session 함수를 loginPage에 올때 무조건 실행시키기 위한 곳.
 
 // 로딩 화면 보여주는 함수.
 function startLoading() {
-		isBusy.activate();
-		setTimeout(function() {
-			isBusy.deactivate();
-			Loading.value = false;
+	isBusy.activate();
+	setTimeout(function() {
+		isBusy.deactivate();
+		Loading.value = false;
 			router.push("home"); // 로팅 후 홈으로 
 		}, 2000);
 
 
-	};
+};
 
 // 회원가입 페이지로 이동하는 함수.
 function SignUp(){
@@ -114,5 +132,8 @@ module.exports = {
 	Loading : Loading,
 	autoCheck : autoCheck,
 	autoLogin : autoLogin,
-	autoClose : autoClose
+	autoClose : autoClose,
+	inputError : inputError,
+	inputRetry : inputRetry,
+	inputMessage : inputMessage
 };

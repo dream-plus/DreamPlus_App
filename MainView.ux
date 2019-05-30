@@ -63,7 +63,7 @@
 				<Move X="1" RelativeTo="ParentSize" />
 			</Transition>
 		</projectSch>
-		<detailProjectPage ux:Template="detailProjectPage" router="router" >
+		<detailProjectPage ux:Template="detailProjectPage" router="router">
 			<Transition>
 				<Move X="1" RelativeTo="ParentSize" />
 			</Transition>

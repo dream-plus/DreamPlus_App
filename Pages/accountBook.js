@@ -9,16 +9,16 @@ var homeColorChange = Observable(false);
 var shebColorChange = Observable(false);
 var accColorChange = Observable(true);
 
+// 서버와 연동이 안되었을 때 다시 시도하는 함수.
+function retry(){
+	NetworkError.value = false;
+	totalAmount();
+}
 
 var Month = [];
 
-// var NetworkError = Observable(false);
+var NetworkError = Observable(false);
 
-
-// function retry(){
-// 	NetworkError.value = false;
-// 	svp.check();
-// }
 
 for(var i=1; i<=12; i++){
 	Month.push(i);
@@ -57,14 +57,45 @@ function totalAmount(){
 		
 
 	}).catch((err)=>{
-		console.log("Error: " + error);
-		// if(err == "TypeError: Network request failed" ){
-		// 	NetworkError.value = true;
-		// 	isLoading.value = false;
-		// }
+		console.log("Error: " + err);
+		if(err == "TypeError: Network request failed" ){
+			NetworkError.value = true;
+		}
 	});
 }
 totalAmount();
+
+// // 세션을 불러오는 함수.( 초기에 네트워크와 연결이 되었는지 확인하는 용도로도 쓰인다. )
+// function Session(){
+
+// 	fetch('http://18.222.99.74/users/session',{
+// 		// fetch('http://3ff05a06.ngrok.io/users/session',{
+// 			method: "GET",
+// 			headers: {
+// 				"Content-type": "application/JSON"
+// 			}
+// 		}).then(function(res){
+// 			return res.json();
+// 		}).then(function(res){
+// 			// message true는 세션이 작동 되었는지 확인하는 변수.
+// 			// autoLogin은 자동로그인 버튼을 누르면 true , 안누르면 false
+// 			if(res.message == 'true' && res.autoLogin == true){ 
+// 				Loading.value = true;
+// 				startLoading();
+// 			}			
+
+// 		}).catch((err)=>{
+// 			console.log(err );
+// 			if(err == "TypeError: Network request failed" ){
+// 				NetworkError.value = true;
+// 			}else if(err == "SyntaxError: Unexpected token < in JSON at position 1"){ // 이 SyntaxError는 서버에서 값을 받지 못할때 발생하므로 network failed와 같은 에러로 취급하였다.
+// 				NetworkError.value = true;
+// 			}
+			
+// 		});
+// 	}
+
+// Session();
 
 // router
 function gotoIncome(){
@@ -94,7 +125,9 @@ module.exports = {
 	boardColorChange : boardColorChange,
 	homeColorChange : homeColorChange,
 	shebColorChange : shebColorChange,
-	accColorChange : accColorChange
+	accColorChange : accColorChange,
+	retry : retry,
+	NetworkError : NetworkError
 
 
 };

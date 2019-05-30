@@ -18,14 +18,14 @@
 				<DockPanel>
 					<Rectangle Alignment="Default" Dock="Right" Width="160" Height="100" Margin="0, 0, 10, 0">						
 						<StackPanel>
-							<Text Value="{title}" Color="#434443" TextAlignment="Left" FontSize="15" Font="Nanum_acB" />
-							<Text Value="{content}" Color="#404140" TextAlignment="Left" FontSize="15" TextWrapping="Wrap" Font="Nanum_acB" />
-							<Text Value="{expense}원" Color="#006EA8" TextAlignment="Left" FontSize="25" Font="Nanum_acB" />
+							<Text Value="{title}" Color="#434443" TextAlignment="Left" FontSize="12" Font="Nanum_acEB" />
+							<Text Value="{content}" Color="#404140" TextAlignment="Left" FontSize="12" TextWrapping="Wrap" Font="Nanum_acEB" />
+							<Text Value="{expense}원" Color="#006EA8" TextAlignment="Left" FontSize="25" Font="Nanum_acEB" />
 						</StackPanel>
 					</Rectangle>
 
 					<Rectangle Alignment="Default" Dock="Left" Width="160" Height="100" Margin="10, 0, 0, 0">						
-						<Text Value="{detail}" Color="#9A9B9A" TextAlignment="Right" FontSize="13" TextWrapping="Wrap" Font="Nanum_acR" />
+						<Text Value="{detail}" Color="#9A9B9A" TextAlignment="Right" FontSize="12" TextWrapping="Wrap" Font="Nanum_acEB" />
 					</Rectangle>
 				</DockPanel>
 

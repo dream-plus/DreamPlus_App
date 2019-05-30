@@ -3,10 +3,10 @@
 	<JavaScript File="signupPage.js" />
 	<iOS.StatusBarConfig Style="Light" />
 	<Android.StatusBarConfig Color="#000000" />
-	<Rectangle Color="#0C82B3" Alignment="Top" Height="50">
+	<Rectangle Color="#1A83B1" Alignment="Top" Height="50">
 	<Image File="../Assets/back.png" Clicked="{goBack}" Alignment="Left" Layer="Layout" Height="40" Width="30" Padding="0, 0, 0, 0" Margin="30, 60, 0, 0" />
 	</Rectangle>
-	<Rectangle Alignment="Top" Color="#0C82B3" Height="250" CornerRadius="50">
+	<Rectangle Alignment="Top" Color="#1A83B1" Height="250" CornerRadius="50">
 		<Circle Color="#FFF" Width="120" Height="120" Margin="0, 80, 0, 0">
 			<WhileTrue Value="{photoView}">
 				<Image File="{imagePath}" Margin="0, 0, 0, 0" Width="120" Height="120" />
@@ -17,23 +17,22 @@
 				<Callback Handler="{addImage}" />
 			</Clicked>
 		</Circle>
-		<Text TextColor="#FFF" Alignment="TopCenter" Margin="0, 70, 0, 0" Value="회원가입" />
+		<Text TextColor="#FFF" Alignment="TopCenter" Margin="0, 70, 0, 0" Value="회원가입" Font="Nanum_acB" />
 		<Shadow Angle="54" Color="#000000B8" />
 	</Rectangle>
 
-
-
+<!-- 
 	<WhileTrue Value="{idCheck}">
-		<Change popup.Opacity="1" Duration="1" />
+		<Change idpopup.Opacity="1" Duration="1" />
 
-		<Rectangle ux:Name="popup" Width="200" Height="100" Opacity="0" CornerRadius="25" Color="#FEFFFE2F">
+		<Rectangle ux:Name="idpopup" Width="200" Height="100" Opacity="0" CornerRadius="25" Color="#FEFFFE2F">
 			<Text Alignment="Center" Value="아이디 중복 입니다." />
 			<Stroke Width="2" Color="#0B8CBB53" />
 			<Clicked>
 				<Callback Handler="{idpopup}" />
 			</Clicked>
 		</Rectangle>
-	</WhileTrue>
+	</WhileTrue> -->
 
 	<WhileTrue Value="{ruleToggle}">
 		<ScrollView Layer="Overlay" Background="#FEFFFE" Margin="0, 250, 0, 0">
@@ -100,46 +99,55 @@
 			</Clicked>
 		</ScrollView>
 	</WhileTrue>
-
-
+		
 	<ScrollView Margin="0, 250, 0, 0">
 		
 		<StackPanel ItemSpacing="10" Margin="0, 70, 0, 0">
+
+			<!-- 이름 입력 란 -->
 			<Rectangle Width="300" Height="20" CornerRadius="20" ux:Name="name">
-				<Text Value="이름" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
-				<TextInput Value="{newName}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="이름을 입력하세요." Height="15" Width="170" />
+				<Text Value="이름" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" Font="Nanum_acB" />
+				<TextInput Value="{newName}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="이름을 입력하세요." Height="15" Width="170" Font="Nanum_acB" />
 				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
 			</Rectangle>
 
+			<!-- 성멸 입력 란 -->
 			<Rectangle Width="300" Height="20" CornerRadius="20" ux:Name="gender">
-				<Text Value="성별" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
-				<TextInput Value="{newGender}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="남 / 여" Height="15" Width="170" />
+				<Text Value="성별" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" Font="Nanum_acB" />
+				<TextInput Value="{newGender}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="남 / 여" Height="15" Width="170" Font="Nanum_acB" />
 				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
 			</Rectangle>
 
+			<!-- 아이디 입력 란 -->
 			<Rectangle Width="300" Height="20" CornerRadius="20">
-				<Text Value="아이디" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
-				<TextInput Value="{newID}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="6자이상 12이하로 입력하세요." Height="15" Width="170" />
+				<Text Value="아이디" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" Font="Nanum_acB" />
+				<TextInput Value="{newID}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="6자이상 12이하로 입력하세요." Height="15" Width="170" Font="Nanum_acB" />
 				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
+				<!-- 아이디 중복 popup란  -->
 			</Rectangle>
+			<WhileTrue Value="{idCheck}">
+				<Text Alignment="Center" Value="아이디 중복 입니다." Color="#FF2600" Font="Nanum_acB" FontSize="12" Margin="50, 0, 0, 0" />
+			</WhileTrue>
 
+			<!-- 비밀번호 입력 란 -->
 			<Rectangle Width="300" Height="20" CornerRadius="20">
-				<Text Value="비밀번호" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
-				<TextInput Value="{newPW}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="6자이상 12이하로 입력하세요." Height="15" Width="170" IsPassword="true" />
+				<Text Value="비밀번호" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" Font="Nanum_acB" />
+				<TextInput Value="{newPW}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="6자이상 12이하로 입력하세요." Height="15" Width="170" IsPassword="true" Font="Nanum_acB" />
 				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
 			</Rectangle>
 
 			<!-- 전공 선택 -->
 			<Rectangle Width="300" Height="20" CornerRadius="20" Margin="0, 50, 0, 0">
-				<Text Value="학과" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
+				<Text Value="학과" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" Font="Nanum_acB" />
 
+				<!-- 클릭시 목록 보여주는 곳 -->
 				<WhileTrue Value="{majorToggle}">
 				<!-- <Rectangle Background="#FEFFFE" Alignment="Top" Height="30" Opacity="0.715" />
 				<Rectangle Background="#FEFFFE" Alignment="Bottom" Height="30" Opacity="0.715" /> -->
 				<ScrollView Margin="0, 48, 0, 0" Alignment="CenterRight" Width="170" Background="#FFF" Padding="0, 0, 0, 0" Height="90">
 					<StackPanel Alignment="Default" ItemSpacing="10" Margin="0, 0, 0, 0">
 						<Each Items="{majorValue}">
-							<Text Value="{=data()}" FontSize="12" Clicked="{choicemajor}" Color="#A7A9A9" Alignment="Default" TextAlignment="Left">
+							<Text Value="{=data()}" FontSize="12" Clicked="{choicemajor}" Color="#A7A9A9" Alignment="Default" TextAlignment="Left" Font="Nanum_acB">
 								<Clicked>							
 									<Set Target="selectMajor.Value" Value="{majorInit}" />
 								</Clicked>
@@ -150,7 +158,8 @@
 				</WhileTrue>
 
 				<Rectangle>
-					<Text Value="{majorInit}" TextColor="#A7A9A9" ux:Name="selectMajor" Row="0" Column="1" Alignment="CenterRight" FontSize="12" Height="15" Width="170" />
+					<Text Value="{majorInit}" TextColor="#A7A9A9" ux:Name="selectMajor" Row="0" Column="1" Alignment="CenterRight" FontSize="12" Height="15" Width="170" Font="Nanum_acB" />
+					<Sketch.moneydetaildown Margin="0, 0, 0, 0" Alignment="Right" />
 					<Clicked>
 						<Callback Handler="{majorChange}" />
 					</Clicked>
@@ -158,21 +167,29 @@
 				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
 			</Rectangle>
 
+			<!-- 학번 입력하는 곳 -->
 			<Rectangle Width="300" Height="20" CornerRadius="20">
-				<Text Value="학번" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
-				<TextInput Value="{newNumber}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="예) 18681001" Height="15" Width="170" MaxLength="8" InputHint="Number" />
+				<Text Value="학번" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" Font="Nanum_acB" />
+				<TextInput Value="{newNumber}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="예) 18681001" Height="15" Width="170" MaxLength="8" InputHint="Number" Font="Nanum_acB" />
 				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
 			</Rectangle>
 
+			<!-- 휴대폰 번호 입력하는 곳  -->
 			<Rectangle Width="300" Height="20" CornerRadius="20">
-				<Text Value="연락처" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" />
-				<TextInput Value="{newPhoneNum}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="11자리를 전부 입력하세요." Height="15" Width="170" MaxLength="11" InputHint="Number" />
+				<Text Value="연락처" Alignment="CenterLeft" TextColor="#0081B5" FontSize="12" Margin="20, 0, 0, 0" Font="Nanum_acB" />
+				<TextInput Value="{newPhoneNum}" Row="0" Column="1" PlaceholderColor="#999" Alignment="CenterRight" FontSize="12" PlaceholderText="11자리를 전부 입력하세요." Height="15" Width="170" MaxLength="11" InputHint="Number" Font="Nanum_acB" />
 				<Rectangle Color="#D9D8DA" Width="170" Height="2" Alignment="BottomRight" /> 
 			</Rectangle>
 
+			<!-- 앙목 입력 체크하는 곳 -->
+			<WhileTrue Value="{inputToggle}">
+				<Text Alignment="Center" Value="모든 항목을 입력해 주세요" Font="Nanum_acB" FontSize="12" TextColor="#FF2600" Margin="0, 20, 0, 0" />
+			</WhileTrue>
+
+			<!-- 규정 버튼 -->
 			<Rectangle ux:Name="rulebtn" Width="200" Height="30" Color="#FEFFFE" CornerRadius="20" Margin="0, 50, 0, 0">
-				<Text Value="드림플러스 동아리 규정" Alignment="Center" FontSize="15" TextColor="#AEA9A9" /> 				
-				<Stroke Color="#969796" Width="2" />
+				<Text Value="드림플러스 동아리 규정" Alignment="Center" FontSize="15" TextColor="{ruleColor}" Font="Nanum_acB" /> 				
+				<Stroke Color="{ruleColor}" Width="2" />
 				<WhilePressed>
 					<Scale Target="rulebtn" Factor="0.9" Duration="0.05" />
 				</WhilePressed>
@@ -180,17 +197,21 @@
 					<Callback Handler="{ruleOpen}" />
 				</Clicked>
 			</Rectangle>
+			<!-- 규정 동의 확인 부분 -->
+			<WhileTrue Value="{ruleCheckToggle}">
+				<Text Alignment="Center" Value="동아리 규정을 동의해 주세요." Font="Nanum_acB" FontSize="12" TextColor="#FF2600" />
+			</WhileTrue>
 
-			<Text Value="위 드림플러스 동아리 규정 내용을 확인하고 동의합니다." TextAlignment="Center" FontSize="8" TextColor="#0B8CBB" />
-			<Rectangle ux:Name="signupbtn" Width="100" Height="30" Color="#FEFFFE" CornerRadius="20" Margin="0, 10, 0, 0">
-				<Text Value="회원가입" Alignment="Center" FontSize="15" TextColor="#3588B7" /> 
+			<Text Value="위 드림플러스 동아리 규정 내용을 확인하고 동의합니다." TextAlignment="Center" FontSize="8" TextColor="#0B8CBB" Font="Nanum_acB" />
+			<Rectangle ux:Name="signupbtn" Width="100" Height="30" Color="#FEFFFE" CornerRadius="20" Margin="0, 20, 0, 0">
+				<Text Value="회원가입" Alignment="Center" FontSize="15" TextColor="#3588B7" Font="Nanum_acB" /> 
 				<WhilePressed>
 					<Scale Target="signupbtn" Factor="0.9" Duration="0.05" />
 				</WhilePressed>
 				<Clicked>
 					<Callback Handler="{Save}" />
 				</Clicked>
-				<Stroke Color="#3588B7" Width="2" />
+				<Stroke Color="#1A83B1" Width="1" />
 			</Rectangle>
 
 		</StackPanel>

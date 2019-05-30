@@ -18,12 +18,12 @@
 	</WhileTrue>
 
 	<Image File="../../Assets/logoGray.png" Width="50" X="30" Y="70" />
-	<Text Value="000-0000-0000-00 (KEB하나)" X="30" Y="110" Color="#A0A0A0" FontSize="10" Font="Nanum_acR" />
-	<Text Value="{balance}원" X="30" Y="130" FontSize="20" Color="#006EA8" Font="Nanum_acB" />
+	<Text Value="000-0000-0000-00 (KEB하나)" X="30" Y="110" Color="#A0A0A0" FontSize="10" Font="Nanum_acR" TextColor="#535454" />
+	<Text Value="{balance}원" X="30" Y="130" FontSize="20" Color="#006EA8" Font="Nanum_acEB" />
 
 	<Rectangle Width="100" Height="15" Y="140" X="250">
 		<Panel Margin="10, 0, 0, 0">
-			<Text Value="5월 사용내역" FontSize="12" ux:Name="Monthvalue" Font="Nanum_acR" />
+			<Text Value="5월 사용내역" FontSize="12" ux:Name="Monthvalue" Font="Nanum_acEB" />
 			<Sketch.moneydetaildown Margin="65, 0, 0, 0" />
 			<Clicked>
 				<Callback Handler="{MonthtoggleOpen}" />
@@ -35,9 +35,9 @@
 	<Grid Alignment="HorizontalCenter" Width="120" Height="40" Opacity="1" RowCount="1" ColumnCount="3" Y="170">
 		<Rectangle ux:Name="incomebtn" Color="0.4693793, 0.6832176, 0.801047, 1">
 			<WhileTrue Value="{incomeColorChange}">
-				<Text Value="수입" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#0279B0" Y="13" FontSize="11" X="15" Font="Nanum_acB" />
+				<Text Value="수입" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#0279B0" Y="13" FontSize="11" X="15" Font="Nanum_acEB" />
 			</WhileTrue>
-			<Text Value="수입" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#FFF" Y="13" FontSize="11" X="15" Font="Nanum_acB" />
+			<Text Value="수입" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#FFF" Y="13" FontSize="11" X="15" Font="Nanum_acEB" />
 			<WhilePressed>
 				<Scale Target="incomebtn" Factor="0.9" Duration="0.05" />
 			</WhilePressed>
@@ -62,9 +62,9 @@
 
 		<Rectangle ux:Name="expensebtn" Row="0" Column="2" Color="0.4693793, 0.6832176, 0.801047, 1">
 			<WhileTrue Value="{expenseColorChange}">
-				<Text Value="지출" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#0279B0" Y="13" FontSize="11" X="1" Font="Nanum_acB" />
+				<Text Value="지출" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#0279B0" Y="13" FontSize="11" X="1" Font="Nanum_acEB" />
 			</WhileTrue>
-			<Text Value="지출" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#FFF" Y="13" FontSize="11" X="1" Font="Nanum_acB" />
+			<Text Value="지출" TextAlignment="Center" TextWrapping="NoWrap" TextColor="#FFF" Y="13" FontSize="11" X="1" Font="Nanum_acEB" />
 			<WhilePressed>
 				<Scale Target="expensebtn" Factor="0.9" Duration="0.05" />
 			</WhilePressed>

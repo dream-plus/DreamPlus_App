@@ -1,7 +1,7 @@
 <Panel ux:Class="Sketch.moneymenu" Width="160" Height="40">
 	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
 		<!-- Rectangle 3 -->
-		<Rectangle CornerRadius="20" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<Rectangle CornerRadius="20" Height="100%" Alignment="TopLeft" Margin="0" Color="#78AECC" Width="100%">
 			<!-- Path -->
 			<Shadow Angle="90" Distance="2" Color="0, 0, 0, 0.227072" Size="2" Mode="PerPixel" />
 			<SolidColor Color="0.4693793, 0.6832176, 0.801047, 1" />

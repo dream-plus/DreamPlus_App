@@ -13,7 +13,7 @@ var opp = Observable();
 var pin = 0;
 var i = 0;
 
-// exports.NetworkError = Observable(false);
+exports.NetworkError = Observable(false);
 
 
 // exports.retry = function (){
@@ -71,10 +71,10 @@ function loadSome(){
 
 
 	}).catch((err)=>{
-		console.log("Error: " + error);
+		console.log("Error: " + err);
 		// if(err == "TypeError: Network request failed" ){
-		// 	NetworkError.value = true;
-		// 	isLoading.value = false;
+		// 	exports.NetworkError.value = true;
+		// 	exports.isLoading.value = false;
 		// }
 	});
 }
