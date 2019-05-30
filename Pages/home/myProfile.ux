@@ -36,15 +36,14 @@
 					<Stroke Width="1" Color="#0C82B3" />
 				</Circle>
 				<Text Value="{getSessionName}" FontSize="8" TextColor="#959695" Alignment="CenterLeft" Font="Nanum_acB" Margin="45, 35, 0, 0" />
+				<Rectangle Margin="0, 0, 70, 20" Width="40" Height="15" Alignment="Center" CornerRadius="50" Color="{categoryColor}">
+					<Text Value="{category}" TextAlignment="Center" FontSize="8" Alignment="Center" TextColor="#727372" Font="Nanum_acR" />
+				</Rectangle>
 
-				<StackPanel Alignment="Default" Margin="0, 30, 0, 0">
-						<Grid Dock="Top" Height="50" ColumnCount="3" RowCount="2" Columns="1*,3*,1*" Alignment="Default" Margin="10, 2, 0, 0" ChildOrder="RowMajor" Clicked="{gotoDetails}">
-							<Rectangle Margin="0, 10, 0, 0" Width="40" Height="15" Alignment="Default" CornerRadius="50" Color="{Items.categoryColor}">
-								<Text Value="{Items.category}" TextAlignment="Center" FontSize="8" Alignment="Center" TextColor="#727372" Font="Nanum_acR" />
-							</Rectangle>
-							<Text Value="{Items.noticeTitle}" Alignment="Center" FontSize="12" TextAlignment="Left" TextColor="#000" Margin="0, 10, 0, 0" Font="Nanum_acB" />
-							<Text Alignment="Center" FontSize="10" TextColor="#636463" Margin="0, 0, 0, 5" Font="Nanum_acL" Value="{Items.noticeDays}" />
-						</Grid>
+				<Text Alignment="Center" FontSize="10" TextColor="#636463" Margin="50, 0, 0, 20" Font="Nanum_acL" Value="{noticeDays}" />
+				<Text Value="{noticeTitle}" Alignment="Center" FontSize="12" TextAlignment="Left" TextColor="#000" Margin="0, 30, 50, 0" Font="Nanum_acB" />
+				<StackPanel Alignment="Default" Margin="0, 0, 0, 0">
+						<Grid Dock="Top" ColumnCount="2" RowCount="2" Alignment="Default" Margin="0, 0, 0, 0" ChildOrder="RowMajor" Clicked="{gotoDetails}" Height="50" Width="150" />
 				</StackPanel>
 			</Rectangle>
 

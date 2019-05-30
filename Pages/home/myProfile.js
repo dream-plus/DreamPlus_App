@@ -32,6 +32,7 @@ function Session(){
 			if(res.message == 'true'){ 
 				getSessionName.value = res.username;
 				getSessionId.value = res.userid;
+				noticeloadSome();
 			}			
 
 		}).catch((err)=>{
@@ -42,9 +43,9 @@ function Session(){
 
 Session(); // Session 함수를 무조건 실행시키기 위한 곳.
 
-// 서버와 연결 해 공지사항을 불러오는 함수.
+// 서버와 연결 해 해당 아이디가 올린 글들을 불러오는 함수.
 function noticeloadSome(){
-	fetch('http://18.222.99.74/board/am',{
+	fetch('http://18.222.99.74/board/am/' + getSessionId.value,{
 		// fetch('http://3ff05a06.ngrok.io/board/am',{
 			method: "GET",
 			headers: {
@@ -55,38 +56,27 @@ function noticeloadSome(){
 		}).then(function(res){
 			return res.json();
 		}).then(function(res){
+
+			if(res[res.length-1].category == "다온"){
+				categoryColor.value = "#95D1EC";
+			} else if(res[res.length-1].category == "네잎"){
+				categoryColor.value = "#B3E579";
+			} else if(res[res.length-1].category == "디자인"){
+				categoryColor.value = "#F7D976";
+			}else {
+				categoryColor.value = "#FEFFFE";
+			}
 			// 가장 최근 올린 글 하나만 보여주는 곳
-			Items.add(createBoardPage(res[res.length-1].name,res[res.length-1].title,res[res.length-1].content,res[res.length-1].date,res[res.length-1].category));		
+			category.value = res[res.length-1].category;
+			noticeTitle.value = res[res.length-1].title;
+			noticeDays.value = res[res.length-1].date;
+
+			console.log(res[res.length-1].category);	
 		}).catch((err)=>{
 			console.log(err);
 		});
 	}
 
-// noticeItems에 한번에(for문 안에) 
-// 합치게 되면 마지막 데이터만 들어가는 문제 발생하기 때문에 반드시 createPage로 분리 시켜줘야한다.
-function createBoardPage(name, title, content, date, category) {
-	if(category == "다온"){
-		categoryColor.value = "#95D1EC";
-	} else if(category == "네잎"){
-		categoryColor.value = "#B3E579";
-	} else if(category == "디자인"){
-		categoryColor.value = "#F7D976";
-	}else {
-		categoryColor.value = "#FEFFFE";
-	}
-
-	return {
-		noticeName : name,
-		noticeTitle: title,
-		noticeContent : content,
-		noticeDays : date,
-		category : category,
-		categoryColor : categoryColor.value,
-		gotoDetails: function() {
-			router.push("detailPage", { title: title , name:name, content:content, days:date})
-		}
-	};
-}
 
 // 로그아웃을 해주는 함수.
 function signOut(){
@@ -106,16 +96,10 @@ function signOut(){
 			}			
 		}).catch((err)=>{
 			console.log(err);
-
-			// 서버와 연동이 되지 않았을 때 나오는 에러. 
-			// networkError 변수로 다시 연결을 시도하기 위해 만들었다.
-			if(err == "TypeError: Network request failed" ){
-				NetworkError.value = true;
-			}
 		});
 	}
 
-	noticeloadSome();
+
 
 	module.exports = {
 		getSessionName : getSessionName,
