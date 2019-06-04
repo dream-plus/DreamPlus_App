@@ -4,19 +4,23 @@
 	
 	<Router ux:Dependency="router" />
 	<JavaScript File="monthView.js" />
-	<Rectangle Color="#4A4A4A" Padding="0, 0, 0, 0" Margin="0, 103, 0, 0" Alignment="Top" Height="1.5" />
+	<JavaScript File="monthBottom.js" />
 
-	<Rectangle Height="1" Color="#8E8E8E" Alignment="Top" Margin="0, 165, 0, 0" />
-	<Rectangle Height="1" Alignment="Top" Margin="0, 226, 0, 0" Color="#8E8E8E" />
-	<Rectangle Alignment="Top" Margin="0, 346, 0, 0" Height="1" Color="#8E8E8E" />
-	<Rectangle Height="1" Alignment="Top" Color="#8E8E8E" Margin="0, 285, 0, 0" />
-	<Rectangle Height="1" Color="#8E8E8E" Alignment="Top" Margin="0, 406, 0, 0" />
+	<Rectangle Color="#DFE0DF" Padding="0, 0, 0, 0" Margin="0, 103, 0, 0" Alignment="Top" Height="1.5">
+		<Shadow />
+	</Rectangle>
+
+	<Rectangle Height="1" Color="#E6E7E6" Alignment="Top" Margin="0, 165, 0, 0" />
+	<Rectangle Height="1" Alignment="Top" Margin="0, 226, 0, 0" Color="#D4D5D4" />
+	<Rectangle Alignment="Top" Margin="0, 346, 0, 0" Height="1" Color="#D4D5D4" />
+	<Rectangle Height="1" Alignment="Top" Color="#D4D5D4" Margin="0, 285, 0, 0" />
+	<Rectangle Height="1" Color="#D4D5D4" Alignment="Top" Margin="0, 406, 0, 0" />
 	<Rectangle Color="#FFF0" Visibility="Hidden" ux:Name="blockView" />
 	
 	<DockPanel Color="#FEFFFE" Padding="5" Margin="5, 0, 0, 0" Y="30" Height="380">
 		<Grid Dock="Top" Columns="auto,1*,auto" Margin="0,0,0,5" Color="#FEFFFE" CellSpacing="5">
 			<Panel Width="35" Height="35" Opacity="0.3">
-				<Image File="../../Assets/calendar/arrowleft.png" Color="#000000DD" X="120" />
+				<Image File="../../Assets/calendar/arrowleft.png" Color="{Resource ColorTextPrime}" X="120" />
 				<Clicked>
 					<RouterModify Bookmark="prevMonth" Style="fromLeft" />
 				</Clicked>
@@ -25,17 +29,17 @@
 				<Text FontSize="25" Color="#1C82B0" Value="{monthLabel}" TextAlignment="Center" Alignment="VerticalCenter" />
 			</Panel>
 			<Panel Width="35" Height="35" Opacity="0.3">
-				<Image File="../../Assets/calendar/arrowright.png" Color="#000000DD" Margin="-230, 0, 0, 0" />
+				<Image File="../../Assets/calendar/arrowright.png" Color="{Resource ColorTextPrime}" Margin="-230, 0, 0, 0" />
 				<Clicked>
 					<RouterModify Bookmark="nextMonth" Style="fromRight" />
 				</Clicked>
 			</Panel>
 		</Grid>
-	
+
 		<Grid ColumnCount="7" CellSpacing="3" DefaultRow="1*" Rows="auto">
 			<Each Items="{daysOfWeek}">
 				<Panel Height="30">
-					<Text FontSize="16" Value="{data()}" TextAlignment="Center" Color="#000000" />
+					<Text FontSize="16" Value="{data()}" TextAlignment="Center" Color="#494A49" />
 				</Panel>
 			</Each>
 			<Each Items="{days}" MatchKey="type">
@@ -47,32 +51,199 @@
 		</Grid>
 	</DockPanel>
 	
+	
+
 	<DockPanel Alignment="Bottom" Height="257">
-		<Rectangle Color="#D2D2D2">
+		<!-- 내용 세부사항 진행 중 -->
+		<!-- <WhileTrue Value="{detailpanel}">
+					<DockPanel ux:Class="Details" Alignment="Bottom" Height="257">
+			<Each Items="{items2}" ux:Name="theEach2" Reuse="Frame">
+
+				<Rectangle Color="#F9FAF9">
+					<StackPanel>
+						<Rectangle Height="30" Alignment="TopCenter" Color="#FEFFFE" Margin="0, 0, 0, 0" Width="100%">
+							<Stroke Color="#E7E8E7" Alignment="Outside" Width="2" />
+							<Grid RowCount="1" Margin="0, 0, 0, 0" ColumnCount="3">
+								<Image File="../Assets/back.png" Alignment="TopLeft" Margin="6, 6, 0, 0" Width="20" Height="18">
+									<Clicked>
+										<Callback Handler="{goBack}" />
+									</Clicked>
+								</Image>
+								<Image File="../Assets/modified.png" Alignment="TopRight" Margin="200, 6, 0, 0" Width="20" Height="20">
+								</Image>
+								<Image File="../Assets/delete.png" Alignment="TopRight" Margin="6, 6, 15, 0" Width="20" Height="20">
+								</Image>
+							</Grid>
+						</Rectangle>
+						<ScrollView>
+							<StackPanel Orientation="Vertical" Margin="0, 30, 0, 0" Width="300" ItemSpacing="7">
+
+								<Rectangle>
+									<Text Value="{title}" Width="290" Margin="0, 0, 0, 5" FontSize="18" />
+									<Image File="../Assets/bell_on.png" Alignment="TopRight" Margin="322, 0, 0, 0" Width="20" Height="20" />
+								</Rectangle>
+
+								<Text Value="{date2}" Margin="0, 0, 0, 0" FontSize="15" Width="290" TextColor="#9B9C9B" />
+
+								<Text Value="{time2}" FontSize="15" Alignment="Default" TextWrapping="Wrap" Width="290" Margin="0, 0, 0, 0" TextColor="#9B9C9B" />
+								<Text Value="{place2}" FontSize="15" Width="290" Margin="0, 0, 0, 20" TextColor="#9B9C9B" />
+								<Text Value="기타 전달 사항" FontSize="12" Width="290" />
+								<Text Value="{contents2}" FontSize="15" TextWrapping="Wrap" Width="290" Margin="0, 0, 0, 0" TextColor="#9B9C9B" />
+							</StackPanel>
+						</ScrollView>
+					</StackPanel>
+
+
+				</Rectangle>
+			</Each>
+
+					</DockPanel>
+		</WhileTrue> -->
+
+		<Rectangle Color="#F9FAF9">
 			<Rectangle Width="250" Height="35" Alignment="Top" Margin="0, 20, 0, 0" Color="#FDFFFD" CornerRadius="30">
+				<Panel Color="#FEFEFE" Height="30" X="20" Width="90" Margin="0, -5, 0, 0">
+					<WhileTrue Value="{weekColorChange}">
+						<Text Value="월간" TextAlignment="Center" Margin="0, 10, 0, 0" TextColor="#4984A6" />
+						<Rectangle Color="#3984AB" Width="90" Height="3" Margin="0, 31, 0, 0" />
+					</WhileTrue>
+					<Text Value="월간" TextAlignment="Center" Margin="0, 10, 0, 0" TextColor="#D1D2D1" />
+					<Rectangle Color="#FDFEFD" Margin="0, 31, 0, 0" Alignment="Default" Width="90" Height="3" />
+					<Clicked>
+						<Callback Handler="{weekChange}" />
+						<Callback Handler="{monthtest}" />
+					</Clicked>
+				</Panel>
+
+				<Panel Height="30" Color="#FEFEFE" X="140" Width="90" Margin="0, -5, 0, 0">
+					<WhileTrue Value="{dayColorChange}">
+						<Text Value="오늘" TextAlignment="Center" Margin="0, 10, 0, 0" TextColor="#4984A6" />
+						<Rectangle Width="90" Height="3" Color="#3984AB" Margin="0, 31, 0, 0" />
+					</WhileTrue>
+					<Text Value="오늘" TextAlignment="Center" Margin="0, 10, 0, 0" TextColor="#D1D2D1" />
+					<Rectangle Width="90" Height="3" Color="#FDFEFD" Margin="0, 31, 0, 0" />
+					<Clicked>
+						<Callback Handler="{dayChange}" />
+						<Callback Handler="{todaytest}" />
+					</Clicked>
+				</Panel>
+				<Shadow />
 			</Rectangle>
+
+	<!-- 월별 스케줄 상황 보여주기 (미완성) -->
+		<WhileTrue Value="{scheduleMonth}">
+			<ScrollView LayoutMode="PreserveVisual" Alignment="Default" Margin="0, 80, 0, 70">
+				<StackPanel Orientation="Vertical" ItemSpacing="15" Margin="0, 0, 0, 0" Width="300">
+					<Each Items="{monthitems}" ux:Name="monththeEach" Reuse="Frame">
+
+						<!-- <Rectangle ux:Name="gotodetailsbtn" Alignment="Default" Width="300" Clicked="{detailed}" Height="50" Margin="0, 0, 0, 0"> -->
+						<Rectangle ux:Name="gotodetailsbtn" Alignment="Default" Width="330" Height="50" Margin="0, 0, 0, 0">	
+							<WhilePressed>
+								<Scale Target="gotodetailsbtn" Factor="0.9" Duration="0.05" />
+							</WhilePressed>					
+
+
+							<Text Value="{title}" Color="#434443" FontSize="20" TextAlignment="Left" Margin="55, 0, 0, 0" Padding="0, 0, 0, 0" TextColor="#000" Alignment="TopLeft" />
+							<Circle Height="30" Color="{color}" Width="30" Alignment="CenterLeft" Margin="0, 0, 0, 10" />
+							<Image File="../../Assets/calendar/bell_on.png" Alignment="CenterRight" Width="15" Margin="0, 0, 0, 10" />
+							<Rectangle Width="220" Height="20" Margin="0, 17, 0, 0">
+								<WrapPanel>
+									<Text FontSize="12" Margin="0, 0, 0, 0" Value="(" />
+									<Text Value="{date}" Color="#404140" FontSize="12" TextAlignment="Left" Margin="0, 0, 0, 0" />
+									<Text Value="{time}" Color="#404140" FontSize="12" TextAlignment="Left" Margin="0, 0, 0, 0" />
+									<Text FontSize="12" Margin="0, 0, 0, 0" Value=" / " />
+									<Text Value="{place}" Color="#404140" FontSize="12" TextAlignment="Left" Margin="0, 0, 0, 0" />
+									<Text Value=")" FontSize="12" />
+								</WrapPanel>
+							</Rectangle>
+						</Rectangle>
+					</Each>
+
+					<WhileTrue Value="{monthisLoading}">
+						<Panel LayoutRole="Placeholder" Height="50" Color="#F6FBFF">
+							<Text Alignment="Center" Value="Loading..." />
+						</Panel>
+						<Move X="-1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+					</WhileTrue>
+
+				</StackPanel>
+			<ScrollViewPager Each="monththeEach" ReachedStart="{monthloadMore}" ux:Name="monthsvp" />								<!-- <ScrollViewPager Each="theEach" ux:Name="svp" /> -->
+
+		</ScrollView>
+	</WhileTrue>
+
+ <!-- 오늘자 스케줄 보여주기  -->
+	<WhileTrue Value="{scheduleDay}">
+		<ScrollView LayoutMode="PreserveVisual" Alignment="Default" Margin="0, 80, 0, 70">
+				<StackPanel Orientation="Vertical" ItemSpacing="15" Margin="0, 0, 0, 0" Width="300">
+					<Each Items="{todayitems}" ux:Name="todaytheEach" Reuse="Frame">
+
+						<!-- <Rectangle ux:Name="gotodetailsbtn" Alignment="Default" Width="300" Clicked="{detailed}" Height="50" Margin="0, 0, 0, 0"> -->
+						<Rectangle ux:Name="gotodetailsbtn" Alignment="Default" Width="330" Height="50" Margin="0, 0, 0, 0">	
+							<WhilePressed>
+								<Scale Target="gotodetailsbtn" Factor="0.9" Duration="0.05" />
+							</WhilePressed>					
+
+
+							<Text Value="{title2}" Color="#434443" FontSize="20" TextAlignment="Left" Margin="55, 0, 0, 0" Padding="0, 0, 0, 0" TextColor="#000" Alignment="TopLeft" />
+							<Circle Height="30" Color="{color2}" Width="30" Alignment="CenterLeft" Margin="0, 0, 0, 10" />
+							<Image File="../../Assets/calendar/bell_on.png" Alignment="CenterRight" Width="15" Margin="0, 0, 0, 10" />
+							<Rectangle Width="220" Height="20" Margin="0, 17, 0, 0">
+								<WrapPanel>
+									<Text FontSize="12" Margin="0, 0, 0, 0" Value="(" />
+									<Text Value="{date2}" Color="#404140" FontSize="12" TextAlignment="Left" Margin="0, 0, 0, 0" />
+									<Text Value="{time2}" Color="#404140" FontSize="12" TextAlignment="Left" Margin="0, 0, 0, 0" />
+									<Text FontSize="12" Margin="0, 0, 0, 0" Value=" / " />
+									<Text Value="{place2}" Color="#404140" FontSize="12" TextAlignment="Left" Margin="0, 0, 0, 0" />
+									<Text Value=")" FontSize="12" />
+								</WrapPanel>
+							</Rectangle>
+						</Rectangle>
+					</Each>
+
+					<WhileTrue Value="{todayisLoading}">
+						<Panel LayoutRole="Placeholder" Height="50" Color="#F6FBFF">
+							<Text Alignment="Center" Value="Loading..." />
+						</Panel>
+						<Move X="-1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+					</WhileTrue>
+
+				</StackPanel>
+						<ScrollViewPager Each="todaytheEach" ReachedStart="{todayloadMore}" ux:Name="todaysvp" />	 							<!-- <ScrollViewPager Each="theEach2" ux:Name="svp2" /> -->
+
+		</ScrollView>
+	</WhileTrue>
+
+
+<!-- 스케줄 공백일 시 보여주는 이미지 파일  -->
+		<WhileTrue Value="{detailchange}">
+			<Rectangle Width="130" Height="130" Color="#F9F9F9" Margin="0, 25, 0, 0">
+				<Image File="../../Assets/calendar/calandar.png" />
+			</Rectangle>
+		</WhileTrue>
 		</Rectangle>
+
 	</DockPanel>
-	<Transition Style="fromLeft" Direction="ToActive">
-		<Move X="-1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
-	</Transition>
-	<Transition Style="fromRight" Direction="ToActive">
-		<Move X="1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
-	</Transition>
-	
-	<Transition Style="fromRight" Direction="ToInactive">
-		<Move X="-1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
-	</Transition>
-	<Transition Style="fromLeft" Direction="ToInactive">
-		<Move X="1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
-	</Transition>
-	
-	<Transition To="day">
-		<Change blockView.Color="#4448" Duration="0.4" />
-		<Change blockView.Visibility="Visible" />
-	</Transition>
-	
-	<Transition>
-		<Move Y="1" RelativeTo="ParentSize" />
-	</Transition>
+
+
+<Transition Style="fromLeft" Direction="ToActive" />
+<Transition Style="fromRight" Direction="ToActive">
+	<Move X="1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+</Transition>
+
+<Transition Style="fromRight" Direction="ToInactive">
+	<Move X="-1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+</Transition>
+<Transition Style="fromLeft" Direction="ToInactive">
+	<Move X="1" RelativeTo="ParentSize" Duration="0.4" Easing="SinusoidalInOut" />
+</Transition>
+
+<Transition To="day">
+	<Change blockView.Color="#4448" Duration="0.4" />
+	<Change blockView.Visibility="Visible" />
+</Transition>
+
+<Transition>
+	<Move Y="1" RelativeTo="ParentSize" />
+</Transition>
 </Page>

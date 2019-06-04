@@ -4,7 +4,8 @@
     "Fuse",
     "Fuse.Camera",
     "Fuse.CameraRoll",
-    "FuseJS"
+    "FuseJS",
+    "Fuse.LocalNotifications"
   ],
   "Includes": [
     "*",

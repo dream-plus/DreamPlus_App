@@ -1,43 +1,525 @@
 <Page ux:Class="dayView" Padding="25,25,25,0">
 	<Router ux:Dependency="router" />
 	<JavaScript File="dayView.js" />
-	<Panel Color="#e8eaf6" Padding="10, 10, 10, 0" Margin="0, 0, 0, 0" Alignment="Bottom" Width="373" Height="450">
-		<Rectangle CornerRadius="5,5,0,0" Color="#e8eaf6" Layer="Background" />
-		<Grid Columns="auto,1*,auto">
-			<Image Alignment="TopLeft" File="../../Assets/calendar/cross-symbol.png" Color="#000000DD">
+	<Panel Padding="10, 10, 10, 0" Margin="0, 0, 0, 0" Alignment="Bottom" Width="373" Height="450">
+		<Rectangle CornerRadius="5,5,0,0" Color="#F9FAF9" Layer="Background" />
+		<WhileTrue Value="{popup_team}">
+			<Panel ux:Name="popup_Tchart" Background="#F8FAF8" Margin="0, 0, 0, 0" Color="#F8FAF8" Opacity="1" Alignment="Default" Height="700" Width="373">
+				<Image File="../../Assets/calendar/close.png" Alignment="TopLeft" Margin="6, 6, 0, 0" Width="20" Height="18">
+					<Clicked>
+						<Callback Handler="{popupOff_T}" />
+					</Clicked>
+				</Image>
+				<Text Value="팀원 선택" FontSize="20" TextAlignment="Center" Margin="0, 7, 0, 0" TextColor="#0070AA" />
+				<Image File="../../Assets/calendar/ok.png" Alignment="TopRight" Margin="0, 5, 6, 0" Width="20" Height="20">
+					<Clicked>
+						<Callback Handler="{setTeam}" />
+					</Clicked>
+				</Image>
+				<Rectangle Margin="0, 35, 0, 0" Width="373" Height="1" Color="#C1C2C1" Alignment="Top" />
+				<Grid RowCount="4" ColumnCount="4" Margin="0, 39, 0, 0" Width="373" Alignment="Top" Height="450">
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 2.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 3.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 4.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 5.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 8.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 9.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 10.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 11.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 13.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 14.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 15.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 16.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+					<Panel Margin="0, 0, 0, 0" Width="100" Height="100">
+						<Image File="../../Assets/calendar/Button/user Copy 17.png" Width="80" Height="80" Margin="0, 0, 0, 0" />
+					</Panel>
+				</Grid>
+			</Panel>
+		</WhileTrue>
+
+		<Rectangle Color="#FEFEFE" Height="40" Alignment="Top" Width="373" Margin="0, -10, 0, 0">
+			<Image Alignment="CenterLeft" File="../../Assets/calendar/close.png" Color="#C7C8C7" Margin="10, 0, 0, 0">
 				<Clicked>
 					<RouterModify How="GoBack" />
 				</Clicked>
 			</Image>
-			<Text Alignment="Top" Color="#1E82B0" Value="일정 추가" TextAlignment="Center" Margin="0, 3, 0, 0" />
-			<Image Alignment="TopRight" File="../../Assets/calendar/checked.png" Color="#000000">
-				<Button />
+			<Text Alignment="VerticalCenter" Color="#1E82B0" Value="일정 추가" TextAlignment="Center" Margin="0, 3, 0, 0" Width="200" />
+			<Image Alignment="CenterRight" File="../../Assets/calendar/ok.png" Color="#C4C5C4" Margin="0, 0, 10, 0">
+				<Button>
+					<Clicked>
+ 						<Callback Handler="{Send}" />
+						<RouterModify How="GoBack" />
+					</Clicked>
+				</Button>
 			</Image>
-		</Grid>
-		
-		<StackPanel>
-			<Rectangle Height="2" Color="#AFB0AF" Alignment="Top" Margin="0, 30, 0, 0" Width="400" />
-			<Text Margin="5, 15, 0, 0" Value="카테고리" FontSize="13" />
-			<Grid RowCount="1" ColumnCount="2" Width="170" Alignment="CenterLeft" Margin="0, 5, 0, 0">
-				<Rectangle Width="70" Color="#0F6FA5" Height="30" CornerRadius="30">
-					<Text Value="전체공개" TextAlignment="Center" Margin="0, 7, 0, 0" TextColor="#E7E9F7" FontSize="14" />
-					<Button Margin="0, 0, 0, 0" />
-				</Rectangle>
-				<Rectangle Width="70" Height="30" Color="#0F6FA4" CornerRadius="30">
-					<Text Margin="0, 7, 0, 0" Value="팀원 공개" TextAlignment="Center" TextColor="#E7E9F7" FontSize="14" />
-					<Button />
-				</Rectangle>
-			</Grid>
-			<Text Value="제목" Margin="5, 20, 0, 0" FontSize="13">
-				<TextInput Margin="5, 17, 0, 0" Value="{Title}" TextColor="#000" Width="300" Alignment="CenterLeft" PlaceholderText="내용을 입력하세요" PlaceholderColor="#8C8C8C" />
-				<Circle Height="20" Color="#85B5D2" Alignment="CenterRight" Width="20">
-					<Button />
-				</Circle>
-			</Text>
 			
-			<Rectangle Color="#B8B3B7" Height="2" />
-			<Text Alignment="CenterLeft" FontSize="15" Value="{label}" Color="#000000DD" Margin="0, 100, 0, 0" />
-		</StackPanel>
+		</Rectangle>
+		<Rectangle Color="#C1C2C1" Alignment="Top" Margin="0, 30, 0, 0" Width="400" Height="1" />
+		<Grid Columns="auto,1*,auto" />
+		<ScrollView Margin="0, 30, 0, 80">
+			<StackPanel>
+						<Text Margin="5, 15, 0, 0" Value="카테고리" FontSize="13" Alignment="CenterLeft" />
+			
+			
+						<Panel Width="70" Height="30" Alignment="CenterLeft" Margin="0, 11, 0, 0">
+							<WhileTrue Value="{allNotify}">
+								<Text Value="전체공개" TextAlignment="Center" Margin="0, 7, 0, 0" TextColor="#F8FAF8" FontSize="14" />
+								<Rectangle Width="70" Color="#006FA8" Height="30" CornerRadius="30" />
+							</WhileTrue>
+							<Text Value="전체공개" TextAlignment="Center" Margin="0, 7, 0, 0" TextColor="#C0C2C0" FontSize="14" />
+							<Rectangle Width="70" Color="#F8FAF8" Height="30" CornerRadius="30">
+								<Shadow ux:Name="allNotify" />
+							</Rectangle>
+							<Clicked>
+								<Callback Handler="{allNotified}" />
+							</Clicked>
+						</Panel>
+			
+						<Panel Width="70" Height="30" Alignment="CenterLeft" Margin="90, -29, 0, 0">
+							<WhileTrue Value="{personalNotify}">
+								<Text Value="팀원 공개" TextAlignment="Center" Margin="0, 7, 0, 0" TextColor="#F8FAF8" FontSize="14" />
+								<Rectangle Width="70" Height="30" Color="#006FA8" CornerRadius="30" />
+							</WhileTrue>
+							<Text Margin="0, 7, 0, 0" Value="팀원 공개" TextAlignment="Center" TextColor="#C0C2C0" FontSize="14" />
+							<Rectangle Width="70" Height="30" Color="#F8FAF8" CornerRadius="30">
+								<Shadow ux:Name="personalNotify" />
+							</Rectangle>
+							<Clicked>
+								<Callback Handler="{personalNotified}" />
+								<!-- ================================================  여기는 색상이 뜨는 부분 수정해야함./ ========================================================-->
+									<Callback Handler="{popup_Tchart}" /> <!-- 팀원 선택가능하도록 -->
+							</Clicked>
+						</Panel>
+			
+					   <!-- ========================================================================================================= -->
+					   
+						<!-- ================================================  눌렀을 때 색상이 변경되는 부분 =======================================================-->
+			
+						<Panel Width="350" Alignment="Default" Margin="0, 0, 0, 0">
+							<WhileTrue Value="{popup_colorcode}">
+								<Panel ux:Name="popup_pastel" Height="200" Background="#F8FAF8" Margin="0, 0, 12, 0" Color="#F8FAF8" Opacity="1" Width="350">
+									<Image File="../../Assets/calendar/close.png" Alignment="TopLeft" Margin="6, 6, 0, 0" Width="20" Height="18">
+										<Clicked>
+											<Callback Handler="{popupOff}" />
+										</Clicked>
+									</Image>
+									<Image File="../../Assets/calendar/ok.png" Alignment="TopRight" Margin="0, 5, 6, 0" Width="20" Height="20">
+										<Clicked>
+											<Callback Handler="{setColor}" />
+										</Clicked>
+									</Image>
+									<Grid RowCount="2" ColumnCount="4" Margin="0, 30, 0, 0">
+										<Panel Width="40" Height="40">
+											<WhileTrue Value="{blue}">
+												<Image File="../../Assets/calendar/1.png" Width="40" Height="40" />
+											</WhileTrue>
+											<Image File="../../Assets/calendar/blue.png" Width="40" Height="40">
+												<Clicked>
+													<Callback Handler="{bluecheck}" />
+												</Clicked>
+											</Image>
+										</Panel>
+										<Panel Width="40" Height="40">
+											<WhileTrue Value="{red}">
+												<Image File="../../Assets/calendar/2.png" Width="40" Height="40" />
+											</WhileTrue>
+											<Image File="../../Assets/calendar/red.png" Width="40" Height="40">
+												<Clicked>
+														<Callback Handler="{redcheck}" />
+												</Clicked>
+											</Image>
+										</Panel>
+										<Panel Width="40" Height="40">
+											<WhileTrue Value="{gray}">
+												<Image File="../../Assets/calendar/3.png" Width="40" Height="40" />
+											</WhileTrue>
+											<Image File="../../Assets/calendar/gray.png" Width="40" Height="40">
+												<Clicked>
+														<Callback Handler="{graycheck}" />
+												</Clicked>
+											</Image>
+										</Panel>
+										<Panel Width="40" Height="40">
+											<WhileTrue Value="{yellow}">
+												<Image File="../../Assets/calendar/4.png" Width="40" Height="40" />
+											</WhileTrue>
+											<Image File="../../Assets/calendar/yellow.png" Width="40" Height="40">
+												<Clicked>
+														<Callback Handler="{yellowcheck}" />
+												</Clicked>
+											</Image>
+										</Panel>
+										<Panel Width="40" Height="40">
+											<WhileTrue Value="{purple}">
+												<Image File="../../Assets/calendar/5.png" Width="40" Height="40" />
+											</WhileTrue>
+											<Image File="../../Assets/calendar/purple.png" Width="40" Height="40">
+												<Clicked>
+														<Callback Handler="{purplecheck}" />
+												</Clicked>
+											</Image>
+										</Panel>
+										<Panel Width="40" Height="40">
+											<WhileTrue Value="{green}">
+												<Image File="../../Assets/calendar/6.png" Width="40" Height="40" />
+											</WhileTrue>
+											<Image File="../../Assets/calendar/green.png" Width="40" Height="40">
+												<Clicked>
+														<Callback Handler="{greencheck}" />
+												</Clicked>
+											</Image>
+										</Panel>
+										<Panel Width="40" Height="40">
+											<WhileTrue Value="{sky}">
+												<Image File="../../Assets/calendar/7.png" Width="40" Height="40" />
+											</WhileTrue>
+											<Image File="../../Assets/calendar/sky.png" Width="40" Height="40">
+												<Clicked>
+														<Callback Handler="{skycheck}" />
+												</Clicked>
+											</Image>
+										</Panel>
+										<Panel Width="40" Height="40">
+											<WhileTrue Value="{orange}">
+												<Image File="../../Assets/calendar/8.png" Width="40" Height="40" />
+											</WhileTrue>
+											<Image File="../../Assets/calendar/orange.png" Width="40" Height="40">
+												<Clicked>
+														<Callback Handler="{orangecheck}" />
+												</Clicked>
+											</Image>
+										</Panel>
+									</Grid>
+								</Panel>
+							</WhileTrue>
+							<Text Value="제목" Margin="5, 20, 0, 0" FontSize="13" Alignment="CenterLeft" Width="280">
+								<TextInput Margin="5, 17, 0, 0" Value="{Title}" TextColor="#000" Alignment="CenterLeft" PlaceholderText="내용을 입력하세요" PlaceholderColor="#8C8C8C" Width="280" />
+							</Text>
+							<Circle Height="20" Color="{selectColor}" Alignment="BottomRight" Width="20" Margin="0, 0, 5, 5">
+								<Clicked>
+										<Callback Handler="{popup_pastel}" />
+									</Clicked>
+							</Circle>
+						
+						</Panel>
+			
+			
+			
+						<Rectangle Color="#B8B3B7" Height="0.01" Margin="0, 0, 0, 0" Alignment="CenterLeft" Width="280" />
+			
+						<Text Value="날짜/시간" FontSize="13" Margin="5, 20, 0, 0" />
+						
+						<Panel Margin="0, 5, 0, 0">
+							<!-- <Text FontSize="15" Value="{label}" Color="#FEFEFE" Margin="0, 0, 0, 0" TextColor="#000"  /> -->
+			
+							<WhileTrue Value="{popup_visible}">
+								<Panel ux:Name="popup" Width="300" Height="200" Background="#FEFEFE">
+									<!-- 설정 버튼 -->
+									<Image File="../../Assets/calendar/ok.png" Alignment="TopRight" Margin="0, 5, 6, 0" Width="20" Height="20">
+										<Clicked>
+											<Callback Handler="{settime}" />
+										</Clicked>
+									</Image>
+			
+									<Image File="../../Assets/calendar/back.png" Alignment="TopLeft" Margin="6, 6, 0, 0" Width="20" Height="18">
+										<Clicked>
+											<Callback Handler="{popoff}" />
+										</Clicked>
+									</Image>
+			
+									<Rectangle Alignment="HorizontalCenter" Width="270" Height="80" Margin="0, 0, 0, 0" Color="#FEFFFE">
+										<Grid RowCount="1" ColumnCount="5" Height="22" Width="240">
+											<!-- 오전 오후 선택부분	 -->				
+											<Panel Height="80">
+												<Rectangle Color="#E6E6E6" Margin="0, 0, 0, 40" Height="1">
+													<Stroke Color="#A7A8A8" Width="5" />
+												</Rectangle>
+												<Rectangle Color="#E6E6E6" Height="1" Margin="0, 40, 0, 0">
+													<Stroke Width="3" Color="#909090" />
+												</Rectangle>
+												<WhileTrue Value="{dateToggle}">
+													<Rectangle Background="#FEFFFE" Alignment="Top" Opacity="0.715" Height="20" />
+			
+													<Rectangle Background="#FEFFFE" Alignment="Bottom" Opacity="0.715" Height="20" />
+													<ScrollView Height="80">
+														<StackPanel Alignment="Top" ItemSpacing="10" Margin="0, 30, 0, 0">
+															<Each Items="{dateValue}">
+																<Text Value="{=data()}" FontSize="20" Clicked="{choiceDate}" Color="#A7A9A9" Alignment="Default" TextAlignment="Center">
+																	<Clicked>							
+																		<Set Target="selectDate.Value" Value="{dateInit}" />
+																	</Clicked>
+																</Text>
+															</Each>
+														</StackPanel>						
+													</ScrollView>
+													<Rectangle Background="#FEFFFE" />
+												</WhileTrue>
+												<Rectangle>
+													<Text Row="0" Column="1" TextColor="#8BB0C6" Alignment="Center" FontSize="20" Width="50" Value="{dateInit}" TextAlignment="Center" ux:Name="selectDate" />
+													<Clicked>
+														<Callback Handler="{dateChange}" />
+													</Clicked>
+												</Rectangle>
+											</Panel>
+			
+											<Rectangle />
+			
+											<!-- 시 선택부분 -->					
+											<Panel Height="80">
+												<Rectangle Color="#E6E6E6" Margin="0, 0, 0, 40" Height="1">
+													<Stroke Color="#A7A8A8" Width="5" />
+												</Rectangle>
+												<Rectangle Color="#E6E6E6" Height="1" Margin="0, 40, 0, 0">
+													<Stroke Width="3" Color="#909090" />
+												</Rectangle>
+												<WhileTrue Value="{hourToggle}">
+													<Rectangle Alignment="Top" Height="30" Opacity="0.715" Background="#FEFFFE" />
+													<Rectangle Alignment="Bottom" Height="30" Opacity="0.715" Background="#FEFFFE" />
+													<ScrollView Height="80">
+														<StackPanel Alignment="Top" ItemSpacing="10" Margin="0, 30, 0, 0">
+															<Each Items="{hourValue}">
+																<Text Value="{=data()}" FontSize="20" Clicked="{choiceHour}" Color="#A7A9A9" Alignment="Default" TextAlignment="Center">
+																	<Clicked>							
+																		<Set Target="selectHour.Value" Value="{hourInit}" />
+																	</Clicked>
+																</Text>
+															</Each>
+														</StackPanel>						
+													</ScrollView>
+													<Rectangle Background="#FEFFFE" />
+												</WhileTrue>
+												<Rectangle>
+													<Text Row="0" Column="1" TextColor="#8BB0C6" Alignment="Center" FontSize="20" Width="50" Value="{hourInit}" TextAlignment="Center" ux:Name="selectHour" />
+													<Clicked>
+														<Callback Handler="{hourChange}" />
+													</Clicked>
+												</Rectangle>
+											</Panel>
+			
+			
+											<Text Value=":" TextAlignment="Center" Alignment="VerticalCenter" Margin="0, 0, 0, 0" FontSize="20" />
+			
+											<!-- 분 선택부분 -->
+											<Panel Height="80">
+												<Rectangle Color="#E6E6E6" Margin="0, 0, 0, 40" Height="1">
+													<Stroke Color="#A7A8A8" Width="5" />
+												</Rectangle>
+												<Rectangle Color="#E6E6E6" Height="1" Margin="0, 40, 0, 0">
+													<Stroke Width="3" Color="#909090" />
+												</Rectangle>
+												<WhileTrue Value="{minuteToggle}">
+													<Rectangle Background="#FEFFFE" Alignment="Top" Height="30" Opacity="0.715" />
+													<Rectangle Background="#FEFFFE" Alignment="Bottom" Height="30" Opacity="0.715" />
+													<ScrollView Height="80">
+														<StackPanel Alignment="Default" ItemSpacing="10" Margin="0, 30, 0, 0">
+															<Each Items="{minuteValue}">
+																<Text Value="{=data()}" FontSize="20" Clicked="{choiceMinute}" Color="#A7A9A9" Alignment="Default" TextAlignment="Center">
+																	<Clicked>							
+																		<Set Target="selectMinute.Value" Value="{minuteInit}" />
+																	</Clicked>
+																</Text>
+															</Each>
+														</StackPanel>						
+													</ScrollView>
+													<Rectangle Background="#FEFFFE" />
+												</WhileTrue>
+												<Rectangle>
+													<Text Row="0" Column="1" TextColor="#8BB0C6" Alignment="Center" FontSize="20" Width="50" Value="{minuteInit}" TextAlignment="Center" ux:Name="selectMinute" />
+													<Clicked>
+														<Callback Handler="{minuteChange}" />
+													</Clicked>
+												</Rectangle>
+											</Panel>
+										</Grid>
+									</Rectangle>
+			
+								</Panel>			
+							</WhileTrue>
+			
+			
+			<!-- 날짜 선택 -->
+							<WhileTrue Value="{popup_visible2}">
+												<Panel ux:Name="popup2" Width="300" Height="200" Background="#FEFEFE">
+													<!-- 설정 버튼 -->
+													<Image File="../../Assets/calendar/ok.png" Alignment="TopRight" Margin="0, 5, 6, 0" Width="20" Height="20">
+														<Clicked>
+															<Callback Handler="{settime2}" />
+														</Clicked>
+													</Image>
+							
+													<Image File="../../Assets/calendar/back.png" Alignment="TopLeft" Margin="6, 6, 0, 0" Width="20" Height="18">
+														<Clicked>
+															<Callback Handler="{popoff2}" />
+														</Clicked>
+													</Image>
+							
+													<Rectangle Alignment="HorizontalCenter" Width="270" Height="80" Margin="0, 0, 0, 0" Color="#FEFFFE">
+														<Grid RowCount="1" ColumnCount="5" Height="22" Width="240">
+															<!-- 오전 오후 선택부분	 -->				
+															<Panel Height="80">
+																<Rectangle Color="#E6E6E6" Margin="0, 0, 0, 40" Height="1">
+																	<Stroke Color="#A7A8A8" Width="5" />
+																</Rectangle>
+																<Rectangle Color="#E6E6E6" Height="1" Margin="0, 40, 0, 0">
+																	<Stroke Width="3" Color="#909090" />
+																</Rectangle>
+																<Rectangle>
+																	<Text Row="0" Column="1" TextColor="#8BB0C6" Alignment="Center" FontSize="20" Width="50" Value="{year}" TextAlignment="Center" ux:Name="selectyear" />
+																	
+																</Rectangle>
+															</Panel>
+							
+															<Rectangle />
+							
+															<!-- 월 선택부분 -->					
+															<Panel Height="80">
+																<Rectangle Color="#E6E6E6" Margin="0, 0, 0, 40" Height="1">
+																	<Stroke Color="#A7A8A8" Width="5" />
+																</Rectangle>
+																<Rectangle Color="#E6E6E6" Height="1" Margin="0, 40, 0, 0">
+																	<Stroke Width="3" Color="#909090" />
+																</Rectangle>
+																<WhileTrue Value="{monthToggle}">
+																	<Rectangle Alignment="Top" Height="30" Opacity="0.715" Background="#FEFFFE" />
+																	<Rectangle Alignment="Bottom" Height="30" Opacity="0.715" Background="#FEFFFE" />
+																	<ScrollView Height="80">
+																		<StackPanel Alignment="Top" ItemSpacing="10" Margin="0, 30, 0, 0">
+																			<Each Items="{monthValue}">
+																				<Text Value="{=data()}" FontSize="20" Clicked="{choiceMonth}" Color="#A7A9A9" Alignment="Default" TextAlignment="Center">
+																					<Clicked>							
+																						<Set Target="selectMonth.Value" Value="{monthInit}" />
+																					</Clicked>
+																				</Text>
+																			</Each>
+																		</StackPanel>						
+																	</ScrollView>
+																	<Rectangle Background="#FEFFFE" />
+																</WhileTrue>
+																<Rectangle>
+																	<Text Row="0" Column="1" TextColor="#8BB0C6" Alignment="Center" FontSize="20" Width="50" Value="{monthInit}" TextAlignment="Center" ux:Name="selectMonth" />
+																	<Clicked>
+																		<Callback Handler="{monthChange}" />
+																	</Clicked>
+																</Rectangle>
+															</Panel>
+							
+							
+															<Text Value=":" TextAlignment="Center" Alignment="VerticalCenter" Margin="0, 0, 0, 0" FontSize="20" />
+							
+															<!-- 일 선택부분 -->
+															<Panel Height="80">
+																<Rectangle Color="#E6E6E6" Margin="0, 0, 0, 40" Height="1">
+																	<Stroke Color="#A7A8A8" Width="5" />
+																</Rectangle>
+																<Rectangle Color="#E6E6E6" Height="1" Margin="0, 40, 0, 0">
+																	<Stroke Width="3" Color="#909090" />
+																</Rectangle>
+																<WhileTrue Value="{dayToggle}">
+																	<Rectangle Background="#FEFFFE" Alignment="Top" Height="30" Opacity="0.715" />
+																	<Rectangle Background="#FEFFFE" Alignment="Bottom" Height="30" Opacity="0.715" />
+																	<ScrollView Height="80">
+																		<StackPanel Alignment="Default" ItemSpacing="10" Margin="0, 30, 0, 0">
+																			<Each Items="{dayValue}">
+																				<Text Value="{=data()}" FontSize="20" Clicked="{choiceDay}" Color="#A7A9A9" Alignment="Default" TextAlignment="Center">
+																					<Clicked>							
+																						<Set Target="selectDay.Value" Value="{dayInit}" />
+																					</Clicked>
+																				</Text>
+																			</Each>
+																		</StackPanel>						
+																	</ScrollView>
+																	<Rectangle Background="#FEFFFE" />
+																</WhileTrue>
+																<Rectangle>
+																	<Text Row="0" Column="1" TextColor="#8BB0C6" Alignment="Center" FontSize="20" Width="50" Value="{dayInit}" TextAlignment="Center" ux:Name="selectDay" />
+																	<Clicked>
+																		<Callback Handler="{dayChange}" />
+																	</Clicked>
+																</Rectangle>
+															</Panel>
+														</Grid>
+													</Rectangle>
+							
+												</Panel>			
+											</WhileTrue>
+			
+			
+			
+			
+							
+							<Rectangle Color="#F9FAF9" Padding="0, 0, 0, 0" Margin="0, 0, 250, 0" Width="100" Height="20">
+								<Text Row="0" Column="1" TextColor="#000" Alignment="VerticalCenter" Width="100" Value="{label}" TextAlignment="Center" Margin="0, 0, 0, 0" FontSize="15" />
+							</Rectangle>
+			
+							<Image File="../../Assets/calendar/wave.png" Alignment="Default" Margin="0, 0, 125, 0" Width="12" />
+							
+							<Rectangle Color="#FEFFFE" Padding="0, 0, 0, 0" Margin="0, 0, 0, 0" Width="100" Height="20">
+								<Text Row="0" Column="1" TextColor="#000" Alignment="VerticalCenter" Width="100" Value="{timeInit2}" TextAlignment="Center" Margin="0, 0, 0, 0" FontSize="15" />
+								<Clicked>
+									<Callback Handler="{popup2}" />
+								</Clicked>
+							</Rectangle>
+							
+							<Rectangle Color="#F9FAF9" Padding="0, 0, 0, 0" Margin="230, 0, 0, 0" Width="100" Height="20">
+			
+			
+								<Text Row="0" Column="1" TextColor="#000" Alignment="Center" Width="100" Value="{timeInit}" TextAlignment="Center" ux:Name="selectTime" Margin="0, 0, 15, 0" FontSize="15" />
+								<Clicked>
+									<Callback Handler="{popup}" />
+								</Clicked>
+								<Image File="../../Assets/calendar/datedetaildown.png" Alignment="CenterRight" Margin="0, 0, 2, 0" Width="12" />
+							</Rectangle>
+						</Panel>
+			
+						<Text Value="장소" Margin="5, 20, 0, 0" FontSize="13">
+							<TextInput Margin="5, 17, 0, 0" Value="{Place}" TextColor="#000" Width="300" Alignment="CenterLeft" PlaceholderText="내용을 입력하세요" PlaceholderColor="#8C8C8C" />
+						</Text>
+						<Rectangle Color="#B8B3B7" Height="0.01" Margin="0, 0, 0, 0" />
+			
+						<Panel>
+							<Text Value="알림설정" FontSize="13" Margin="5, 25, 0, 0" />
+							<Image File="../../Assets/calendar/bell_on.png" Alignment="Default" Margin="0, 15, 190, 0" Width="20" />
+						</Panel>
+			
+						<Text Value="기타 전달 사항" FontSize="13" Margin="5, 25, 0, 0">
+							<TextInput Margin="5, 20, 0, 0" Value="{etx}" TextColor="#000" Width="300" Alignment="CenterLeft" PlaceholderText="내용을 입력하세요" PlaceholderColor="#8C8C8C" TextWrapping="Wrap" />
+						</Text>
+						<Rectangle Color="#B8B3B7" Height="0.01" Margin="0, 0, 0, 0" />
+			
+						
+					</StackPanel>
+		</ScrollView>
+		
 		
 	</Panel>
 	
