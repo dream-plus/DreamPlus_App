@@ -22,7 +22,7 @@ function projectloadSome(){
 		}).then(function(res){
 			return res.json();
 		}).then(function(res){
-			for(var i = res.length-1; i > (res.length - 3); i--){
+			for(var i = res.length-1 ; i >= 0  ; i--){
 
 				projectItems.add(createProjectPage(res[i].title,res[i].member,"2019.04.22 ~ 2019.05.30",res[i].percent,res[i].contents,res[i].num));	
 			}

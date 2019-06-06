@@ -46,8 +46,8 @@ function SignIn(){
 		inputError.value = true;
 	}else {
 
-		fetch('http://18.222.99.74/users/signin',{
-		// fetch('http://3ff05a06.ngrok.io/users/signin',{
+		// fetch('http://18.222.99.74/users/signin',{
+		fetch('http://b2cf6af0.ngrok.io/users/signin',{
 			method: "POST",
 			headers: {
 				"Content-type": "application/JSON"
@@ -74,11 +74,11 @@ function SignIn(){
 // 세션을 불러오는 함수.( 초기에 네트워크와 연결이 되었는지 확인하는 용도로도 쓰인다. )
 function Session(){
 
-	fetch('http://18.222.99.74/users/session',{
-		// fetch('http://3ff05a06.ngrok.io/users/session',{
+	// fetch('http://18.222.99.74/users/session',{
+		fetch('http://b2cf6af0.ngrok.io/users/session',{
 			method: "GET",
 			headers: {
-				"Content-type": "application/JSON"
+				"Content-type": "application/json"
 			}
 		}).then(function(res){
 			return res.json();
@@ -91,8 +91,8 @@ function Session(){
 			}			
 
 		}).catch((err)=>{
-			console.log(err );
-			if(err == "TypeError: Network request failed" ){
+			console.log("err " + err );
+			if(err == "TypeError: Network request failed" || err == "SyntaxError: JSON Parse error: Unrecognized token '<'"){
 				NetworkError.value = true;
 			}else if(err == "SyntaxError: Unexpected token < in JSON at position 1"){ // 이 SyntaxError는 서버에서 값을 받지 못할때 발생하므로 network failed와 같은 에러로 취급하였다.
 				NetworkError.value = true;
@@ -118,7 +118,6 @@ function startLoading() {
 // 회원가입 페이지로 이동하는 함수.
 function SignUp(){
 	router.push("signupPage");
-	console.log("Move to SignUp");
 }
 
 

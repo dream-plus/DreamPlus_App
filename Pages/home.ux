@@ -1,5 +1,6 @@
-<Page ux:Class="home">
+<Page ux:Class="home" ux:Name="Page" Width="100%" Height="100%">
 	<Router ux:Dependency="router" />
+	<iOS.StatusBarConfig Style="Dark" />
 	<JavaScript File="../MainView.js" />	
 	<JavaScript File="home.js" />
 

@@ -1,9 +1,18 @@
-<Page ux:Class="myProfile">
+<Page ux:Class="myProfile" ux:Name="Page" Width="100%" Height="100%">
 	<Router ux:Dependency="router" />
 	<JavaScript File="myProfile.js" />
+
+
+	<WhileTrue Value="{photoView}">
+		<!-- <Circle Height="height(Page)*0.2" Width="width(Page)*0.4" Alignment="HorizontalCenter" Margin="0, 0, 0, 0" Y="14.7%">
+			<Stroke Width="3" Color="#0C82B3" />
+		</Circle> -->
+		<Image File="{imagePath}" Width="width(Page)*0.3" Height="height(Page)*0.15" Alignment="TopCenter" Y="17%" />
+	</WhileTrue>
+
 	<StackPanel>
-		<Panel>
-			<StackPanel Orientation="Horizontal" ItemSpacing="130" Margin="15, 50, 0, 0">
+		<Panel Alignment="HorizontalCenter">
+			<StackPanel Orientation="Horizontal" ItemSpacing="130" Width="100%" Height="100%" Y="300%">
 				<Image File="../../Assets/IconHome.png" Width="20" Height="20">
 					<Clicked>
 						<Callback Handler="{gotoHome}" />						
@@ -19,7 +28,7 @@
 		</Panel>
 
 		<!-- 프로필 view -->
-		<Circle Color="#FEFFFE" Width="130" Height="130" Alignment="Default" Margin="0, 50, 0, 0">
+		<Circle Color="#FEFFFE" Height="height(Page)*0.2" Width="width(Page)*0.4" Alignment="HorizontalCenter" Margin="0, 100, 0, 0">
 			<Stroke Width="3" Color="#0C82B3" />
 		</Circle>
 
@@ -29,33 +38,38 @@
 		</Rectangle>
 
 		<!-- 내가 최근에 올린 글을 나타내 주는 곳 -->
-		<Panel Margin="0, 50, 0, 0">
-			<Text Alignment="Top" Value="최근 내가 올린 글" TextAlignment="Center" TextColor="#FFF" Font="Nanum_acB" Margin="0, 35, 0, 0" FontSize="12" />
-			<Rectangle Color="#FEFFFE" Width="300" Alignment="Top" Margin="0, 55, 0, 0" CornerRadius="100" Height="90">
-				<Circle Color="#FDFFFD" Width="30" Height="30" Alignment="Left" Margin="40, 0, 0, 10">
-					<Stroke Width="1" Color="#0C82B3" />
-				</Circle>
-				<Text Value="{getSessionName}" FontSize="8" TextColor="#959695" Alignment="CenterLeft" Font="Nanum_acB" Margin="45, 35, 0, 0" />
-				<Rectangle Margin="0, 0, 70, 20" Width="40" Height="15" Alignment="Center" CornerRadius="50" Color="{categoryColor}">
-					<Text Value="{category}" TextAlignment="Center" FontSize="8" Alignment="Center" TextColor="#727372" Font="Nanum_acR" />
+		<Panel>
+
+			<WhileTrue Value="{noneBoard}">
+				<Text Alignment="Default" FontSize="10" TextColor="#000" Font="Nanum_acB" X="40%" Y="21%" Value="최근 올린 글이 없습니다" TextAlignment="Left" />
+			</WhileTrue>
+
+			<StackPanel Y="5%" Height="height(Page)*0.8">
+				<Text Alignment="Top" Value="최근 내가 올린 글" TextAlignment="Center" TextColor="#FFF" Font="Nanum_acB" Margin="0, 0, 0, 0" FontSize="12" Y="50" />
+				<Rectangle Color="#FEFFFE" Width="width(Page)*0.8" Height="height(Page)*0.1" Alignment="Top" Margin="0, 55, 0, 0" CornerRadius="100">
+					<Circle Color="#FDFFFD" Width="10%" Height="40%" Alignment="Left" Margin="0, 0, 0, 10" X="12%">
+						<Stroke Width="1" Color="#0C82B3" />
+					</Circle>
+					<Text Value="{getSessionName}" FontSize="8" TextColor="#959695" Alignment="CenterLeft" Font="Nanum_acB" Margin="0, 0, 0, 0" X="13.6%" Y="25%" />
+					<Rectangle Margin="0, 0, 0, 0" Width="width(Page)*0.1" Height="height(Page)*0.02" Alignment="TopLeft" CornerRadius="50" Color="{categoryColor}" X="28%" Y="30%">
+						<Text Value="{category}" TextAlignment="Center" FontSize="8" Alignment="Center" TextColor="#727372" Font="Nanum_acR" />
+					</Rectangle>									
+					<Text Alignment="TopCenter" FontSize="10" TextColor="#636463" Font="Nanum_acL" Value="{noticeDays}" X="5%" Y="33%" />
+					<Text Value="{noticeTitle}" Alignment="CenterLeft" FontSize="12" TextAlignment="Left" TextColor="#000" Font="Nanum_acB" X="28%" Y="20%" Width="width(Page)*0.5" />
+					<StackPanel Alignment="Default">
+						<Grid Dock="Top" ColumnCount="2" RowCount="2" Alignment="Default" ChildOrder="RowMajor" Clicked="{gotoDetails}" Height="50" Width="150" />
+					</StackPanel>
 				</Rectangle>
-
-				<Text Alignment="Center" FontSize="10" TextColor="#636463" Margin="50, 0, 0, 20" Font="Nanum_acL" Value="{noticeDays}" />
-				<Text Value="{noticeTitle}" Alignment="Center" FontSize="12" TextAlignment="Left" TextColor="#000" Margin="0, 30, 50, 0" Font="Nanum_acB" />
-				<StackPanel Alignment="Default" Margin="0, 0, 0, 0">
-						<Grid Dock="Top" ColumnCount="2" RowCount="2" Alignment="Default" Margin="0, 0, 0, 0" ChildOrder="RowMajor" Clicked="{gotoDetails}" Height="50" Width="150" />
-				</StackPanel>
-			</Rectangle>
-
-			<Text Alignment="Top" TextAlignment="Center" Value="나의 일정 모아 보기" FontSize="12" TextColor="#FFF" Font="Nanum_acB" Margin="0, 170, 0, 0" />
-			<Rectangle Width="300" Color="#FDFFFD" Height="120" Alignment="Top" Margin="0, 190, 0, 0" CornerRadius="100" />
-			<Rectangle Alignment="Center" Margin="0, 180, 0, 0" Width="50" Height="20">
-				<Text Value="로그아웃" TextAlignment="Center" Font="Nanum_acB" Margin="0, 0, 0, 0" FontSize="12" Alignment="Center" TextColor="#FFF" />
-				<Clicked>
-					<Callback Handler="{signOut}" />						
-				</Clicked>
-			</Rectangle>
-			<Rectangle Color="#0C81B0" Height="600" CornerRadius="50" />
+				<Text Alignment="Top" TextAlignment="Center" Value="나의 일정 모아 보기" FontSize="12" TextColor="#FFF" Font="Nanum_acB" Margin="0, 30, 0, 0" />
+				<Rectangle Width="width(Page)*0.8" Height="height(Page)*0.15" Color="#FDFFFD" Alignment="Top" Margin="0, 0, 0, 0" CornerRadius="100" Y="5" />
+				<Rectangle Alignment="HorizontalCenter" Margin="0, 0, 0, 0" Width="14%" Height="3%" Y="50">
+					<Text Value="로그아웃" TextAlignment="Center" Font="Nanum_acB" FontSize="12" Alignment="Center" TextColor="#FFF" />
+					<Clicked>
+						<Callback Handler="{signOut}" />						
+					</Clicked>
+				</Rectangle>
+			</StackPanel>
+			<Rectangle Color="#0C81B0" Height="height(Page)*0.8" CornerRadius="50" Y="8%" />		
 		</Panel>
 	</StackPanel>
 

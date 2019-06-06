@@ -116,7 +116,7 @@ function projectloadSome(){
 			console.log(err);
 			// 서버와 연동이 되지 않았을 때 나오는 에러. 
 			// networkError 변수로 다시 연결을 시도하기 위해 만들었다.
-			if(err == "TypeError: Network request failed" ){
+			if(err == "TypeError: Network request failed" || err == "SyntaxError: JSON Parse error: Unrecognized token '<'" ){
 				NetworkError.value = true;
 			}
 		});

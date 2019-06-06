@@ -1,32 +1,30 @@
-<Page ux:Class="checkPW">
+<Page ux:Class="checkPW" ux:Name="Page" Width="100%" Height="100%">
 	<Router ux:Dependency="router" />
 	<JavaScript File="checkPW.js" />
-	<StackPanel>
-		<Panel>
-			<Rectangle Width="15" Height="15" Alignment="Left" Margin="20, 50, 0, 0">
-				<Image File="../../Assets/IconLeft.png" Clicked="{goBack}" />
-			</Rectangle>
-		</Panel>
-		<Image File="../../Assets/IconLock.png" Width="20" Height="30" Margin="0, 50, 0, 0" Alignment="HorizontalCenter" />
-		<Circle Width="150" Height="150" Color="#FEFFFE" Margin="0, 80, 0, 0" Alignment="HorizontalCenter">
-			<Stroke Width="3" Color="#0C82B3" />
-		</Circle>
-		<Text Value="{getId}" TextAlignment="Center" FontSize="15" TextColor="#0081B5" Font="Nanum_acB" Margin="0, 20, 0, 0" />
-		<Text TextAlignment="Center" FontSize="15" Value="현재 비밀번호" TextColor="#0081B5" Font="Nanum_acB" Margin="0, 100, 0, 0" />
-		<Rectangle Margin="0, 50, 0, 0">
-			<TextInput Row="0" Column="1" PlaceholderColor="#DED9E2" Value="{Password}" TextColor="#0081B5" CaretColor="#000" Alignment="Center" FontSize="20" Width="200" IsPassword="true" Font="Nanum_acB" PlaceholderText="비밀번호를 입력하세요" TextAlignment="Center" />
+	<Panel Alignment="TopLeft">
+		<Rectangle Width="15" Height="15" Alignment="Left" Margin="20, 50, 0, 0">
+			<Image File="../../Assets/IconLeft.png" Clicked="{goBack}" />
 		</Rectangle>
-		<Rectangle Width="220" Margin="0, 5, 0, 0" Height="1" Color="#9B9C9B" />
-		<Rectangle ux:Name="checkbtn" Color="#0081B5" CornerRadius="30" Width="70" Height="30" Margin="0, 100, 0, 0">
-			<Text Value="확인" TextColor="#FFF" Alignment="Center" Font="Nanum_acB" />
-			<WhilePressed>
-				<Scale Target="checkbtn" Factor="0.9" Duration="0.05" />
-			</WhilePressed>
-			<Clicked>
-				<Callback Handler="{checkPassword}" />						
-			</Clicked>			
-		</Rectangle>
-	</StackPanel>
+	</Panel>
+	<Image File="../../Assets/IconLock.png" Width="20" Height="30" Margin="0, 0, 0, 0" Alignment="HorizontalCenter" Y="15%" />
+	<Circle Width="width(Page)*0.4" Height="height(Page)*0.2" Color="#FEFFFE" Alignment="HorizontalCenter" Y="30%">
+		<Stroke Width="3" Color="#0C82B3" />
+	</Circle>
+	<Text Value="{getId}" TextAlignment="Center" FontSize="15" TextColor="#0081B5" Font="Nanum_acB" Margin="0, 0, 0, 0" Y="52%" Alignment="HorizontalCenter" />
+	<Text TextAlignment="Center" FontSize="15" Value="현재 비밀번호" TextColor="#0081B5" Font="Nanum_acB" Margin="0, 0, 0, 0" Y="65%" Alignment="HorizontalCenter" />
+	<Rectangle Margin="0, 0, 0, 0" Y="72%" Alignment="HorizontalCenter">
+		<TextInput Row="0" Column="1" PlaceholderColor="#DED9E2" Value="{Password}" TextColor="#0081B5" CaretColor="#000" Alignment="Center" FontSize="20" Width="200" IsPassword="true" Font="Nanum_acB" PlaceholderText="비밀번호를 입력하세요" TextAlignment="Center" />
+	</Rectangle>
+	<Rectangle Width="220" Margin="0, 0, 0, 0" Height="1" Color="#9B9C9B" Y="76%" Alignment="HorizontalCenter" />
+	<Rectangle ux:Name="checkbtn" Color="#0081B5" CornerRadius="30" Width="70" Height="30" Margin="0, 0, 0, 0" Y="90%" Alignment="HorizontalCenter">
+		<Text Value="확인" TextColor="#FFF" Alignment="Center" Font="Nanum_acB" />
+		<WhilePressed>
+			<Scale Target="checkbtn" Factor="0.9" Duration="0.05" />
+		</WhilePressed>
+		<Clicked>
+			<Callback Handler="{checkPassword}" />						
+		</Clicked>			
+	</Rectangle>
 	
 
 </Page>

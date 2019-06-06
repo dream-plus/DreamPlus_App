@@ -1,4 +1,4 @@
-<Page ux:Class="loginPage">
+<Page ux:Class="loginPage" ux:Name="Page" Width="100%" Height="100%">
 	<Router ux:Dependency="router" />
 	<JavaScript File="loginPage.js" />
 	<iOS.StatusBarConfig Style="Light" />
@@ -51,102 +51,106 @@
 		</WhileTrue>
 
 
-		<Rectangle Color="#1A83B1" Alignment="Top" Height="50" />
-		<Rectangle Alignment="Top" Color="#1A83B1" Height="250" CornerRadius="50">
-			<Circle Color="#FFF" Width="100" Height="100">
-				<Image File="../Assets/IconGray.png" Width="80" Height="60" Alignment="HorizontalCenter" Margin="10, 0, 0, 0" />
-			</Circle>
-			<Text Value="DreamPlus" TextColor="#FFF" Alignment="BottomCenter" Margin="0, 0, 0, 30" Font="Nanum_acB" />
-			<Shadow Angle="54" Color="#000000B8" />
-		</Rectangle>
-
-		<ScrollView Margin="0, 250, 0, 0">
-			<StackPanel Opacity="0.9" ItemSpacing="10">
-				<!-- 아이디 입력부분 -->
-				<Rectangle Width="300" Height="30" CornerRadius="20" Margin="0, 30, 0, 0">
-					<Text Value="아이디" TextColor="#198EBD" Alignment="CenterLeft" Font="Nanum_acEB" FontSize="15" />
-					<Rectangle Width="200" Margin="100, 0, 0, 0" Height="30" Color="#FFF" CornerRadius="30">
-						<TextInput Row="0" Column="1" PlaceholderColor="#999" Value="{ID}" TextColor="#595959" CaretColor="#000" Alignment="Center" FontSize="15" Width="180" Margin="0, 0, 0, 0" Font="Nanum_acB" />
-						<Stroke Width="3" Color="#F4F4F4" Alignment="Center" />
-					</Rectangle>
-				</Rectangle>
-
-				<!-- 비밀번호 입력부분 -->
-				<Rectangle Width="300" Height="30" CornerRadius="20" Margin="0, 0, 0, 0">
-					<Text Value="비밀번호" TextColor="#198EBD" Alignment="CenterLeft" Font="Nanum_acEB" FontSize="15" />
-					<Rectangle Width="200" Margin="100, 0, 0, 0" Height="30" Color="#FFF" CornerRadius="30">
-						<TextInput Row="0" Column="1" PlaceholderColor="#1B8EBD" Value="{Password}" TextColor="#1B8EBD" CaretColor="#000" Alignment="Center" FontSize="15" Width="180" IsPassword="true" Font="Nanum_acB" />
-						<Stroke Width="3" Color="#F4F4F4" Alignment="Center" />
-					</Rectangle>
-				</Rectangle>
-
-				<!-- 자동로그인 체크/해체 하는 부분 -->
-				<Rectangle Width="300" Height="30" Margin="0, 20, 0, 0">
-					<!-- 첫 클릭시 true로 반환되어 체크 icon 이 보여짐 -->
-					<WhileTrue Value="{autoLogin}">
-						<Image File="../Assets/IconCheck.png" Width="25" Height="25" Alignment="Center" Margin="0, 0, 95, 0">
-							<Clicked>
-								<Callback Handler="{autoClose}" />
-							</Clicked>
-						</Image>
-					</WhileTrue>
-
-					<Circle Width="30" Height="30" Alignment="Center" Margin="0, 0, 100, 0" Color="#FEFFFE">
-						<Stroke Width="1" Color="#B9B9B9" />
-						<Clicked>
-							<Callback Handler="{autoCheck}" />
-						</Clicked>
+		<Rectangle Color="#1A83B1" Alignment="Top" Height="height(Page)*0.07" />
+		<StackPanel>
+				<Rectangle Alignment="Top" Color="#1A83B1" Height="height(Page)*0.35" CornerRadius="50">
+					<Circle Color="#FFF" Width="100" Height="100" Alignment="HorizontalCenter">
+						<Image File="../Assets/IconGray.png" Width="40%" Height="60%" Alignment="HorizontalCenter" Margin="10, 0, 0, 0" />
 					</Circle>
-					<Text Value="자동로그인" TextColor="#B9B9B9" FontSize="10" TextAlignment="Center" Alignment="Center" Font="Nanum_acB" />
+					<Text Value="DreamPlus" TextColor="#FFF" Alignment="HorizontalCenter" Margin="0, 0, 0, 0" Font="Nanum_acB" Y="80%" />
+					<Shadow Angle="54" Color="#000000B8" />
 				</Rectangle>
-
-				<!-- 로그인 버튼부분 -->
-				<Rectangle ux:Name="loginbtn" Width="300" Height="30" Color="#1A83B1" CornerRadius="20" Margin="0, 20, 0, 0">
-					<Text Value="로그인" TextColor="#FFF" Alignment="Center" FontSize="15" Font="Nanum_acB" /> 
-					<WhilePressed>
-						<Scale Target="loginbtn" Factor="0.9" Duration="0.05" />
-					</WhilePressed>
-					<Clicked>
-						<Callback Handler="{SignIn}" />
-					</Clicked>
-				</Rectangle>
-
-				<!-- 회원가입 페이지로 이동시키는 버튼 -->
-				<Rectangle ux:Name="signupbtn" Width="150" Height="13" Margin="0, 30, 0, 0">
-					<Text Value="회원가입을 하시겠습니까?" Alignment="Center" FontSize="10" TextColor="#B9B9B9" Font="Nanum_acB" />
-					<Rectangle Width="110" Height="1" Color="#B9B9B9" Alignment="Bottom" />
-					<WhilePressed>
-						<Scale Target="signupbtn" Factor="0.9" Duration="0.05" />
-					</WhilePressed>
-					<Clicked>
-						<Callback Handler="{SignUp}" />
-					</Clicked>
-				</Rectangle>
-
-				<Rectangle Width="200" Height="13" Margin="0, 10, 0, 0">
-					<Text Value="아이디나 비밀번호를 잃어버리셨습니까?" Alignment="Center" FontSize="10" TextColor="#B9B9B9" Font="Nanum_acB" />
-					<Rectangle Width="170" Height="1" Color="#B9B9B9" Alignment="Bottom" />
-					<!-- <WhilePressed>
+				<ScrollView Margin="0, 0, 0, 0" Height="500">
+							<StackPanel Opacity="0.9" ItemSpacing="10">
+								<!-- 아이디 입력부분 -->
+								<Rectangle Width="80%" CornerRadius="20" Margin="0, 30, 0, 0" Height="30">
+									<Text Value="아이디" TextColor="#198EBD" Alignment="CenterLeft" Font="Nanum_acEB" FontSize="15" />
+									<Rectangle Width="100%" Margin="100, 0, 0, 0" Height="100%" Color="#FFF" CornerRadius="30">
+										<TextInput Row="0" Column="1" PlaceholderColor="#999" Value="{ID}" TextColor="#595959" CaretColor="#000" Alignment="Center" FontSize="15" Width="90%" Margin="0, 0, 0, 0" Font="Nanum_acB" />
+										<Stroke Width="3" Color="#F4F4F4" Alignment="Center" />
+									</Rectangle>
+								</Rectangle>
+				
+								<!-- 비밀번호 입력부분 -->
+								<Rectangle Width="80%" Height="30" CornerRadius="20" Margin="0, 0, 0, 0">
+									<Text Value="비밀번호" TextColor="#198EBD" Alignment="CenterLeft" Font="Nanum_acEB" FontSize="15" />
+									<Rectangle Width="100%" Margin="100, 0, 0, 0" Height="100%" Color="#FFF" CornerRadius="30">
+										<TextInput Row="0" Column="1" PlaceholderColor="#1B8EBD" Value="{Password}" TextColor="#1B8EBD" CaretColor="#000" Alignment="Center" FontSize="15" Width="90%" IsPassword="true" Font="Nanum_acB" />
+										<Stroke Width="3" Color="#F4F4F4" Alignment="Center" />
+									</Rectangle>
+								</Rectangle>
+				
+								<!-- 자동로그인 체크/해체 하는 부분 -->
+								<Rectangle Width="80%" Height="30" Margin="0, 20, 0, 0">
+									<!-- 첫 클릭시 true로 반환되어 체크 icon 이 보여짐 -->
+									<WhileTrue Value="{autoLogin}">
+										<Image File="../Assets/IconCheck.png" Width="25" Height="25" Alignment="Center" Margin="0, 0, 95, 0">
+											<Clicked>
+												<Callback Handler="{autoClose}" />
+											</Clicked>
+										</Image>
+									</WhileTrue>
+				
+									<Circle Width="100%" Height="100%" Alignment="Center" Margin="0, 0, 100, 0" Color="#FEFFFE">
+										<Stroke Width="1" Color="#B9B9B9" />
+										<Clicked>
+											<Callback Handler="{autoCheck}" />
+										</Clicked>
+									</Circle>
+									<Text Value="자동로그인" TextColor="#B9B9B9" FontSize="10" TextAlignment="Center" Alignment="Center" Font="Nanum_acB" />
+								</Rectangle>
+				
+								<!-- 로그인 버튼부분 -->
+								<Rectangle ux:Name="loginbtn" Width="80%" Height="30" Color="#1A83B1" CornerRadius="20" Margin="0, 20, 0, 0">
+									<Text Value="로그인" TextColor="#FFF" Alignment="Center" FontSize="15" Font="Nanum_acB" /> 
+									<WhilePressed>
+										<Scale Target="loginbtn" Factor="0.9" Duration="0.05" />
+									</WhilePressed>
+									<Clicked>
+										<Callback Handler="{SignIn}" />
+									</Clicked>
+								</Rectangle>
+				
+								<!-- 회원가입 페이지로 이동시키는 버튼 -->
+								<Rectangle ux:Name="signupbtn" Width="40%" Height="13" Margin="0, 30, 0, 0">
+									<Text Value="회원가입을 하시겠습니까?" Alignment="Center" FontSize="10" TextColor="#B9B9B9" Font="Nanum_acB" />
+									<Rectangle Width="110" Height="1" Color="#B9B9B9" Alignment="Bottom" />
+									<WhilePressed>
+										<Scale Target="signupbtn" Factor="0.9" Duration="0.05" />
+									</WhilePressed>
+									<Clicked>
+										<Callback Handler="{SignUp}" />
+									</Clicked>
+								</Rectangle>
+				
+								<Rectangle Width="50%" Height="13" Margin="0, 10, 0, 0">
+									<Text Value="아이디나 비밀번호를 잃어버리셨습니까?" Alignment="Center" FontSize="10" TextColor="#B9B9B9" Font="Nanum_acB" />
+									<Rectangle Width="170" Height="1" Color="#B9B9B9" Alignment="Bottom" />
+									<!-- <WhilePressed>
 				<Scale Target="signupbtn" Factor="0.9" Duration="0.05" />
 			</WhilePressed> -->
-					<!-- <Clicked>
+									<!-- <Clicked>
 				<Callback Handler="{SignUp}" />
 			</Clicked> -->
-		</Rectangle>
-		<Rectangle Width="300" Height="30" Margin="0, 20, 0, 0">
-			<Rectangle Height="1" Color="#B9B9B9" Alignment="Left" Width="120" />
-			<Text Value="OR" FontSize="10" Alignment="Center" TextColor="#B9B9B9" Font="Nanum_acB" />
-			<Rectangle Height="1" Color="#B9B9B9" Alignment="Right" Width="120" />
-		</Rectangle>
-		<Rectangle Width="300" Height="30">
-			<Image Width="30" Height="30" File="../SketchSymbols/images/facebookIcon.png" Alignment="Left" Margin="10, 0, 0, 0" />
-			<Text Value="페이스북으로 로그인하기" FontSize="8" TextAlignment="Left" Alignment="CenterLeft" Margin="50, 0, 0, 0" Font="Nanum_acB" />
+						</Rectangle>
+						<Rectangle Width="80%" Height="30" Margin="0, 20, 0, 0">
+							<Rectangle Height="1" Color="#B9B9B9" Alignment="Left" Width="120" />
+							<Text Value="OR" FontSize="10" Alignment="Center" TextColor="#B9B9B9" Font="Nanum_acB" />
+							<Rectangle Height="1" Color="#B9B9B9" Alignment="Right" Width="120" />
+						</Rectangle>
+						<Rectangle Width="80%" Height="30">
+							<Image Width="30" Height="30" File="../SketchSymbols/images/facebookIcon.png" Alignment="Left" Margin="10, 0, 0, 0" />
+							<Text Value="페이스북으로 로그인하기" FontSize="8" TextAlignment="Left" Alignment="CenterLeft" Margin="50, 0, 0, 0" Font="Nanum_acB" />
+				
+							<Image Width="30" Height="30" Margin="180, 0, 0, 0" File="../SketchSymbols/images/googleIcon.png" Alignment="Left" />
+							<Text Value="구글로 로그인하기" FontSize="8" TextAlignment="Left" Alignment="CenterLeft" Margin="220, 0, 0, 0" Font="Nanum_acB" />
+						</Rectangle>
+				
+					</StackPanel>
+				</ScrollView>
+		</StackPanel>
+		
 
-			<Image Width="30" Height="30" Margin="180, 0, 0, 0" File="../SketchSymbols/images/googleIcon.png" Alignment="Left" />
-			<Text Value="구글로 로그인하기" FontSize="8" TextAlignment="Left" Alignment="CenterLeft" Margin="220, 0, 0, 0" Font="Nanum_acB" />
-		</Rectangle>
-
-	</StackPanel>
-</ScrollView>
+		
 
 </Page>

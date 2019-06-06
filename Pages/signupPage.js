@@ -68,8 +68,8 @@ function Save(){
 	}
 
 	if(ruleCheck.value == true){
-		fetch('http://18.222.99.74/users/signup',{
-		// fetch('http://3ff05a06.ngrok.io/users/signup',{
+		// fetch('http://18.222.99.74/users/signup',{
+		fetch('http://b2cf6af0.ngrok.io/users/signup',{
 			method: "POST",
 			headers: {
 				"Content-type": "application/json"
@@ -82,7 +82,8 @@ function Save(){
 			'major' : majorInit.value,
 			'number' : newNumber.value,
 			'gender' : newGender.value,
-			'phoneNum' : newPhoneNum.value
+			'phoneNum' : newPhoneNum.value,
+			'image' : imagePath.value
 		})
 	}).then((res)=>{ return res.json()
 	}).then((res)=>{
@@ -109,6 +110,7 @@ function Save(){
 
 function goBack()
 {
+	imagePath.value = null;
 	router.goBack();
 }
 
