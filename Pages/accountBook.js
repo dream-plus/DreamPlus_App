@@ -103,11 +103,11 @@ function gotoIncome(){
 }
 
 function gotoAddPage(){
-	router.goto("addPage");
+	router.push("addPage");
 }
 
 function gotoExpense(){
-	router.goto("expense");
+	router.push("expense");
 }
 
 module.exports = {

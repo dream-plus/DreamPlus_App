@@ -66,38 +66,38 @@ function ChangePercent(){
 	}).then((res)=>{
 		return res.json()
 	}).then((res)=>{
-	        	if( JSON.parse(res.success) == true){
-	        		router.push("home");
-	        	}
-	        }).catch((err)=>{
-	        	console.log("Error = "+err);
-	        });
-	    }
+		if( JSON.parse(res.success) == true){
+			router.goto("home");
+		}
+	}).catch((err)=>{
+		console.log("Error = "+err);
+	});
+}
 
 
-	    function goBack(){router.goBack()};
+function goBack(){router.goBack()};
 
-	    module.exports = {
-	    	goBack : goBack,
-	    	Percentclick : Percentclick,
-	    	Percentselect : Percentselect,
-	    	PercentOpen : PercentOpen,
-	    	Number1 : Number1,
-	    	PercentToggleOpen : PercentToggleOpen,
-	    	PercentOpen : PercentOpen,
-	    	boardColorChange : boardColorChange,
-	    	homeColorChange : homeColorChange,
-	    	shebColorChange : shebColorChange,
-	    	accColorChange : accColorChange,
-	    	title : title,
-	    	member : member,
-	    	date : date,
-	    	percent : percent,
-	    	contents : contents,
-	    	ChangePercent : ChangePercent
+module.exports = {
+	goBack : goBack,
+	Percentclick : Percentclick,
+	Percentselect : Percentselect,
+	PercentOpen : PercentOpen,
+	Number1 : Number1,
+	PercentToggleOpen : PercentToggleOpen,
+	PercentOpen : PercentOpen,
+	boardColorChange : boardColorChange,
+	homeColorChange : homeColorChange,
+	shebColorChange : shebColorChange,
+	accColorChange : accColorChange,
+	title : title,
+	member : member,
+	date : date,
+	percent : percent,
+	contents : contents,
+	ChangePercent : ChangePercent
 
 
 
-	    };
+};
 
 

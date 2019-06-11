@@ -24,14 +24,14 @@ function retry(){
 }
 
 function gotoBoard(){
-	router.goto("boardMain");
+	router.push("boardMain");
 }
 function gotoProject(){
-	router.goto("projectSch");
+	router.push("projectSch");
 }
 
 function gotomyProfile(){
-	router.goto("myProfile");
+	router.push("myProfile");
 }
 
 // 서버와 연결 해 공지사항을 불러오는 함수.

@@ -49,8 +49,8 @@ function createProjectPage(title, member, date, percent, contents, num) {
 }
 
 projectloadSome();
-function goBack() { router.push("home")};
-function gotoAddProject() {router.push("addProject")};
+function goBack() { router.goto("home")};
+function gotoAddProject() {router.goto("addProject")};
 
 module.exports = {
 	boardColorChange : boardColorChange,
