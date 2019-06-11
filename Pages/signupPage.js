@@ -68,8 +68,8 @@ function Save(){
 	}
 
 	if(ruleCheck.value == true){
-		// fetch('http://18.222.99.74/users/signup',{
-		fetch('http://b2cf6af0.ngrok.io/users/signup',{
+		fetch('http://18.222.99.74/users/signup',{
+		// fetch('http://b2cf6af0.ngrok.io/users/signup',{
 			method: "POST",
 			headers: {
 				"Content-type": "application/json"

@@ -31,7 +31,7 @@ exports.todayitems = Observable();
 exports.monthisLoading = Observable(false);
 exports.todayisLoading = Observable(false);
 
-var count = 0;
+
 
 var monthi = 0;
 var todayi = 0;
@@ -52,6 +52,7 @@ exports.monthtest = function(){
 
 // 월간 데이터를 불러오기 위한 함수 (현재 전체 데이터를 불러옴)
 function monthloadSome(){
+	var count = 0;
 //function loadSome(){
 	console.log("loading each");
 	fetch('http://18.222.99.74/cal/am',{
@@ -78,12 +79,7 @@ function monthloadSome(){
 
 			}
 			exports.monthisLoading.value = false;
-			// if(count == 0){
-			// 	exports.detailchange.value = true;
-			// }
-			// else{
-			// 	exports.detailchange.value = false;
-			// }
+			
 			// exports.scheduleDay.value = false;
 			// exports.scheduleMonth.value = true;
 
@@ -127,7 +123,7 @@ function monthcreatePage(title, contents, date, time, place, color) {
 
 
 exports.todaytest = function(){
-
+			todayloadSome;
 			
 			exports.detailchange.value = false;
 			
@@ -138,6 +134,7 @@ exports.todaytest = function(){
 
 // 오늘자 데이터를 불러오기 
 function todayloadSome(){
+	var count = 0;
 //function loadSome(){
 	console.log("loading each");
 	fetch('http://18.222.99.74/cal/am',{
@@ -157,12 +154,14 @@ function todayloadSome(){
 				console.log(label);
 
 				if(res[todayi].date == label){
-				exports.todayitems.add(todaycreatePage(res[todayi].title,res[todayi].contents,res[todayi].date, res[todayi].time, res[todayi].place));
+					exports.todayitems.add(todaycreatePage(res[todayi].title,res[todayi].contents,res[todayi].date, res[todayi].time, res[todayi].place, res[todayi].color));
 
-				count = count +1;					
+					count = count +1;	
 				}
+				
 				// console.log(res[i].title,res[i].contents,res[i].date, res[i].time, res[i].place);
 			}
+		
 			
 			exports.todayisLoading.value = false;
 			// if(count == 0){

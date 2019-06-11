@@ -483,14 +483,15 @@
 			
 							<Image File="../../Assets/calendar/wave.png" Alignment="Default" Margin="0, 0, 125, 0" Width="12" />
 							
-							<Rectangle Color="#FEFFFE" Padding="0, 0, 0, 0" Margin="0, 0, 0, 0" Width="100" Height="20">
-								<Text Row="0" Column="1" TextColor="#000" Alignment="VerticalCenter" Width="100" Value="{timeInit2}" TextAlignment="Center" Margin="0, 0, 0, 0" FontSize="15" />
+							<Rectangle Color="#FEFFFE" Padding="0, 0, 0, 0" Margin="0, 0, 0, 0" Width="130" Height="20">
+								<Text Row="0" Column="1" TextColor="#000" Alignment="VerticalCenter" Width="100" TextAlignment="Center" Margin="0, 0, 0, 0" FontSize="15" Value="{selectDayInit}" />
 								<Clicked>
 									<Callback Handler="{popup2}" />
 								</Clicked>
+								<Image File="../../Assets/calendar/datedetaildown.png" Alignment="CenterRight" Margin="0, 0, 2, 0" Width="12" />
 							</Rectangle>
 							
-							<Rectangle Color="#F9FAF9" Padding="0, 0, 0, 0" Margin="230, 0, 0, 0" Width="100" Height="20">
+							<Rectangle Color="#F9FAF9" Padding="0, 0, 0, 0" Margin="240, 0, 0, 0" Width="100" Height="20">
 			
 			
 								<Text Row="0" Column="1" TextColor="#000" Alignment="Center" Width="100" Value="{timeInit}" TextAlignment="Center" ux:Name="selectTime" Margin="0, 0, 15, 0" FontSize="15" />

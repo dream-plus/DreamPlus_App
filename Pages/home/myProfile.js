@@ -24,8 +24,8 @@ function gotoCheckPW(){
 // 세션을 불러오는 함수.( id, name 불러오는 용도. )
 function Session(){
 
-	// fetch('http://18.222.99.74/users/session',{
-		fetch('http://b2cf6af0.ngrok.io/users/session',{
+	fetch('http://18.222.99.74/users/session',{
+		// fetch('http://b2cf6af0.ngrok.io/users/session',{
 			method: "GET",
 			headers: {
 				"Content-type": "application/JSON"
@@ -51,8 +51,8 @@ Session(); // Session 함수를 무조건 실행시키기 위한 곳.
 
 // 서버와 연결 해 해당 아이디가 올린 글들을 불러오는 함수.
 function noticeloadSome(){
-	// fetch('http://18.222.99.74/board/am/' + getSessionId.value,{
-		fetch('http://b2cf6af0.ngrok.io/board/am/'+ getSessionId.value,{
+	fetch('http://18.222.99.74/board/am/' + getSessionId.value,{
+		// fetch('http://b2cf6af0.ngrok.io/board/am/'+ getSessionId.value,{
 			method: "GET",
 			headers: {
 				"Content-type": "application/JSON"
@@ -62,15 +62,13 @@ function noticeloadSome(){
 		}).then(function(res){
 			return res.json();
 		}).then(function(res){
-
 			// 가장 최근 올린 글 하나만 보여주는 곳
-			if(!res[length]){
+			if(!res){
 				categoryColor.value = "#FEFFFE";
 				noneBoard.value = true;
 			}else {
 				var length = res.length - 1 ;
 				if(res[length].category == "다온"){
-					console.log("다온");
 					categoryColor.value = "#95D1EC";
 				} else if(res[length].category == "네잎"){
 					categoryColor.value = "#B3E579";
@@ -93,8 +91,8 @@ function noticeloadSome(){
 
 	function getImages(){
 
-	// fetch('http://18.222.99.74/users/info/' + getSessionId.value + "/image",{
-		fetch('http://b2cf6af0.ngrok.io/users/info/' + getSessionId.value + "/image",{
+		fetch('http://18.222.99.74/users/info/' + getSessionId.value + "/image",{
+		// fetch('http://b2cf6af0.ngrok.io/users/info/' + getSessionId.value + "/image",{
 			method: "GET",
 			headers: {
 				"Content-type": "application/JSON"
@@ -102,8 +100,11 @@ function noticeloadSome(){
 		}).then(function(res){
 			return res.json();
 		}).then(function(res){
-			imagePath.value = res[0].path;
-			photoView.value = true;
+			if(!res){
+				imagePath.value = res[0].path;
+				photoView.value = true;
+			}
+			
 		}).catch((err)=>{
 			console.log(err );
 			
@@ -113,8 +114,8 @@ function noticeloadSome(){
 
 // 로그아웃을 해주는 함수.
 function signOut(){
-	// fetch('http://18.222.99.74/users/signout',{
-		fetch('http://b2cf6af0.ngrok.io/users/signout',{
+	fetch('http://18.222.99.74/users/signout',{
+		// fetch('http://b2cf6af0.ngrok.io/users/signout',{
 			method: "GET",
 			headers: {
 				"Content-type": "application/JSON"

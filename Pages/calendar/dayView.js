@@ -11,6 +11,7 @@ var Title = Observable("");
 var Place = Observable("");
 var etx = Observable("");
 
+var date = Observable(new Date());
 var today = new Date();
 var day = today.getDate();
 var month = today.getMonth()+1; //January is 0!
@@ -35,8 +36,23 @@ if(month<10) {
     month='0'+month
 }
 
-var label = year + "-" + month + "-" + day + "-" + getToday(dayLabel);
+// 클릭 한 날짜가 초기값으로 보이기
+this.Parameter.onValueChanged(module, function(value) {
+	date.value = new Date(value.year, value.month,value.day)
+})
 
+var label = date.map(function(day){
+
+	var dayselect = day.getDate();
+	if(dayselect < 10){
+		dayselect='0'+dayselect
+	}
+	console.log(dayselect);
+
+	return "" + day.getFullYear() + "-" + DateTime.monthLabels[day.getMonth()] + "-" + dayselect + "-" + DateTime.dayLabels[day.getDay()]
+	
+})
+//——————————————
 
 var monthToggle = Observable(false);
 var dayToggle = Observable(false);
@@ -167,8 +183,8 @@ function popup2(){
 	console.log("popup");
 
 }
-var label2 = year + "-" + month + "-" + day + "-" + getToday(dayLabel);
-var timeInit2 = Observable(label2);
+// var label2 = year + "-" + month + "-" + day + "-" + getToday(dayLabel);
+var selectDayInit = label;
 var alllabel = Observable("");
 function settime2(){
 	popup_visible2.value = false;
@@ -178,10 +194,10 @@ function settime2(){
 	var setday = new Date(year + "-" + monthInit.value + "-" + dayInit.value).getDay();
 	console.log(setday);
 
-	label2 =  year + "-" + monthInit.value + "-" + dayInit.value + "-" + getToday(setday);
+	var selectlabel =  year + "-" + monthInit.value + "-" + dayInit.value + "-" + getToday(setday);
 
 	console.log(Time);
-	timeInit2.value = label2;
+	selectDayInit.value = selectlabel;
 
 	alllabel = year + '.' + monthInit.value + '.' + dayInit.value;
 
@@ -544,7 +560,7 @@ module.exports = {
 	ampm : ampm,
 	Time : Time,
 	timeInit : timeInit,
-	timeInit2 : timeInit2, 
+	selectDayInit : selectDayInit, 
 
 	dateInit : dateInit,
 	dateValue : dateValue,
@@ -588,7 +604,6 @@ module.exports = {
 
 	Title : Title,
 	label : label,
-	label2 : label2, 
 	day : day,
 	month : month,
 	year : year,

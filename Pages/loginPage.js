@@ -46,8 +46,8 @@ function SignIn(){
 		inputError.value = true;
 	}else {
 
-		// fetch('http://18.222.99.74/users/signin',{
-		fetch('http://b2cf6af0.ngrok.io/users/signin',{
+		fetch('http://18.222.99.74/users/signin',{
+		// fetch('http://b2cf6af0.ngrok.io/users/signin',{
 			method: "POST",
 			headers: {
 				"Content-type": "application/JSON"
@@ -74,8 +74,8 @@ function SignIn(){
 // 세션을 불러오는 함수.( 초기에 네트워크와 연결이 되었는지 확인하는 용도로도 쓰인다. )
 function Session(){
 
-	// fetch('http://18.222.99.74/users/session',{
-		fetch('http://b2cf6af0.ngrok.io/users/session',{
+	fetch('http://18.222.99.74/users/session',{
+		// fetch('http://b2cf6af0.ngrok.io/users/session',{
 			method: "GET",
 			headers: {
 				"Content-type": "application/json"
