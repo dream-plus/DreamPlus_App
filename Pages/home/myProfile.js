@@ -63,7 +63,8 @@ function noticeloadSome(){
 			return res.json();
 		}).then(function(res){
 			// 가장 최근 올린 글 하나만 보여주는 곳
-			if(!res){
+			console.log(res.length);
+			if(res.length == 0){
 				categoryColor.value = "#FEFFFE";
 				noneBoard.value = true;
 			}else {
@@ -100,7 +101,7 @@ function noticeloadSome(){
 		}).then(function(res){
 			return res.json();
 		}).then(function(res){
-			if(!res){
+			if(res.length != 0){
 				imagePath.value = res[0].path;
 				photoView.value = true;
 			}
@@ -110,7 +111,6 @@ function noticeloadSome(){
 			
 		});
 	}
-
 
 // 로그아웃을 해주는 함수.
 function signOut(){

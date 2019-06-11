@@ -1,4 +1,5 @@
 var Observable = require("FuseJS/Observable");
+var cameraRoll = require('FuseJS/CameraRoll');
 
 var sendId = Observable("");
 
@@ -13,6 +14,9 @@ var changeUserPW = Observable("");
 var changeUserMajor = Observable("");
 var changeUserNumber = Observable("");
 var changeUserPhone = Observable("");
+
+var photoView = Observable(false);
+var imagePath = Observable("");
 
 // 세션을 불러오는 함수.( id, name 불러오는 용도. )
 function Session(){
@@ -32,6 +36,7 @@ function Session(){
 			}			
 
 			getUserInfo();
+			getImages();
 
 		}).catch((err)=>{
 			console.log(err );
@@ -41,10 +46,41 @@ function Session(){
 
 Session(); // Session 함수를 무조건 실행시키기 위한 곳.
 
+function getImages(){
 
-function getUserInfo(){
+	fetch('http://18.222.99.74/users/info/' + getSessionId.value + "/image",{
+		// fetch('http://b2cf6af0.ngrok.io/users/info/' + getSessionId.value + "/image",{
+			method: "GET",
+			headers: {
+				"Content-type": "application/JSON"
+			}
+		}).then(function(res){
+			return res.json();
+		}).then(function(res){
+			if(res.length != 0){
+				imagePath.value = res[0].path;
+				photoView.value = true;
+			}
+			
+		}).catch((err)=>{
+			console.log(err );
+			
+		});
+	}
 
-	fetch('http://18.222.99.74/users/info/' + getSessionId.value,{
+	function changeImage(){
+		cameraRoll.getImage()
+		.then(function(image) {
+			imagePath.value = image.path;
+			photoView.value = true;
+		}, function(error) {
+        // 유저가 선택을 중단했을 경우, 또는 에러가 발생했을 경우에 호출됩니다.
+    });
+	}
+
+	function getUserInfo(){
+
+		fetch('http://18.222.99.74/users/info/' + getSessionId.value,{
 		// fetch('http://3ff05a06.ngrok.io/users/session',{
 			method: "GET",
 			headers: {
@@ -85,7 +121,8 @@ function getUserInfo(){
 		'pw' : changeUserPW.value,
 		'major' : changeUserMajor.value,
 		'number' : changeUserNumber.value,
-		'phoneNum' : changeUserPhone.value
+		'phoneNum' : changeUserPhone.value,
+		'path' : imagePath.value
 	});
 
 	fetch('http://18.222.99.74/users/modify',{
@@ -100,7 +137,7 @@ function getUserInfo(){
 		return res.json()
 	}).then((res)=>{
 		if( JSON.parse(res.success) == true){
-			router.push("home");
+			router.goto("home");
 		}
 	}).catch((err)=>{
 		console.log("Error = "+err);
@@ -124,7 +161,9 @@ module.exports = {
 	changeUserPW : changeUserPW,
 	changeUserMajor : changeUserMajor,
 	changeUserNumber : changeUserNumber,
-	changeUserPhone : changeUserPhone
-
+	changeUserPhone : changeUserPhone,
+	photoView : photoView,
+	imagePath : imagePath,
+	changeImage : changeImage
 }
 

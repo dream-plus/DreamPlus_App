@@ -3,6 +3,7 @@
 	<JavaScript File="myProfile.js" />
 
 
+	<!-- 프로필 사진이 있을 경우 보여주는 부분 -->
 	<WhileTrue Value="{photoView}">
 		<!-- <Circle Height="height(Page)*0.2" Width="width(Page)*0.4" Alignment="HorizontalCenter" Margin="0, 0, 0, 0" Y="14.7%">
 			<Stroke Width="3" Color="#0C82B3" />
@@ -29,6 +30,7 @@
 
 		<!-- 프로필 view -->
 		<Circle Color="#FEFFFE" Height="height(Page)*0.2" Width="width(Page)*0.4" Alignment="HorizontalCenter" Margin="0, 100, 0, 0">
+
 			<Stroke Width="3" Color="#0C82B3" />
 		</Circle>
 
@@ -47,6 +49,11 @@
 			<StackPanel Y="5%" Height="height(Page)*0.8">
 				<Text Alignment="Top" Value="최근 내가 올린 글" TextAlignment="Center" TextColor="#FFF" Font="Nanum_acB" Margin="0, 0, 0, 0" FontSize="12" Y="50" />
 				<Rectangle Color="#FEFFFE" Width="width(Page)*0.8" Height="height(Page)*0.1" Alignment="Top" Margin="0, 55, 0, 0" CornerRadius="100">
+
+					<WhileTrue Value="{photoView}">
+						<Image File="{imagePath}" Width="width(Page)*0.06" Height="height(Page)*0.03" Alignment="Left" Y="57%" Margin="0, 0, 0, 40" X="13.2%" />
+					</WhileTrue>
+
 					<Circle Color="#FDFFFD" Width="10%" Height="40%" Alignment="Left" Margin="0, 0, 0, 10" X="12%">
 						<Stroke Width="1" Color="#0C82B3" />
 					</Circle>

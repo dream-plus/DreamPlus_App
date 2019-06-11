@@ -3,9 +3,13 @@ var Observable = require("FuseJS/Observable");
 var Password = Observable("");
 var setID = Observable("");
 
+var photoView = Observable(false);
+var imagePath = Observable("");
+
 var getId = this.Parameter.map( function(x) {
 	// setID.value = JSON.stringify(x.getSessionId); 
 	setID.value = x.getSessionId;
+	getImages(); // setID에 아이디 저장 후 getImages 실행.
 	return x.getSessionId;
 });
 
@@ -37,6 +41,29 @@ function checkPassword(){
 
 	}
 
+	function getImages(){
+
+		fetch('http://18.222.99.74/users/info/' + setID.value + "/image",{
+		// fetch('http://b2cf6af0.ngrok.io/users/info/' + getSessionId.value + "/image",{
+			method: "GET",
+			headers: {
+				"Content-type": "application/JSON"
+			}
+		}).then(function(res){
+			return res.json();
+		}).then(function(res){
+			if(res.length != 0){
+				imagePath.value = res[0].path;
+				photoView.value = true;
+			}
+			
+		}).catch((err)=>{
+			console.log(err );
+			
+		});
+	}
+
+
 	function goBack()
 	{
 		router.goBack();
@@ -46,5 +73,7 @@ function checkPassword(){
 		goBack : goBack,
 		getId : getId,
 		checkPassword : checkPassword,
-		Password : Password
+		Password : Password,
+		photoView : photoView,
+		imagePath : imagePath	
 	}

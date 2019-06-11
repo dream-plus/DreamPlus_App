@@ -1,4 +1,4 @@
-<Page ux:Class="changeProfile">
+<Page ux:Class="changeProfile" ux:Name="Page" Width="100%" Height="100%">
 	<Router ux:Dependency="router" />
 	<JavaScript File="changeProfile.js" />
 	
@@ -11,9 +11,16 @@
 		<Text Value="정보 수정" TextAlignment="Center" Alignment="Bottom" Font="Nanum_acEB" TextColor="#0081B5" Margin="120, 0, 0, 0" />
 	</StackPanel>
 
-	<ScrollView Margin="0, 120, 0, 0">
+	<ScrollView Margin="0, 120, 0, 0">		
 		<StackPanel>
 			<Circle Width="150" Height="150" Color="#FEFFFE" Margin="0, 0, 0, 0" Alignment="HorizontalCenter">
+				<WhileTrue Value="{photoView}">
+					<Image File="{imagePath}" Width="width(Page)*0.3" Height="height(Page)*0.15" Alignment="TopCenter" Y="9%" />
+				</WhileTrue>
+				<Image File="../../Assets/IconPlus.png" Width="width(Page)*0.05" Height="height(Page)*0.05" Alignment="HorizontalCenter" />
+				<Clicked>
+					<Callback Handler="{changeImage}" />
+				</Clicked>
 				<Stroke Width="3" Color="#0C82B3" />
 			</Circle>
 			<Rectangle Margin="0, 50, 0, 0" Height="1" Color="#9B9C9B" Width="280" />
@@ -64,7 +71,7 @@
 
 			<Rectangle Margin="0, 50, 0, 0" Height="1" Color="#9B9C9B" Width="280" />
 
-			 <!-- 수정하기 버튼 -->
+			<!-- 수정하기 버튼 -->
 			<Rectangle ux:Name="modifybtn" Margin="0, 50, 0, 50" Color="#FEFFFE" Width="100" Height="25" CornerRadius="30">
 				<Text TextAlignment="Center" Alignment="Center" FontSize="15" Font="Nanum_acB" TextColor="#0081B5" Value="수정하기" />
 				<Stroke Width="2" Color="#0C82B3" />
